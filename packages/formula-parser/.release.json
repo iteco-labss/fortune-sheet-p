@@ -12,7 +12,6 @@
   ],
   "post_commit_commands": [],
   "post_complete_commands": [
-    "cd tmp && npm publish",
     "npm run clean"
   ],
   "files_to_commit": [
