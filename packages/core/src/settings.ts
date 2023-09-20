@@ -10,6 +10,7 @@ export type Hooks = {
     oldValue: any,
     newValue: any
   ) => void;
+  beforeDeleteCellText?: (r: number, c: number, value: any) => boolean;
   afterSelectionChange?: (sheetId: string, selection: Selection) => void;
   beforeRenderRowHeaderCell?: (
     rowNumber: string,

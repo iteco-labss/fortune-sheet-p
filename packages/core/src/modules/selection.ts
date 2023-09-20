@@ -2144,6 +2144,11 @@ export function deleteSelectedCellText(ctx: Context): string {
 
           if (_.isPlainObject(d[r][c])) {
             const cell = d[r][c]!;
+
+            if (ctx.hooks.beforeDeleteCellText?.(r, c, cell.v) === false) {
+              continue
+            }
+
             delete cell.m;
             delete cell.v;
 
@@ -2158,6 +2163,10 @@ export function deleteSelectedCellText(ctx: Context): string {
               delete cell.ct;
             }
           } else {
+            if (ctx.hooks.beforeDeleteCellText?.(r, c, null) === false) {
+              continue
+            }
+
             d[r][c] = null;
           }
           // 同步清除 hyperlink
