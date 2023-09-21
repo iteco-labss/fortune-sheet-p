@@ -9,7 +9,7 @@ import {
   replaceAll,
   scrollToHighlightCell,
 } from "@fortune-sheet/core";
-import produce from "immer";
+import { produce } from "immer";
 import React, { useContext, useState, useCallback } from "react";
 import _ from "lodash";
 import WorkbookContext from "../../context";

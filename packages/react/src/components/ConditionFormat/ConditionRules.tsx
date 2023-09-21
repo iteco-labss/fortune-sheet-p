@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import "./index.css";
 import { locale, setConditionRules } from "@fortune-sheet/core";
-import produce from "immer";
+import { produce } from "immer";
 import WorkbookContext from "../../context";
 import { useDialog } from "../../hooks/useDialog";
 

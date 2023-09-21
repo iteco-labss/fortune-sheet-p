@@ -5,7 +5,7 @@ import {
   getSelectRange,
   locale,
 } from "@fortune-sheet/core";
-import produce from "immer";
+import { produce } from "immer";
 import _ from "lodash";
 import React, { useContext, useState, useCallback } from "react";
 import WorkbookContext from "../../context";

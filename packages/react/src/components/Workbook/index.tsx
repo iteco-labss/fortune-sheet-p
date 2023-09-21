@@ -29,7 +29,8 @@ import React, {
   useImperativeHandle,
 } from "react";
 import "./index.css";
-import produce, {
+import {
+  produce,
   applyPatches,
   enablePatches,
   Patch,
