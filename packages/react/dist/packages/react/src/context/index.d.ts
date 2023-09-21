@@ -1,6 +1,6 @@
 import React from "react";
 import { Context, Settings, GlobalCache, PatchOptions } from "@fortune-sheet/core";
-declare type RefValues = {
+type RefValues = {
     globalCache: GlobalCache;
     cellInput: React.MutableRefObject<HTMLDivElement | null>;
     fxInput: React.MutableRefObject<HTMLDivElement | null>;
@@ -10,13 +10,13 @@ declare type RefValues = {
     cellArea: React.MutableRefObject<HTMLDivElement | null>;
     workbookContainer: React.MutableRefObject<HTMLDivElement | null>;
 };
-export declare type SetContextOptions = {
+export type SetContextOptions = {
     noHistory?: boolean;
     logPatch?: boolean;
 } & PatchOptions;
 declare const WorkbookContext: React.Context<{
     context: Context;
-    setContext: (recipe: (ctx: Context) => void, options?: SetContextOptions | undefined) => void;
+    setContext: (recipe: (ctx: Context) => void, options?: SetContextOptions) => void;
     settings: Required<Settings>;
     refs: RefValues;
     handleUndo: () => void;

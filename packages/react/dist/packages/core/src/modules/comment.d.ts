@@ -20,7 +20,7 @@ export declare function drawArrow(rc: string, { left, top, width, height, fromX,
     toX: number;
     toY: number;
 }, color?: string, theta?: number, headlen?: number): void;
-declare type CommentBoxProps = {
+type CommentBoxProps = {
     defaultWidth: number;
     defaultHeight: number;
     currentObj: null;

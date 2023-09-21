@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@fortune-sheet/core": "^0.19.0",
+    "@types/lodash": "^4.14.179",
+    "@types/react": "^18.2.22",
     "immer": "^9.0.12",
     "lodash": "^4.17.21"
   },

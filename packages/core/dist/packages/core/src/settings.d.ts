@@ -1,6 +1,6 @@
 import React from "react";
 import { Sheet, Selection, CellMatrix, Cell } from "./types";
-export declare type Hooks = {
+export type Hooks = {
     beforeUpdateCell?: (r: number, c: number, value: any) => boolean;
     afterUpdateCell?: (row: number, column: number, oldValue: any, newValue: any) => void;
     beforeDeleteCellText?: (r: number, c: number, value: any) => boolean;
@@ -58,7 +58,7 @@ export declare type Hooks = {
     beforeUpdateSheetName?: (id: string, oldName: string, newName: string) => boolean;
     afterUpdateSheetName?: (id: string, oldName: string, newName: string) => void;
 };
-export declare type Settings = {
+export type Settings = {
     column?: number;
     row?: number;
     addRows?: number;

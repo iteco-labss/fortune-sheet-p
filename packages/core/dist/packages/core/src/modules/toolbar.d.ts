@@ -1,7 +1,7 @@
 import { Context } from "../context";
 import { Cell, CellMatrix, GlobalCache } from "../types";
-declare type ToolbarItemClickHandler = (ctx: Context, cellInput: HTMLDivElement, cache?: GlobalCache) => void;
-declare type ToolbarItemSelectedFunc = (cell: Cell | null | undefined) => boolean;
+type ToolbarItemClickHandler = (ctx: Context, cellInput: HTMLDivElement, cache?: GlobalCache) => void;
+type ToolbarItemSelectedFunc = (cell: Cell | null | undefined) => boolean;
 export declare function updateFormatCell(ctx: Context, d: CellMatrix, attr: keyof Cell, foucsStatus: any, row_st: number, row_ed: number, col_st: number, col_ed: number, canvas?: CanvasRenderingContext2D): void;
 export declare function updateFormat(ctx: Context, $input: HTMLDivElement, d: CellMatrix, attr: keyof Cell, foucsStatus: any, canvas?: CanvasRenderingContext2D): void;
 export declare function autoSelectionFormula(ctx: Context, cellInput: HTMLDivElement, fxInput: HTMLDivElement | null | undefined, formula: string, cache: GlobalCache): void;

@@ -1,11 +1,11 @@
 import { Context } from "../context";
 import { CellMatrix, CellWithRowAndCol, Sheet } from "../types";
-export declare type CommonOptions = {
+export type CommonOptions = {
     index?: number;
     id?: string;
 };
 export declare const dataToCelldata: (data: CellMatrix | undefined) => CellWithRowAndCol[];
-export declare const celldataToData: (celldata: CellWithRowAndCol[], rowCount?: number | undefined, colCount?: number | undefined) => CellMatrix | null;
+export declare const celldataToData: (celldata: CellWithRowAndCol[], rowCount?: number, colCount?: number) => CellMatrix | null;
 export declare function getSheet(ctx: Context, options?: CommonOptions): Sheet;
 export declare function getSheetWithLatestCelldata(ctx: Context, options?: CommonOptions): {
     celldata: CellWithRowAndCol[];

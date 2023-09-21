@@ -2,8 +2,8 @@ import { Settings, CellWithRowAndCol, Sheet as SheetType, Op, CellMatrix } from 
 import React from "react";
 import "./index.css";
 import { generateAPIs } from "./api";
-export declare type WorkbookInstance = ReturnType<typeof generateAPIs>;
-declare type AdditionalProps = {
+export type WorkbookInstance = ReturnType<typeof generateAPIs>;
+type AdditionalProps = {
     onChange?: (data: SheetType[]) => void;
     onOp?: (op: Op[]) => void;
 };

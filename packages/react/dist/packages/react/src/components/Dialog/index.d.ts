@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-declare type Props = {
+type Props = {
     type?: "ok" | "yesno";
     onOk?: () => void;
     onCancel?: () => void;

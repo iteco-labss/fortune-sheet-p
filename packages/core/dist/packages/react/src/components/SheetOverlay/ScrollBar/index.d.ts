@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-declare type Props = {
+type Props = {
     axis: "x" | "y";
 };
 declare const ScrollBar: React.FC<Props>;

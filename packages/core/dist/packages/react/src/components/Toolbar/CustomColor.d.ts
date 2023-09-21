@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-declare type Props = {
+type Props = {
     onCustomPick: (color: string | undefined) => void;
     onColorPick: (color: string) => void;
 };

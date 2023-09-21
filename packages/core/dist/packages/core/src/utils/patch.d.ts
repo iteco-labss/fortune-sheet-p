@@ -1,13 +1,13 @@
 import { Patch } from "immer";
 import { Context } from "../context";
 import { Op, Sheet } from "../types";
-export declare type ChangedSheet = {
+export type ChangedSheet = {
     index?: number;
     id?: string;
     value?: Sheet;
     order?: number;
 };
-export declare type PatchOptions = {
+export type PatchOptions = {
     insertRowColOp?: {
         type: "row" | "column";
         index: number;

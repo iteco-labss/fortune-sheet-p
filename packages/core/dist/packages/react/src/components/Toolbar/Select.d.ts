@@ -3,7 +3,7 @@ declare const Select: React.FC<{
     children?: React.ReactNode;
     style?: CSSProperties;
 }>;
-declare type OptionProps = {
+type OptionProps = {
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
     iconId?: string;
     onMouseLeave?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

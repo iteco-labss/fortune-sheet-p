@@ -7,7 +7,7 @@ export declare function createFilterOptions(ctx: Context, luckysheet_filter_save
 } | undefined, sheetId: string | undefined, filterObj?: any, saveData?: boolean): void;
 export declare function clearFilter(ctx: Context): void;
 export declare function createFilter(ctx: Context): void;
-export declare type FilterDate = {
+export type FilterDate = {
     key: string;
     type: string;
     value: string;
@@ -16,7 +16,7 @@ export declare type FilterDate = {
     dateValues: string[];
     children: FilterDate[];
 };
-export declare type FilterValue = {
+export type FilterValue = {
     key: string;
     value: any;
     mask: any;
@@ -33,7 +33,7 @@ export declare function getFilterColumnValues(ctx: Context, col: number, startRo
     visibleRows: number[];
     flattenValues: string[];
 };
-export declare type FilterColor = {
+export type FilterColor = {
     color: string;
     checked: boolean;
     rows: number[];

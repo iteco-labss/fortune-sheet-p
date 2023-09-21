@@ -13,33 +13,56 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var produce__default = /*#__PURE__*/_interopDefaultLegacy(produce);
 var ___default = /*#__PURE__*/_interopDefaultLegacy(_);
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t) {
+    var e,
+      n,
+      i,
+      u,
+      a = [],
+      f = !0,
+      o = !1;
+    try {
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t) return;
+        f = !1;
+      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+    } catch (r) {
+      o = !0, n = r;
+    } finally {
+      try {
+        if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return;
+      } finally {
+        if (o) throw n;
+      }
+    }
+    return a;
   }
-
-  return keys;
 }
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+function ownKeys(e, r) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r && (o = o.filter(function (r) {
+      return Object.getOwnPropertyDescriptor(e, r).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread2(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? arguments[r] : {};
+    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
+      _defineProperty(e, r, t[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
     });
   }
-
-  return target;
+  return e;
 }
-
 function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -50,53 +73,43 @@ function _defineProperty(obj, key, value) {
   } else {
     obj[key] = value;
   }
-
   return obj;
 }
-
 function _extends() {
-  _extends = Object.assign || function (target) {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
-
   return _extends.apply(this, arguments);
 }
-
+function _objectDestructuringEmpty(obj) {
+  if (obj == null) throw new TypeError("Cannot destructure " + obj);
+}
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
-
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
     if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
-
   return target;
 }
-
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
-
   var target = _objectWithoutPropertiesLoose(source, excluded);
-
   var key, i;
-
   if (Object.getOwnPropertySymbols) {
     var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
     for (i = 0; i < sourceSymbolKeys.length; i++) {
       key = sourceSymbolKeys[i];
       if (excluded.indexOf(key) >= 0) continue;
@@ -104,60 +117,23 @@ function _objectWithoutProperties(source, excluded) {
       target[key] = source[key];
     }
   }
-
   return target;
 }
-
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
-
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
-
 function _arrayWithoutHoles(arr) {
   if (Array.isArray(arr)) return _arrayLikeToArray(arr);
 }
-
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
-
 function _iterableToArray(iter) {
   if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
-
-function _iterableToArrayLimit(arr, i) {
-  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-
-  if (_i == null) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-
-  var _s, _e;
-
-  try {
-    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
   if (typeof o === "string") return _arrayLikeToArray(o, minLen);
@@ -166,21 +142,30 @@ function _unsupportedIterableToArray(o, minLen) {
   if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
-
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-
   for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
   return arr2;
 }
-
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _toPrimitive(input, hint) {
+  if (typeof input !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (typeof res !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return typeof key === "symbol" ? key : String(key);
 }
 
 var WorkbookContext = /*#__PURE__*/React__default['default'].createContext({
@@ -209,11 +194,11 @@ var WorkbookContext = /*#__PURE__*/React__default['default'].createContext({
 
 var SVGIcon = function SVGIcon(_ref) {
   var _ref$width = _ref.width,
-      width = _ref$width === void 0 ? 24 : _ref$width,
-      _ref$height = _ref.height,
-      height = _ref$height === void 0 ? 24 : _ref$height,
-      name = _ref.name,
-      style = _ref.style;
+    width = _ref$width === void 0 ? 24 : _ref$width,
+    _ref$height = _ref.height,
+    height = _ref$height === void 0 ? 24 : _ref$height,
+    name = _ref.name,
+    style = _ref.style;
   return /*#__PURE__*/React__default['default'].createElement("svg", {
     width: width,
     height: height,
@@ -225,57 +210,46 @@ var SVGIcon = function SVGIcon(_ref) {
 
 var ColumnHeader = function ColumnHeader() {
   var _refs$globalCache$fre;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings,
+    refs = _useContext.refs;
   var containerRef = React.useRef(null);
   var colChangeSizeRef = React.useRef(null);
-
   var _useState = React.useState({
-    col: -1,
-    col_pre: -1,
-    col_index: -1
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      hoverLocation = _useState2[0],
-      setHoverLocation = _useState2[1];
-
+      col: -1,
+      col_pre: -1,
+      col_index: -1
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    hoverLocation = _useState2[0],
+    setHoverLocation = _useState2[1];
   var _useState3 = React.useState([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedLocation = _useState4[0],
-      setSelectedLocation = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedLocation = _useState4[0],
+    setSelectedLocation = _useState4[1];
   var allowEditRef = React.useRef(true);
   var sheetIndex = core.getSheetIndex(context, context.currentSheetId);
   var sheet = sheetIndex == null ? null : context.luckysheetfile[sheetIndex];
   var freezeHandleLeft = React.useMemo(function () {
     var _sheet$frozen, _sheet$frozen2, _sheet$frozen3, _sheet$frozen4;
-
     if ((sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen = sheet.frozen) === null || _sheet$frozen === void 0 ? void 0 : _sheet$frozen.type) === "column" || (sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen2 = sheet.frozen) === null || _sheet$frozen2 === void 0 ? void 0 : _sheet$frozen2.type) === "rangeColumn" || (sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen3 = sheet.frozen) === null || _sheet$frozen3 === void 0 ? void 0 : _sheet$frozen3.type) === "rangeBoth" || (sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen4 = sheet.frozen) === null || _sheet$frozen4 === void 0 ? void 0 : _sheet$frozen4.type) === "both") {
       var _sheet$frozen5, _sheet$frozen5$range;
-
       return core.colLocationByIndex((sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen5 = sheet.frozen) === null || _sheet$frozen5 === void 0 ? void 0 : (_sheet$frozen5$range = _sheet$frozen5.range) === null || _sheet$frozen5$range === void 0 ? void 0 : _sheet$frozen5$range.column_focus) || 0, context.visibledatacolumn)[1] - 2 + context.scrollLeft;
     }
-
     return context.scrollLeft;
   }, [context.visibledatacolumn, sheet === null || sheet === void 0 ? void 0 : sheet.frozen, context.scrollLeft]);
   var onMouseMove = React.useCallback(function (e) {
     if (context.luckysheet_cols_change_size) {
       return;
     }
-
     var x = e.pageX - containerRef.current.getBoundingClientRect().left + containerRef.current.scrollLeft;
     var col_location = core.colLocation(x, context.visibledatacolumn);
-
     var _col_location = _slicedToArray(col_location, 3),
-        col_pre = _col_location[0],
-        col = _col_location[1],
-        col_index = _col_location[2];
-
+      col_pre = _col_location[0],
+      col = _col_location[1],
+      col_index = _col_location[2];
     if (col_index !== hoverLocation.col_index) {
       setHoverLocation({
         col_pre: col_pre,
@@ -283,7 +257,6 @@ var ColumnHeader = function ColumnHeader() {
         col_index: col_index
       });
     }
-
     var flowdata = core.getFlowdata(context);
     if (!___default['default'].isNil(flowdata)) allowEditRef.current = core.isAllowEdit(context) && core.isAllowEdit(context, [{
       row: [0, flowdata.length - 1],
@@ -300,7 +273,6 @@ var ColumnHeader = function ColumnHeader() {
     if (context.luckysheet_cols_change_size) {
       return;
     }
-
     setHoverLocation({
       col: -1,
       col_pre: -1,
@@ -331,22 +303,18 @@ var ColumnHeader = function ColumnHeader() {
     var s = context.luckysheet_select_save;
     if (___default['default'].isNil(s)) return;
     var columnTitleMap = {};
-
     for (var i = 0; i < s.length; i += 1) {
       var c1 = s[i].column[0];
       var c2 = s[i].column[1];
       columnTitleMap = core.selectTitlesMap(columnTitleMap, c1, c2);
     }
-
     var columnTitleRange = core.selectTitlesRange(columnTitleMap);
     var selects = [];
-
     for (var j = 0; j < columnTitleRange.length; j += 1) {
       var _c = columnTitleRange[j][0];
       var _c2 = columnTitleRange[j][columnTitleRange[j].length - 1];
       var col = core.colLocationByIndex(_c2, context.visibledatacolumn)[1];
       var col_pre = core.colLocationByIndex(_c, context.visibledatacolumn)[0];
-
       if (___default['default'].isNumber(col) && ___default['default'].isNumber(col_pre)) {
         selects.push({
           col: col,
@@ -356,7 +324,6 @@ var ColumnHeader = function ColumnHeader() {
         });
       }
     }
-
     setSelectedLocation(selects);
   }, [context.luckysheet_select_save, context.visibledatacolumn]);
   React.useEffect(function () {
@@ -410,11 +377,10 @@ var ColumnHeader = function ColumnHeader() {
     width: 12
   }))) : null, selectedLocation.map(function (_ref, i) {
     var _refs$globalCache$fre2;
-
     var col = _ref.col,
-        col_pre = _ref.col_pre,
-        c1 = _ref.c1,
-        c2 = _ref.c2;
+      col_pre = _ref.col_pre,
+      c1 = _ref.c1,
+      c2 = _ref.c2;
     return /*#__PURE__*/React__default['default'].createElement("div", {
       className: "fortune-col-header-selected",
       key: i,
@@ -441,56 +407,45 @@ var ColumnHeader = function ColumnHeader() {
 
 var RowHeader = function RowHeader() {
   var _refs$globalCache$fre;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings,
+    refs = _useContext.refs;
   var rowChangeSizeRef = React.useRef(null);
   var containerRef = React.useRef(null);
-
   var _useState = React.useState({
-    row: -1,
-    row_pre: -1,
-    row_index: -1
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      hoverLocation = _useState2[0],
-      setHoverLocation = _useState2[1];
-
+      row: -1,
+      row_pre: -1,
+      row_index: -1
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    hoverLocation = _useState2[0],
+    setHoverLocation = _useState2[1];
   var _useState3 = React.useState([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedLocation = _useState4[0],
-      setSelectedLocation = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedLocation = _useState4[0],
+    setSelectedLocation = _useState4[1];
   var sheetIndex = core.getSheetIndex(context, context.currentSheetId);
   var sheet = sheetIndex == null ? null : context.luckysheetfile[sheetIndex];
   var freezeHandleTop = React.useMemo(function () {
     var _sheet$frozen, _sheet$frozen2, _sheet$frozen3, _sheet$frozen4;
-
     if ((sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen = sheet.frozen) === null || _sheet$frozen === void 0 ? void 0 : _sheet$frozen.type) === "row" || (sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen2 = sheet.frozen) === null || _sheet$frozen2 === void 0 ? void 0 : _sheet$frozen2.type) === "rangeRow" || (sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen3 = sheet.frozen) === null || _sheet$frozen3 === void 0 ? void 0 : _sheet$frozen3.type) === "rangeBoth" || (sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen4 = sheet.frozen) === null || _sheet$frozen4 === void 0 ? void 0 : _sheet$frozen4.type) === "both") {
       var _sheet$frozen5, _sheet$frozen5$range;
-
       return core.rowLocationByIndex((sheet === null || sheet === void 0 ? void 0 : (_sheet$frozen5 = sheet.frozen) === null || _sheet$frozen5 === void 0 ? void 0 : (_sheet$frozen5$range = _sheet$frozen5.range) === null || _sheet$frozen5$range === void 0 ? void 0 : _sheet$frozen5$range.row_focus) || 0, context.visibledatarow)[1] + context.scrollTop;
     }
-
     return context.scrollTop;
   }, [context.visibledatarow, sheet === null || sheet === void 0 ? void 0 : sheet.frozen, context.scrollTop]);
   var onMouseMove = React.useCallback(function (e) {
     if (context.luckysheet_rows_change_size) {
       return;
     }
-
     var y = e.pageY - containerRef.current.getBoundingClientRect().top + containerRef.current.scrollTop;
     var row_location = core.rowLocation(y, context.visibledatarow);
-
     var _row_location = _slicedToArray(row_location, 3),
-        row_pre = _row_location[0],
-        row = _row_location[1],
-        row_index = _row_location[2];
-
+      row_pre = _row_location[0],
+      row = _row_location[1],
+      row_index = _row_location[2];
     if (row_pre !== hoverLocation.row_pre || row !== hoverLocation.row) {
       setHoverLocation({
         row_pre: row_pre,
@@ -509,7 +464,6 @@ var RowHeader = function RowHeader() {
     if (context.luckysheet_rows_change_size) {
       return;
     }
-
     setHoverLocation({
       row: -1,
       row_pre: -1,
@@ -539,22 +493,18 @@ var RowHeader = function RowHeader() {
   React.useEffect(function () {
     var s = context.luckysheet_select_save || [];
     var rowTitleMap = {};
-
     for (var i = 0; i < s.length; i += 1) {
       var r1 = s[i].row[0];
       var r2 = s[i].row[1];
       rowTitleMap = core.selectTitlesMap(rowTitleMap, r1, r2);
     }
-
     var rowTitleRange = core.selectTitlesRange(rowTitleMap);
     var selects = [];
-
     for (var _i = 0; _i < rowTitleRange.length; _i += 1) {
       var _r = rowTitleRange[_i][0];
       var _r2 = rowTitleRange[_i][rowTitleRange[_i].length - 1];
       var row = core.rowLocationByIndex(_r2, context.visibledatarow)[1];
       var row_pre = core.rowLocationByIndex(_r, context.visibledatarow)[0];
-
       if (___default['default'].isNumber(row_pre) && ___default['default'].isNumber(row)) {
         selects.push({
           row: row,
@@ -564,7 +514,6 @@ var RowHeader = function RowHeader() {
         });
       }
     }
-
     setSelectedLocation(selects);
   }, [context.luckysheet_select_save, context.visibledatarow]);
   React.useEffect(function () {
@@ -604,11 +553,10 @@ var RowHeader = function RowHeader() {
     }, core.fixRowStyleOverflowInFreeze(context, hoverLocation.row_index, hoverLocation.row_index, (_refs$globalCache$fre = refs.globalCache.freezen) === null || _refs$globalCache$fre === void 0 ? void 0 : _refs$globalCache$fre[context.currentSheetId]))
   }) : null, selectedLocation.map(function (_ref, i) {
     var _refs$globalCache$fre2;
-
     var row = _ref.row,
-        row_pre = _ref.row_pre,
-        r1 = _ref.r1,
-        r2 = _ref.r2;
+      row_pre = _ref.row_pre,
+      r1 = _ref.r1,
+      r2 = _ref.r2;
     return /*#__PURE__*/React__default['default'].createElement("div", {
       className: "fortune-row-header-selected",
       key: i,
@@ -630,17 +578,15 @@ var RowHeader = function RowHeader() {
 };
 
 var ContentEditable = function ContentEditable(_ref) {
-  var props = _extends({}, _ref);
-
+  var props = _extends({}, (_objectDestructuringEmpty(_ref), _ref));
   var lastHtml = React.useRef("");
   var root = React.useRef(null);
   var autoFocus = props.autoFocus,
-      initialContent = props.initialContent,
-      onChange = props.onChange;
+    initialContent = props.initialContent,
+    onChange = props.onChange;
   React.useEffect(function () {
     if (autoFocus) {
       var _root$current;
-
       (_root$current = root.current) === null || _root$current === void 0 ? void 0 : _root$current.focus();
     }
   }, [autoFocus]);
@@ -651,19 +597,16 @@ var ContentEditable = function ContentEditable(_ref) {
   }, [initialContent]);
   var fnEmitChange = React.useCallback(function (__, isBlur) {
     var html;
-
     if (root.current != null) {
       html = root.current.innerHTML;
     }
-
     if (onChange && html !== lastHtml.current) {
       onChange(html || "", isBlur);
     }
-
     lastHtml.current = html || "";
   }, [root, onChange]);
   var innerRef = props.innerRef,
-      _onBlur = props.onBlur;
+    _onBlur = props.onBlur;
   var allowEdit = props.allowEdit;
   if (___default['default'].isNil(allowEdit)) allowEdit = true;
   return /*#__PURE__*/React__default['default'].createElement("div", _objectSpread2(_objectSpread2({
@@ -690,8 +633,7 @@ var ContentEditable = function ContentEditable(_ref) {
 
 var FormulaSearch = function FormulaSearch(props) {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context;
-
+    context = _useContext.context;
   if (___default['default'].isEmpty(context.functionCandidates)) return null;
   return /*#__PURE__*/React__default['default'].createElement("div", _objectSpread2(_objectSpread2({}, props), {}, {
     id: "luckysheet-formula-search-c",
@@ -711,11 +653,9 @@ var FormulaSearch = function FormulaSearch(props) {
 
 var FormulaHint = function FormulaHint(props) {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context;
-
+    context = _useContext.context;
   var _locale = core.locale(context),
-      formulaMore = _locale.formulaMore;
-
+    formulaMore = _locale.formulaMore;
   if (!context.functionHint) return null;
   var fn = context.formulaCache.functionlistMap[context.functionHint];
   if (!fn) return null;
@@ -746,15 +686,12 @@ var FormulaHint = function FormulaHint(props) {
     className: "luckysheet-arguments-parameter-holder"
   }, fn.p.map(function (param, i) {
     var name = param.name;
-
     if (param.repeat === "y") {
       name += ", ...";
     }
-
     if (param.require === "o") {
       name = "[".concat(name, "]");
     }
-
     return /*#__PURE__*/React__default['default'].createElement("span", {
       className: "luckysheet-arguments-help-parameter",
       dir: "auto",
@@ -822,22 +759,18 @@ function usePrevious(value) {
 
 var InputBox = function InputBox() {
   var _context$luckysheet_s, _context$rangeDialog;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var inputRef = React.useRef(null);
   var lastKeyDownEventRef = React.useRef();
   var prevCellUpdate = usePrevious(context.luckysheetCellUpdate);
   var prevSheetId = usePrevious(context.currentSheetId);
-
   var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isHidenRC = _useState2[0],
-      setIsHidenRC = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    isHidenRC = _useState2[0],
+    setIsHidenRC = _useState2[1];
   var firstSelection = (_context$luckysheet_s = context.luckysheet_select_save) === null || _context$luckysheet_s === void 0 ? void 0 : _context$luckysheet_s[0];
   var row_index = firstSelection === null || firstSelection === void 0 ? void 0 : firstSelection.row_focus;
   var col_index = firstSelection === null || firstSelection === void 0 ? void 0 : firstSelection.column_focus;
@@ -848,37 +781,30 @@ var InputBox = function InputBox() {
       if (!flowdata) return {};
       return core.getStyleByCell(context, flowdata, firstSelection.row_focus, firstSelection.column_focus);
     }
-
     return {};
   }, [context.luckysheetfile, context.currentSheetId, context.luckysheetCellUpdate, firstSelection]);
   React.useLayoutEffect(function () {
     if (!context.allowEdit) {
       setContext(function (ctx) {
         var flowdata = core.getFlowdata(ctx);
-
         if (!___default['default'].isNil(flowdata) && ctx.forceFormulaRef) {
           var value = core.getCellValue(row_index, col_index, flowdata, "f");
           core.createRangeHightlight(ctx, value);
         }
       });
     }
-
     if (firstSelection && context.luckysheetCellUpdate.length > 0) {
       var _flowdata$row_index;
-
       if (refs.globalCache.doNotUpdateCell) {
         delete refs.globalCache.doNotUpdateCell;
         return;
       }
-
       if (___default['default'].isEqual(prevCellUpdate, context.luckysheetCellUpdate) && prevSheetId === context.currentSheetId) {
         return;
       }
-
       var flowdata = core.getFlowdata(context);
       var cell = flowdata === null || flowdata === void 0 ? void 0 : (_flowdata$row_index = flowdata[row_index]) === null || _flowdata$row_index === void 0 ? void 0 : _flowdata$row_index[col_index];
       var value = "";
-
       if (cell && !refs.globalCache.overwriteCell) {
         if (core.isInlineStringCell(cell)) {
           value = core.getInlineStringHTML(row_index, col_index, flowdata);
@@ -889,23 +815,19 @@ var InputBox = function InputBox() {
           });
         } else {
           value = core.valueShowEs(row_index, col_index, flowdata);
-
           if (Number(cell.qp) === 1) {
             value = value ? "".concat(value) : value;
           }
         }
       }
-
       refs.globalCache.overwriteCell = false;
       if (!refs.globalCache.ignoreWriteCell) inputRef.current.innerHTML = core.escapeHTMLTag(core.escapeScriptTag(value));
       refs.globalCache.ignoreWriteCell = false;
-
       if (!refs.globalCache.doNotFocus) {
         setTimeout(function () {
           core.moveToEnd(inputRef.current);
         });
       }
-
       delete refs.globalCache.doNotFocus;
     }
   }, [context.luckysheetCellUpdate, context.luckysheetfile, context.currentSheetId, firstSelection]);
@@ -922,7 +844,6 @@ var InputBox = function InputBox() {
   var onKeyDown = React.useCallback(function (e) {
     lastKeyDownEventRef.current = new KeyboardEvent(e.type, e.nativeEvent);
     preText.current = inputRef.current.innerText;
-
     if (e.key === "Escape" && context.luckysheetCellUpdate.length > 0) {
       setContext(function (draftCtx) {
         core.cancelNormalSelected(draftCtx);
@@ -951,15 +872,12 @@ var InputBox = function InputBox() {
     if (!e) return;
     var kcode = e.keyCode;
     if (!kcode) return;
-
     if (!(kcode >= 112 && kcode <= 123 || kcode <= 46 || kcode === 144 || kcode === 108 || e.ctrlKey || e.altKey || e.shiftKey && (kcode === 37 || kcode === 38 || kcode === 39 || kcode === 40)) || kcode === 8 || kcode === 32 || kcode === 46 || e.ctrlKey && kcode === 86) {
       setContext(function (draftCtx) {
         if ((draftCtx.formulaCache.rangestart || draftCtx.formulaCache.rangedrag_column_start || draftCtx.formulaCache.rangedrag_row_start || core.israngeseleciton(draftCtx)) && isBlur) return;
-
         if (!core.isAllowEdit(draftCtx, draftCtx.luckysheet_select_save)) {
           return;
         }
-
         core.handleFormulaInput(draftCtx, refs.fxInput.current, refs.cellInput.current, kcode, preText.current);
       });
     }
@@ -1028,12 +946,10 @@ var InputBox = function InputBox() {
 
 var ScrollBar = function ScrollBar(_ref) {
   var axis = _ref.axis;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      refs = _useContext.refs,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    refs = _useContext.refs,
+    setContext = _useContext.setContext;
   React.useEffect(function () {
     if (axis === "x") {
       refs.scrollbarX.current.scrollLeft = context.scrollLeft;
@@ -1074,18 +990,15 @@ var ScrollBar = function ScrollBar(_ref) {
 
 var Dialog = function Dialog(_ref) {
   var type = _ref.type,
-      onOk = _ref.onOk,
-      onCancel = _ref.onCancel,
-      children = _ref.children,
-      containerStyle = _ref.containerStyle,
-      contentStyle = _ref.contentStyle;
-
+    onOk = _ref.onOk,
+    onCancel = _ref.onCancel,
+    children = _ref.children,
+    containerStyle = _ref.containerStyle,
+    contentStyle = _ref.contentStyle;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context;
-
+    context = _useContext.context;
   var _locale = core.locale(context),
-      button = _locale.button;
-
+    button = _locale.button;
   return /*#__PURE__*/React__default['default'].createElement("div", {
     className: "fortune-dialog",
     style: containerStyle
@@ -1119,10 +1032,10 @@ var Dialog = function Dialog(_ref) {
 
 var MessageBox = function MessageBox(_ref) {
   var _ref$type = _ref.type,
-      type = _ref$type === void 0 ? "yesno" : _ref$type,
-      onOk = _ref.onOk,
-      onCancel = _ref.onCancel,
-      children = _ref.children;
+    type = _ref$type === void 0 ? "yesno" : _ref$type,
+    onOk = _ref.onOk,
+    onCancel = _ref.onCancel,
+    children = _ref.children;
   return /*#__PURE__*/React__default['default'].createElement(Dialog, {
     type: type,
     onOk: onOk,
@@ -1143,15 +1056,12 @@ var ModalContext = /*#__PURE__*/React__default['default'].createContext({
   showModal: function showModal() {},
   hideModal: function hideModal() {}
 });
-
 var ModalProvider = function ModalProvider(_ref) {
   var children = _ref.children;
-
   var _useState = React.useState(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      component = _useState2[0],
-      setComponent = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    component = _useState2[0],
+    setComponent = _useState2[1];
   var showModal = React.useCallback(function (c) {
     setComponent(c);
   }, []);
@@ -1186,9 +1096,8 @@ var ModalProvider = function ModalProvider(_ref) {
 
 function useAlert() {
   var _useContext = React.useContext(ModalContext),
-      showModal = _useContext.showModal,
-      hideModal = _useContext.hideModal;
-
+    showModal = _useContext.showModal,
+    hideModal = _useContext.hideModal;
   var showAlert = React.useCallback(function (message) {
     var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "ok";
     var onOk = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : hideModal;
@@ -1207,56 +1116,45 @@ function useAlert() {
 
 var SearchReplace = function SearchReplace(_ref) {
   var getContainer = _ref.getContainer;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var _locale = core.locale(context),
-      findAndReplace = _locale.findAndReplace,
-      button = _locale.button;
-
+    findAndReplace = _locale.findAndReplace,
+    button = _locale.button;
   var _useState = React.useState(""),
-      _useState2 = _slicedToArray(_useState, 2),
-      searchText = _useState2[0],
-      setSearchText = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    searchText = _useState2[0],
+    setSearchText = _useState2[1];
   var _useState3 = React.useState(""),
-      _useState4 = _slicedToArray(_useState3, 2),
-      replaceText = _useState4[0],
-      setReplaceText = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    replaceText = _useState4[0],
+    setReplaceText = _useState4[1];
   var _useState5 = React.useState(context.showReplace),
-      _useState6 = _slicedToArray(_useState5, 2),
-      showReplace = _useState6[0],
-      setShowReplace = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    showReplace = _useState6[0],
+    setShowReplace = _useState6[1];
   var _useState7 = React.useState([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      searchResult = _useState8[0],
-      setSearchResult = _useState8[1];
-
+    _useState8 = _slicedToArray(_useState7, 2),
+    searchResult = _useState8[0],
+    setSearchResult = _useState8[1];
   var _useState9 = React.useState(),
-      _useState10 = _slicedToArray(_useState9, 2),
-      selectedCell = _useState10[0],
-      setSelectedCell = _useState10[1];
-
+    _useState10 = _slicedToArray(_useState9, 2),
+    selectedCell = _useState10[0],
+    setSelectedCell = _useState10[1];
   var _useAlert = useAlert(),
-      showAlert = _useAlert.showAlert;
-
+    showAlert = _useAlert.showAlert;
   var _useState11 = React.useState({
-    regCheck: false,
-    wordCheck: false,
-    caseCheck: false
-  }),
-      _useState12 = _slicedToArray(_useState11, 2),
-      checkMode = _useState12[0],
-      checkModeReplace = _useState12[1];
-
+      regCheck: false,
+      wordCheck: false,
+      caseCheck: false
+    }),
+    _useState12 = _slicedToArray(_useState11, 2),
+    checkMode = _useState12[0],
+    checkModeReplace = _useState12[1];
   var closeDialog = React.useCallback(function () {
     ___default['default'].set(refs.globalCache, "searchDialog.mouseEnter", false);
-
     setContext(function (draftCtx) {
       draftCtx.showSearch = false;
       draftCtx.showReplace = false;
@@ -1392,7 +1290,6 @@ var SearchReplace = function SearchReplace(_ref) {
       return setContext(function (draftCtx) {
         setSelectedCell(undefined);
         var alertMsg = core.replace(draftCtx, searchText, replaceText, checkMode);
-
         if (alertMsg != null) {
           showAlert(alertMsg);
         }
@@ -1455,40 +1352,34 @@ var SearchReplace = function SearchReplace(_ref) {
 
 var LinkEditCard = function LinkEditCard(_ref) {
   var r = _ref.r,
-      c = _ref.c,
-      rc = _ref.rc,
-      originText = _ref.originText,
-      originType = _ref.originType,
-      originAddress = _ref.originAddress,
-      isEditing = _ref.isEditing,
-      position = _ref.position,
-      selectingCellRange = _ref.selectingCellRange;
-
+    c = _ref.c,
+    rc = _ref.rc,
+    originText = _ref.originText,
+    originType = _ref.originType,
+    originAddress = _ref.originAddress,
+    isEditing = _ref.isEditing,
+    position = _ref.position,
+    selectingCellRange = _ref.selectingCellRange;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var _useState = React.useState(originText),
-      _useState2 = _slicedToArray(_useState, 2),
-      linkText = _useState2[0],
-      setLinkText = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    linkText = _useState2[0],
+    setLinkText = _useState2[1];
   var _useState3 = React.useState(originAddress),
-      _useState4 = _slicedToArray(_useState3, 2),
-      linkAddress = _useState4[0],
-      setLinkAddress = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    linkAddress = _useState4[0],
+    setLinkAddress = _useState4[1];
   var _useState5 = React.useState(originType),
-      _useState6 = _slicedToArray(_useState5, 2),
-      linkType = _useState6[0],
-      setLinkType = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    linkType = _useState6[0],
+    setLinkType = _useState6[1];
   var _locale = core.locale(context),
-      insertLink = _locale.insertLink,
-      linkTypeList = _locale.linkTypeList,
-      button = _locale.button;
-
+    insertLink = _locale.insertLink,
+    linkTypeList = _locale.linkTypeList,
+    button = _locale.button;
   var lastCell = React.useRef(core.normalizeSelection(context, [{
     row: [r, r],
     column: [c, c]
@@ -1500,7 +1391,6 @@ var LinkEditCard = function LinkEditCard(_ref) {
   }, isLinkAddressValid.tooltip);
   var hideLinkCard = React.useCallback(function () {
     ___default['default'].set(refs.globalCache, "linkCard.mouseEnter", false);
-
     setContext(function (draftCtx) {
       draftCtx.linkCard = undefined;
     });
@@ -1574,16 +1464,13 @@ var LinkEditCard = function LinkEditCard(_ref) {
       skipCellRangeSet.current = false;
       return;
     }
-
     if (selectingCellRange) {
       var len = ___default['default'].size(context.luckysheet_select_save);
-
       if (len > 0) {
         setLinkAddress(core.getRangetxt(context, context.currentSheetId, context.luckysheet_select_save[len - 1], ""));
       }
     }
   }, [context, selectingCellRange]);
-
   if (!isEditing) {
     return /*#__PURE__*/React__default['default'].createElement("div", _objectSpread2(_objectSpread2({}, containerEvent), {}, {
       onKeyDown: function onKeyDown(e) {
@@ -1619,12 +1506,10 @@ var LinkEditCard = function LinkEditCard(_ref) {
     }), context.allowEdit === true && renderToolbarButton("unlink", function () {
       return setContext(function (draftCtx) {
         ___default['default'].set(refs.globalCache, "linkCard.mouseEnter", false);
-
         core.removeHyperlink(draftCtx, r, c);
       });
     }));
   }
-
   return selectingCellRange ? /*#__PURE__*/React__default['default'].createElement("div", _objectSpread2(_objectSpread2({
     className: "fortune-link-modify-modal range-selection-modal",
     style: {
@@ -1690,12 +1575,10 @@ var LinkEditCard = function LinkEditCard(_ref) {
         if (!linkText) {
           setLinkText(context.luckysheetfile[0].name);
         }
-
         setLinkAddress(context.luckysheetfile[0].name);
       } else {
         setLinkAddress("");
       }
-
       if (e.target.value === "cellrange") setRangeModalVisible(true);
       setLinkType(e.target.value);
     }
@@ -1749,9 +1632,7 @@ var LinkEditCard = function LinkEditCard(_ref) {
     className: "modal-footer"
   }, renderBottomButton(function () {
     if (!isLinkAddressValid.isValid) return;
-
     ___default['default'].set(refs.globalCache, "linkCard.mouseEnter", false);
-
     setContext(function (draftCtx) {
       return core.saveHyperlink(draftCtx, r, c, linkText, linkType, linkAddress);
     });
@@ -1760,23 +1641,20 @@ var LinkEditCard = function LinkEditCard(_ref) {
 
 var FilterOptions = function FilterOptions(_ref) {
   var _refs$globalCache$fre, _refs$globalCache$fre2;
-
   var getContainer = _ref.getContainer;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var filterOptions = context.filterOptions,
-      currentSheetId = context.currentSheetId,
-      filter = context.filter,
-      visibledatarow = context.visibledatarow,
-      visibledatacolumn = context.visibledatacolumn;
+    currentSheetId = context.currentSheetId,
+    filter = context.filter,
+    visibledatarow = context.visibledatarow,
+    visibledatacolumn = context.visibledatacolumn;
   var sheetIndex = core.getSheetIndex(context, context.currentSheetId);
   var _context$luckysheetfi = context.luckysheetfile[sheetIndex],
-      filter_select = _context$luckysheetfi.filter_select,
-      frozen = _context$luckysheetfi.frozen;
+    filter_select = _context$luckysheetfi.filter_select,
+    frozen = _context$luckysheetfi.frozen;
   React.useEffect(function () {
     setContext(function (draftCtx) {
       var sheetIdx = core.getSheetIndex(draftCtx, draftCtx.currentSheetId);
@@ -1790,7 +1668,6 @@ var FilterOptions = function FilterOptions(_ref) {
     if (filterOptions == null) return;
     setContext(function (draftCtx) {
       var _draftCtx$filterConte, _draftCtx$filter$i;
-
       var container = getContainer();
       var workbookRect = refs.workbookContainer.current.getBoundingClientRect();
       if (((_draftCtx$filterConte = draftCtx.filterContextMenu) === null || _draftCtx$filterConte === void 0 ? void 0 : _draftCtx$filterConte.col) === filterOptions.startCol + i) return;
@@ -1817,7 +1694,6 @@ var FilterOptions = function FilterOptions(_ref) {
     frozenRows = 0;
   } else {
     var _frozen$range, _frozen$range2;
-
     frozenColumns = (frozen === null || frozen === void 0 ? void 0 : (_frozen$range = frozen.range) === null || _frozen$range === void 0 ? void 0 : _frozen$range.column_focus) || -1;
     frozenRows = (frozen === null || frozen === void 0 ? void 0 : (_frozen$range2 = frozen.range) === null || _frozen$range2 === void 0 ? void 0 : _frozen$range2.row_focus) || -1;
   }
@@ -1833,7 +1709,6 @@ var FilterOptions = function FilterOptions(_ref) {
     }, core.fixRowStyleOverflowInFreeze(context, filterOptions.startRow, filterOptions.endRow, (_refs$globalCache$fre = refs.globalCache.freezen) === null || _refs$globalCache$fre === void 0 ? void 0 : _refs$globalCache$fre[context.currentSheetId]), core.fixColumnStyleOverflowInFreeze(context, filterOptions.startCol, filterOptions.endCol, (_refs$globalCache$fre2 = refs.globalCache.freezen) === null || _refs$globalCache$fre2 === void 0 ? void 0 : _refs$globalCache$fre2[context.currentSheetId]))
   }), filterOptions.items.map(function (v, i) {
     var _refs$globalCache$fre3, _refs$globalCache$fre4;
-
     var filterParam = filter[i];
     var columnOverflowFreezeStyle = core.fixColumnStyleOverflowInFreeze(context, i + filterOptions.startCol, i + filterOptions.startCol, (_refs$globalCache$fre3 = refs.globalCache.freezen) === null || _refs$globalCache$fre3 === void 0 ? void 0 : _refs$globalCache$fre3[context.currentSheetId]);
     var rowOverflowFreezeStyle = core.fixRowStyleOverflowInFreeze(context, filterOptions.startRow, filterOptions.startRow, (_refs$globalCache$fre4 = refs.globalCache.freezen) === null || _refs$globalCache$fre4 === void 0 ? void 0 : _refs$globalCache$fre4[context.currentSheetId]);
@@ -1841,12 +1716,10 @@ var FilterOptions = function FilterOptions(_ref) {
     var col_pre = v.col > 0 ? visibledatacolumn[v.col - 1] : 0;
     var left = v.col <= frozenColumns && columnOverflowFreezeStyle.left ? columnOverflowFreezeStyle.left + col - col_pre - 20 : v.left;
     var top = filterOptions.startRow <= frozenRows && rowOverflowFreezeStyle.top ? rowOverflowFreezeStyle.top : v.top;
-
     var v_adjusted = _objectSpread2(_objectSpread2({}, v), {}, {
       left: left,
       top: top
     });
-
     return /*#__PURE__*/React__default['default'].createElement("div", {
       onMouseDown: function onMouseDown(e) {
         return e.stopPropagation();
@@ -1880,12 +1753,10 @@ var FilterOptions = function FilterOptions(_ref) {
 
 var ImgBoxs = function ImgBoxs() {
   var _context$insertedImgs;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var activeImg = React.useMemo(function () {
     return ___default['default'].find(context.insertedImgs, {
       id: context.activeImg
@@ -1970,11 +1841,11 @@ var ImgBoxs = function ImgBoxs() {
     className: "img-list"
   }, (_context$insertedImgs = context.insertedImgs) === null || _context$insertedImgs === void 0 ? void 0 : _context$insertedImgs.map(function (v) {
     var id = v.id,
-        left = v.left,
-        top = v.top,
-        width = v.width,
-        height = v.height,
-        src = v.src;
+      left = v.left,
+      top = v.top,
+      width = v.width,
+      height = v.height,
+      src = v.src;
     if (v.id === context.activeImg) return null;
     return /*#__PURE__*/React__default['default'].createElement("div", {
       id: id,
@@ -2096,24 +1967,19 @@ var ImgBoxs = function ImgBoxs() {
 
 var NotationBoxes = function NotationBoxes() {
   var _context$commentBoxes;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var flowdata = core.getFlowdata(context);
   React.useEffect(function () {
     if (flowdata) {
       var psShownCells = [];
-
       for (var i = 0; i < flowdata.length; i += 1) {
         for (var j = 0; j < flowdata[i].length; j += 1) {
           var _cell$ps;
-
           var cell = flowdata[i][j];
           if (!cell) continue;
-
           if ((_cell$ps = cell.ps) === null || _cell$ps === void 0 ? void 0 : _cell$ps.isShow) {
             psShownCells.push({
               r: i,
@@ -2122,7 +1988,6 @@ var NotationBoxes = function NotationBoxes() {
           }
         }
       }
-
       setContext(function (ctx) {
         return core.showComments(ctx, psShownCells);
       });
@@ -2132,22 +1997,20 @@ var NotationBoxes = function NotationBoxes() {
     id: "luckysheet-postil-showBoxs"
   }, ___default['default'].concat((_context$commentBoxes = context.commentBoxes) === null || _context$commentBoxes === void 0 ? void 0 : _context$commentBoxes.filter(function (v) {
     var _context$editingComme;
-
     return (v === null || v === void 0 ? void 0 : v.rc) !== ((_context$editingComme = context.editingCommentBox) === null || _context$editingComme === void 0 ? void 0 : _context$editingComme.rc);
   }), [context.editingCommentBox, context.hoveredCommentBox]).map(function (commentBox) {
     var _context$editingComme2;
-
     if (!commentBox) return null;
     var r = commentBox.r,
-        c = commentBox.c,
-        rc = commentBox.rc,
-        left = commentBox.left,
-        top = commentBox.top,
-        width = commentBox.width,
-        height = commentBox.height,
-        value = commentBox.value,
-        autoFocus = commentBox.autoFocus,
-        size = commentBox.size;
+      c = commentBox.c,
+      rc = commentBox.rc,
+      left = commentBox.left,
+      top = commentBox.top,
+      width = commentBox.width,
+      height = commentBox.height,
+      value = commentBox.value,
+      autoFocus = commentBox.autoFocus,
+      size = commentBox.size;
     var isEditing = ((_context$editingComme2 = context.editingCommentBox) === null || _context$editingComme2 === void 0 ? void 0 : _context$editingComme2.rc) === rc;
     var commentId = "comment-box-".concat(rc);
     return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -2266,9 +2129,8 @@ var NotationBoxes = function NotationBoxes() {
 
 function useDialog() {
   var _useContext = React.useContext(ModalContext),
-      showModal = _useContext.showModal,
-      hideModal = _useContext.hideModal;
-
+    showModal = _useContext.showModal,
+    hideModal = _useContext.hideModal;
   var showDialog = React.useCallback(function (content, type) {
     var onOk = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : hideModal;
     var onCancel = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : hideModal;
@@ -2286,29 +2148,23 @@ function useDialog() {
 
 var DataVerification = function DataVerification() {
   var _context$dataVerifica, _context$dataVerifica2, _context$dataVerifica3, _context$dataVerifica4, _context$dataVerifica5, _context$dataVerifica6, _context$dataVerifica7, _context$dataVerifica8, _context$dataVerifica9, _context$dataVerifica10, _context$dataVerifica11, _context$dataVerifica12, _context$dataVerifica13, _context$dataVerifica14, _context$dataVerifica15, _context$dataVerifica16, _context$dataVerifica17, _context$dataVerifica18, _context$dataVerifica19, _context$dataVerifica20, _context$dataVerifica21, _context$dataVerifica22, _context$dataVerifica23, _context$dataVerifica24, _context$dataVerifica25;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog,
-      hideDialog = _useDialog.hideDialog;
-
+    showDialog = _useDialog.showDialog,
+    hideDialog = _useDialog.hideDialog;
   var _locale = core.locale(context),
-      dataVerification = _locale.dataVerification,
-      toolbar = _locale.toolbar,
-      button = _locale.button,
-      generalDialog = _locale.generalDialog;
-
+    dataVerification = _locale.dataVerification,
+    toolbar = _locale.toolbar,
+    button = _locale.button,
+    generalDialog = _locale.generalDialog;
   var _useState = React.useState(["between", "notBetween", "equal", "notEqualTo", "moreThanThe", "lessThan", "greaterOrEqualTo", "lessThanOrEqualTo"]),
-      _useState2 = _slicedToArray(_useState, 1),
-      numberCondition = _useState2[0];
-
+    _useState2 = _slicedToArray(_useState, 1),
+    numberCondition = _useState2[0];
   var _useState3 = React.useState(["between", "notBetween", "equal", "notEqualTo", "earlierThan", "noEarlierThan", "laterThan", "noLaterThan"]),
-      _useState4 = _slicedToArray(_useState3, 1),
-      dateCondition = _useState4[0];
-
+    _useState4 = _slicedToArray(_useState3, 1),
+    dateCondition = _useState4[0];
   var dataSelectRange = React.useCallback(function (type, value) {
     hideDialog();
     setContext(function (ctx) {
@@ -2321,29 +2177,22 @@ var DataVerification = function DataVerification() {
     if (type === "confirm") {
       setContext(function (ctx) {
         var isPass = core.confirmMessage(ctx, generalDialog, dataVerification);
-
         if (isPass) {
           var _ctx$dataVerification, _ctx$dataVerification2, _ctx$luckysheetfile$g;
-
           var range = core.getRangeByTxt(ctx, (_ctx$dataVerification = ctx.dataVerification) === null || _ctx$dataVerification === void 0 ? void 0 : (_ctx$dataVerification2 = _ctx$dataVerification.dataRegulation) === null || _ctx$dataVerification2 === void 0 ? void 0 : _ctx$dataVerification2.rangeTxt);
-
           if (range.length === 0) {
             return;
           }
-
           var regulation = ctx.dataVerification.dataRegulation;
           var verifacationT = regulation === null || regulation === void 0 ? void 0 : regulation.type;
           var value1 = regulation.value1;
-
           var item = _objectSpread2(_objectSpread2({}, regulation), {}, {
             checked: false
           });
-
           if (verifacationT === "dropdown") {
             var list = core.getDropdownList(ctx, value1);
             item.value1 = list.join(",");
           }
-
           var currentDataVerification = (_ctx$luckysheetfile$g = ctx.luckysheetfile[core.getSheetIndex(ctx, ctx.currentSheetId)].dataVerification) !== null && _ctx$luckysheetfile$g !== void 0 ? _ctx$luckysheetfile$g : {};
           var str = range[range.length - 1].row[0];
           var edr = range[range.length - 1].row[1];
@@ -2351,38 +2200,31 @@ var DataVerification = function DataVerification() {
           var edc = range[range.length - 1].column[1];
           var d = core.getFlowdata(ctx);
           if (!d) return;
-
           for (var r = str; r <= edr; r += 1) {
             for (var c = stc; c <= edc; c += 1) {
               var key = "".concat(r, "_").concat(c);
               currentDataVerification[key] = item;
-
               if (regulation.type === "checkbox") {
                 core.setCellValue(ctx, r, c, d, item.value2);
               }
             }
           }
-
           ctx.luckysheetfile[core.getSheetIndex(ctx, ctx.currentSheetId)].dataVerification = currentDataVerification;
         }
       });
     } else if (type === "delete") {
       setContext(function (ctx) {
         var _ctx$dataVerification3, _ctx$dataVerification4, _ctx$luckysheetfile$g2;
-
         var range = core.getRangeByTxt(ctx, (_ctx$dataVerification3 = ctx.dataVerification) === null || _ctx$dataVerification3 === void 0 ? void 0 : (_ctx$dataVerification4 = _ctx$dataVerification3.dataRegulation) === null || _ctx$dataVerification4 === void 0 ? void 0 : _ctx$dataVerification4.rangeTxt);
-
         if (range.length === 0) {
           showDialog(generalDialog.noSeletionError, "ok");
           return;
         }
-
         var currentDataVerification = (_ctx$luckysheetfile$g2 = ctx.luckysheetfile[core.getSheetIndex(ctx, ctx.currentSheetId)].dataVerification) !== null && _ctx$luckysheetfile$g2 !== void 0 ? _ctx$luckysheetfile$g2 : {};
         var str = range[range.length - 1].row[0];
         var edr = range[range.length - 1].row[1];
         var stc = range[range.length - 1].column[0];
         var edc = range[range.length - 1].column[1];
-
         for (var r = str; r <= edr; r += 1) {
           for (var c = stc; c <= edc; c += 1) {
             delete currentDataVerification["".concat(r, "_").concat(c)];
@@ -2390,24 +2232,19 @@ var DataVerification = function DataVerification() {
         }
       });
     }
-
     hideDialog();
   }, [dataVerification, generalDialog, hideDialog, setContext, showDialog]);
   React.useEffect(function () {
     setContext(function (ctx) {
       var rangeT = "";
-
       if (ctx.luckysheet_select_save) {
         var range = ctx.luckysheet_select_save[ctx.luckysheet_select_save.length - 1];
         rangeT = core.getRangetxt(context, context.currentSheetId, range, context.currentSheetId);
       }
-
       var index = core.getSheetIndex(ctx, ctx.currentSheetId);
       var ctxDataVerification = ctx.luckysheetfile[index].dataVerification;
-
       if (ctxDataVerification) {
         var _defaultItem$value, _ctx$rangeDialog, _ctx$rangeDialog2;
-
         if (!ctx.luckysheet_select_save) return;
         var last = ctx.luckysheet_select_save[ctx.luckysheet_select_save.length - 1];
         var rowIndex = last.row_focus;
@@ -2416,7 +2253,6 @@ var DataVerification = function DataVerification() {
         var item = ctxDataVerification["".concat(rowIndex, "_").concat(colIndex)];
         var defaultItem = item !== null && item !== void 0 ? item : {};
         var rangValue = (_defaultItem$value = defaultItem.value1) !== null && _defaultItem$value !== void 0 ? _defaultItem$value : "";
-
         if (((_ctx$rangeDialog = ctx.rangeDialog) === null || _ctx$rangeDialog === void 0 ? void 0 : _ctx$rangeDialog.type) === "dropDown" && ctx.dataVerification && ctx.dataVerification.dataRegulation && ctx.dataVerification.dataRegulation.rangeTxt) {
           rangeT = ctx.dataVerification.dataRegulation.rangeTxt;
           rangValue = ctx.rangeDialog.rangeTxt;
@@ -2424,9 +2260,7 @@ var DataVerification = function DataVerification() {
           rangValue = ctx.dataVerification.dataRegulation.value1;
           rangeT = ctx.rangeDialog.rangeTxt;
         }
-
         ctx.rangeDialog.type = "";
-
         if (item) {
           ctx.dataVerification.dataRegulation = _objectSpread2(_objectSpread2({}, item), {}, {
             value1: rangValue,
@@ -2508,7 +2342,6 @@ var DataVerification = function DataVerification() {
       var value = e.target.value;
       setContext(function (ctx) {
         ctx.dataVerification.dataRegulation.type = value;
-
         if (value === "dropdown" || value === "checkbox") {
           ctx.dataVerification.dataRegulation.type2 = "";
         } else if (value === "number" || value === "number_integer" || value === "number_decimal" || value === "text_length" || value === "date") {
@@ -2518,7 +2351,6 @@ var DataVerification = function DataVerification() {
         } else if (value === "validity") {
           ctx.dataVerification.dataRegulation.type2 = "identificationNumber";
         }
-
         ctx.dataVerification.dataRegulation.value1 = "";
         ctx.dataVerification.dataRegulation.value2 = "";
       });
@@ -2769,9 +2601,7 @@ var DataVerification = function DataVerification() {
       onChange: function onChange() {
         setContext(function (ctx) {
           var _ctx$dataVerification5;
-
           var dataRegulation = (_ctx$dataVerification5 = ctx.dataVerification) === null || _ctx$dataVerification5 === void 0 ? void 0 : _ctx$dataVerification5.dataRegulation;
-
           if (v === "prohibitInput") {
             dataRegulation.prohibitInput = !dataRegulation.prohibitInput;
           } else if (v === "hintShow") {
@@ -2818,28 +2648,23 @@ var DataVerification = function DataVerification() {
 
 var ConditionRules = function ConditionRules(_ref) {
   var type = _ref.type;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _useDialog = useDialog(),
-      hideDialog = _useDialog.hideDialog;
-
+    hideDialog = _useDialog.hideDialog;
   var _locale = core.locale(context),
-      conditionformat = _locale.conditionformat,
-      button = _locale.button,
-      protection = _locale.protection,
-      generalDialog = _locale.generalDialog;
-
+    conditionformat = _locale.conditionformat,
+    button = _locale.button,
+    protection = _locale.protection,
+    generalDialog = _locale.generalDialog;
   var _useState = React.useState({
-    textColor: "#000000",
-    cellColor: "#000000"
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      colorRules = _useState2[0],
-      setColorRules = _useState2[1];
-
+      textColor: "#000000",
+      cellColor: "#000000"
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    colorRules = _useState2[0],
+    setColorRules = _useState2[1];
   var close = React.useCallback(function (closeType) {
     if (closeType === "confirm") {
       setContext(function (ctx) {
@@ -2848,7 +2673,6 @@ var ConditionRules = function ConditionRules(_ref) {
         core.setConditionRules(ctx, protection, generalDialog, conditionformat, ctx.conditionRules);
       });
     }
-
     setContext(function (ctx) {
       ctx.conditionRules = {
         rulesType: "",
@@ -2878,7 +2702,6 @@ var ConditionRules = function ConditionRules(_ref) {
       if (!ctx.rangeDialog) return;
       var rangeDialogType = ctx.rangeDialog.type;
       var rangeT = ctx.rangeDialog.rangeTxt;
-
       if (rangeDialogType === "conditionRulesbetween1") {
         ctx.conditionRules.betweenValue.value1 = rangeT;
       } else if (rangeDialogType === "conditionRulesbetween2") {
@@ -2906,7 +2729,6 @@ var ConditionRules = function ConditionRules(_ref) {
           projectValue: "10"
         };
       }
-
       ctx.rangeDialog.type = "";
       ctx.rangeDialog.rangeTxt = "";
     });
@@ -3070,23 +2892,18 @@ var ConditionRules = function ConditionRules(_ref) {
 
 var RangeDialog = function RangeDialog() {
   var _context$rangeDialog$, _context$rangeDialog;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog;
-
+    showDialog = _useDialog.showDialog;
   var _locale = core.locale(context),
-      dataVerification = _locale.dataVerification,
-      button = _locale.button;
-
+    dataVerification = _locale.dataVerification,
+    button = _locale.button;
   var _useState = React.useState((_context$rangeDialog$ = (_context$rangeDialog = context.rangeDialog) === null || _context$rangeDialog === void 0 ? void 0 : _context$rangeDialog.rangeTxt) !== null && _context$rangeDialog$ !== void 0 ? _context$rangeDialog$ : ""),
-      _useState2 = _slicedToArray(_useState, 2),
-      rangeTxt2 = _useState2[0],
-      setRangeTxt2 = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    rangeTxt2 = _useState2[0],
+    setRangeTxt2 = _useState2[1];
   var close = React.useCallback(function () {
     setContext(function (ctx) {
       ctx.rangeDialog.show = false;
@@ -3094,14 +2911,12 @@ var RangeDialog = function RangeDialog() {
     });
     if (!context.rangeDialog) return;
     var rangeDialogType = context.rangeDialog.type;
-
     if (rangeDialogType.indexOf("between") >= 0) {
       showDialog( /*#__PURE__*/React__default['default'].createElement(ConditionRules, {
         type: "between"
       }));
       return;
     }
-
     if (rangeDialogType.indexOf("conditionRules") >= 0) {
       var rulesType = rangeDialogType.substring("conditionRules".length, rangeDialogType.length);
       showDialog( /*#__PURE__*/React__default['default'].createElement(ConditionRules, {
@@ -3109,7 +2924,6 @@ var RangeDialog = function RangeDialog() {
       }));
       return;
     }
-
     showDialog( /*#__PURE__*/React__default['default'].createElement(DataVerification, null));
   }, [context.rangeDialog, setContext, showDialog]);
   React.useEffect(function () {
@@ -3119,7 +2933,6 @@ var RangeDialog = function RangeDialog() {
         r = core.getRangetxt(context, context.currentSheetId, range, context.currentSheetId);
         return r;
       }
-
       return "";
     });
   }, [context, context.luckysheet_select_save]);
@@ -3172,7 +2985,6 @@ function useOutsideClick(containerRef, handler, deps) {
         handler();
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
     return function () {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -3182,31 +2994,25 @@ function useOutsideClick(containerRef, handler, deps) {
 
 var DropDownList = function DropDownList() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var containerRef = React.useRef(null);
-
   var _useState = React.useState([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      list = _useState2[0],
-      setList = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    list = _useState2[0],
+    setList = _useState2[1];
   var _useState3 = React.useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      isMul = _useState4[0],
-      setIsMul = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    isMul = _useState4[0],
+    setIsMul = _useState4[1];
   var _useState5 = React.useState(),
-      _useState6 = _slicedToArray(_useState5, 2),
-      position = _useState6[0],
-      setPosition = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    position = _useState6[0],
+    setPosition = _useState6[1];
   var _useState7 = React.useState([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      selected = _useState8[0],
-      setSelected = _useState8[1];
-
+    _useState8 = _slicedToArray(_useState7, 2),
+    selected = _useState8[0],
+    setSelected = _useState8[1];
   var close = React.useCallback(function () {
     setContext(function (ctx) {
       ctx.dataVerificationDropDownList = false;
@@ -3224,27 +3030,20 @@ var DropDownList = function DropDownList() {
     var d = core.getFlowdata(context);
     if (!d) return;
     var margeSet = core.mergeBorder(context, d, rowIndex, colIndex);
-
     if (margeSet) {
       var _margeSet$row = _slicedToArray(margeSet.row, 2);
-
       row = _margeSet$row[1];
-
       var _margeSet$column = _slicedToArray(margeSet.column, 2);
-
       col_pre = _margeSet$column[0];
     }
-
     var index = core.getSheetIndex(context, context.currentSheetId);
     var dataVerification = context.luckysheetfile[index].dataVerification;
     var item = dataVerification["".concat(rowIndex, "_").concat(colIndex)];
     var dropdownList = core.getDropdownList(context, item.value1);
     var cellValue = core.getCellValue(rowIndex, colIndex, d);
-
     if (cellValue) {
       setSelected(cellValue.toString().split(","));
     }
-
     setList(dropdownList);
     setPosition({
       left: col_pre,
@@ -3265,7 +3064,6 @@ var DropDownList = function DropDownList() {
     var d = core.getFlowdata(context);
     if (!d) return;
     var cellValue = core.getCellValue(rowIndex, colIndex, d);
-
     if (cellValue) {
       setSelected(cellValue.toString().split(","));
     }
@@ -3297,13 +3095,11 @@ var DropDownList = function DropDownList() {
         setContext(function (ctx) {
           var arr = selected;
           var index = arr.indexOf(v);
-
           if (index < 0) {
             arr.push(v);
           } else {
             arr.splice(index, 1);
           }
-
           setSelected(arr);
           core.setDropcownValue(ctx, v, arr);
         });
@@ -3321,40 +3117,30 @@ var DropDownList = function DropDownList() {
 
 var SheetOverlay = function SheetOverlay() {
   var _refs$cellArea$curren, _refs$cellArea$curren2, _context$luckysheet_s, _context$luckysheet_s2, _context$luckysheet_s3, _context$luckysheet_s4, _context$luckysheet_s5, _context$luckysheet_s6, _context$presences$le, _context$presences, _context$linkCard, _context$rangeDialog;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings,
+    refs = _useContext.refs;
   var _locale = core.locale(context),
-      info = _locale.info,
-      rightclick = _locale.rightclick;
-
+    info = _locale.info,
+    rightclick = _locale.rightclick;
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog;
-
+    showDialog = _useDialog.showDialog;
   var containerRef = React.useRef(null);
   var bottomAddRowInputRef = React.useRef(null);
   var dataVerificationHintBoxRef = React.useRef(null);
-
   var _useAlert = useAlert(),
-      showAlert = _useAlert.showAlert;
-
+    showAlert = _useAlert.showAlert;
   var cellAreaMouseDown = React.useCallback(function (e) {
     var nativeEvent = e.nativeEvent;
-
     if (e.button !== 2) {
       setContext(function (draftCtx) {
         var _draftCtx$luckysheet_;
-
         core.handleCellAreaMouseDown(draftCtx, refs.globalCache, nativeEvent, refs.cellInput.current, refs.cellArea.current, refs.fxInput.current, refs.canvas.current.getContext("2d"));
-
         if (!___default['default'].isEmpty((_draftCtx$luckysheet_ = draftCtx.luckysheet_select_save) === null || _draftCtx$luckysheet_ === void 0 ? void 0 : _draftCtx$luckysheet_[0]) && refs.cellInput.current) {
           setTimeout(function () {
             var _refs$cellInput$curre;
-
             (_refs$cellInput$curre = refs.cellInput.current) === null || _refs$cellInput$curre === void 0 ? void 0 : _refs$cellInput$curre.focus();
           });
         }
@@ -3381,7 +3167,6 @@ var SheetOverlay = function SheetOverlay() {
   var debouncedShowLinkCard = React.useMemo(function () {
     return ___default['default'].debounce(function (globalCache, r, c, isEditing) {
       var _globalCache$linkCard;
-
       var skip = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
       if (skip || ((_globalCache$linkCard = globalCache.linkCard) === null || _globalCache$linkCard === void 0 ? void 0 : _globalCache$linkCard.mouseEnter)) return;
       setContext(function (draftCtx) {
@@ -3393,7 +3178,6 @@ var SheetOverlay = function SheetOverlay() {
     var rc = core.getCellRowColumn(ctx, e, container, scrollX, scrollY);
     if (rc == null) return;
     var link = core.getCellHyperlink(ctx, rc.r, rc.c);
-
     if (link == null) {
       debouncedShowLinkCard(globalCache, rc.r, rc.c, false);
     } else {
@@ -3418,7 +3202,6 @@ var SheetOverlay = function SheetOverlay() {
   }, [refs.cellInput, refs.fxInput, refs.globalCache, refs.scrollbarX, refs.scrollbarY, setContext, settings, showAlert]);
   var onKeyDownForZoom = React.useCallback(function (ev) {
     var newZoom = core.handleKeydownForZoom(ev, context.zoomRatio);
-
     if (newZoom !== context.zoomRatio) {
       setContext(function (ctx) {
         ctx.zoomRatio = newZoom;
@@ -3444,18 +3227,14 @@ var SheetOverlay = function SheetOverlay() {
   }, [refs.globalCache]);
   var handleBottomAddRow = React.useCallback(function () {
     var _bottomAddRowInputRef;
-
     var valueStr = ((_bottomAddRowInputRef = bottomAddRowInputRef.current) === null || _bottomAddRowInputRef === void 0 ? void 0 : _bottomAddRowInputRef.value) || context.addDefaultRows.toString();
     var value = parseInt(valueStr, 10);
-
     if (Number.isNaN(value)) {
       return;
     }
-
     if (value < 1) {
       return;
     }
-
     var insertRowColOp = {
       type: "row",
       index: context.luckysheetfile[core.getSheetIndex(context, context.currentSheetId)].data.length - 1,
@@ -3487,10 +3266,8 @@ var SheetOverlay = function SheetOverlay() {
   React.useLayoutEffect(function () {
     if (context.commentBoxes || context.hoveredCommentBox || context.editingCommentBox) {
       var _context$commentBoxes;
-
       ___default['default'].concat((_context$commentBoxes = context.commentBoxes) === null || _context$commentBoxes === void 0 ? void 0 : _context$commentBoxes.filter(function (v) {
         var _context$editingComme;
-
         return v.rc !== ((_context$editingComme = context.editingCommentBox) === null || _context$editingComme === void 0 ? void 0 : _context$editingComme.rc);
       }), [context.hoveredCommentBox, context.editingCommentBox]).forEach(function (box) {
         if (box) {
@@ -3575,7 +3352,7 @@ var SheetOverlay = function SheetOverlay() {
     className: "fortune-selection-copy-hc"
   })), context.formulaRangeHighlight.map(function (v) {
     var rangeIndex = v.rangeIndex,
-        backgroundColor = v.backgroundColor;
+      backgroundColor = v.backgroundColor;
     return /*#__PURE__*/React__default['default'].createElement("div", {
       key: rangeIndex,
       id: "fortune-formula-functionrange-highlight",
@@ -3619,11 +3396,8 @@ var SheetOverlay = function SheetOverlay() {
     hidden: !context.luckysheet_cols_freeze_drag && !context.luckysheet_rows_freeze_drag
   }), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "luckysheet-cell-selected-focus",
-    style: ((_context$luckysheet_s = (_context$luckysheet_s2 = context.luckysheet_select_save) === null || _context$luckysheet_s2 === void 0 ? void 0 : _context$luckysheet_s2.length) !== null && _context$luckysheet_s !== void 0 ? _context$luckysheet_s : 0) > 0 ? function () {
-      var _refs$globalCache$fre, _refs$globalCache$fre2;
-
+    style: ((_context$luckysheet_s = (_context$luckysheet_s2 = context.luckysheet_select_save) === null || _context$luckysheet_s2 === void 0 ? void 0 : _context$luckysheet_s2.length) !== null && _context$luckysheet_s !== void 0 ? _context$luckysheet_s : 0) > 0 ? function (_refs$globalCache$fre, _refs$globalCache$fre2) {
       var selection = ___default['default'].last(context.luckysheet_select_save);
-
       return ___default['default'].assign({
         left: selection.left,
         top: selection.top,
@@ -3680,7 +3454,6 @@ var SheetOverlay = function SheetOverlay() {
     id: "luckysheet-cell-selected-boxs"
   }, context.luckysheet_select_save.map(function (selection, index) {
     var _refs$globalCache$fre3, _refs$globalCache$fre4;
-
     return /*#__PURE__*/React__default['default'].createElement("div", {
       key: index,
       id: "luckysheet-cell-selected",
@@ -3745,11 +3518,10 @@ var SheetOverlay = function SheetOverlay() {
     if (presence.sheetId !== context.currentSheetId) {
       return null;
     }
-
     var _presence$selection = presence.selection,
-        r = _presence$selection.r,
-        c = _presence$selection.c,
-        color = presence.color;
+      r = _presence$selection.r,
+      c = _presence$selection.c,
+      color = presence.color;
     var row_pre = r - 1 === -1 ? 0 : context.visibledatarow[r - 1];
     var col_pre = c - 1 === -1 ? 0 : context.visibledatacolumn[c - 1];
     var row = context.visibledatarow[r];
@@ -3760,9 +3532,7 @@ var SheetOverlay = function SheetOverlay() {
       maxWidth: width + 1,
       backgroundColor: color
     };
-
     ___default['default'].set(usernameStyle, r === 0 ? "top" : "bottom", height);
-
     return /*#__PURE__*/React__default['default'].createElement("div", {
       key: (presence === null || presence === void 0 ? void 0 : presence.userId) || index,
       className: "fortune-presence-selection",
@@ -3883,18 +3653,15 @@ var SheetOverlay = function SheetOverlay() {
 
 var Sheet = function Sheet(_ref) {
   var _context$config, _context$config2, _context$config3;
-
   var sheet = _ref.sheet;
   var data = sheet.data;
   var containerRef = React.useRef(null);
   var placeholderRef = React.useRef(null);
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs,
-      settings = _useContext.settings;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs,
+    settings = _useContext.settings;
   React.useEffect(function () {
     function resize() {
       if (!data) return;
@@ -3902,12 +3669,10 @@ var Sheet = function Sheet(_ref) {
         if (settings.devicePixelRatio === 0) {
           draftCtx.devicePixelRatio = (globalThis || window).devicePixelRatio;
         }
-
         core.updateContextWithSheetData(draftCtx, data);
         core.updateContextWithCanvas(draftCtx, refs.canvas.current, placeholderRef.current);
       });
     }
-
     window.addEventListener("resize", resize);
     return function () {
       window.removeEventListener("resize", resize);
@@ -3929,30 +3694,23 @@ var Sheet = function Sheet(_ref) {
   }, [refs.globalCache, sheet.frozen, context.currentSheetId, context.visibledatacolumn, context.visibledatarow]);
   React.useEffect(function () {
     var _refs$globalCache$fre, _freeze$horizontal, _freeze$vertical;
-
     if (context.groupValuesRefreshData.length > 0) {
       return;
     }
-
     var tableCanvas = new core.Canvas(refs.canvas.current, context);
     if (tableCanvas == null) return;
     var freeze = (_refs$globalCache$fre = refs.globalCache.freezen) === null || _refs$globalCache$fre === void 0 ? void 0 : _refs$globalCache$fre[sheet.id];
-
     if ((freeze === null || freeze === void 0 ? void 0 : (_freeze$horizontal = freeze.horizontal) === null || _freeze$horizontal === void 0 ? void 0 : _freeze$horizontal.freezenhorizontaldata) || (freeze === null || freeze === void 0 ? void 0 : (_freeze$vertical = freeze.vertical) === null || _freeze$vertical === void 0 ? void 0 : _freeze$vertical.freezenverticaldata)) {
       var _freeze$horizontal2, _freeze$vertical2;
-
       var horizontalData = freeze === null || freeze === void 0 ? void 0 : (_freeze$horizontal2 = freeze.horizontal) === null || _freeze$horizontal2 === void 0 ? void 0 : _freeze$horizontal2.freezenhorizontaldata;
       var verticallData = freeze === null || freeze === void 0 ? void 0 : (_freeze$vertical2 = freeze.vertical) === null || _freeze$vertical2 === void 0 ? void 0 : _freeze$vertical2.freezenverticaldata;
-
       if (horizontalData && verticallData) {
         var _horizontalData = _slicedToArray(horizontalData, 3),
-            horizontalPx = _horizontalData[0],
-            horizontalScrollTop = _horizontalData[2];
-
+          horizontalPx = _horizontalData[0],
+          horizontalScrollTop = _horizontalData[2];
         var _verticallData = _slicedToArray(verticallData, 3),
-            verticalPx = _verticallData[0],
-            verticalScrollWidth = _verticallData[2];
-
+          verticalPx = _verticallData[0],
+          verticalScrollWidth = _verticallData[2];
         tableCanvas.drawMain({
           scrollWidth: context.scrollLeft + verticalPx - verticalScrollWidth,
           scrollHeight: context.scrollTop + horizontalPx - horizontalScrollTop,
@@ -3988,9 +3746,8 @@ var Sheet = function Sheet(_ref) {
         });
       } else if (horizontalData) {
         var _horizontalData2 = _slicedToArray(horizontalData, 3),
-            _horizontalPx = _horizontalData2[0],
-            _horizontalScrollTop = _horizontalData2[2];
-
+          _horizontalPx = _horizontalData2[0],
+          _horizontalScrollTop = _horizontalData2[2];
         tableCanvas.drawMain({
           scrollWidth: context.scrollLeft,
           scrollHeight: context.scrollTop + _horizontalPx - _horizontalScrollTop,
@@ -4010,9 +3767,8 @@ var Sheet = function Sheet(_ref) {
         });
       } else if (verticallData) {
         var _verticallData2 = _slicedToArray(verticallData, 3),
-            _verticalPx = _verticallData2[0],
-            _verticalScrollWidth = _verticallData2[2];
-
+          _verticalPx = _verticallData2[0],
+          _verticalScrollWidth = _verticallData2[2];
         tableCanvas.drawMain({
           scrollWidth: context.scrollLeft + _verticalPx - _verticalScrollWidth,
           scrollHeight: context.scrollTop,
@@ -4074,11 +3830,11 @@ var Sheet = function Sheet(_ref) {
 
 var Button = function Button(_ref) {
   var tooltip = _ref.tooltip,
-      onClick = _ref.onClick,
-      iconId = _ref.iconId,
-      disabled = _ref.disabled,
-      selected = _ref.selected,
-      children = _ref.children;
+    onClick = _ref.onClick,
+    iconId = _ref.iconId,
+    disabled = _ref.disabled,
+    selected = _ref.selected,
+    children = _ref.children;
   return /*#__PURE__*/React__default['default'].createElement("div", {
     className: "fortune-toolbar-button fortune-toolbar-item",
     onClick: onClick,
@@ -4102,7 +3858,6 @@ var Divider = function Divider() {
     className: "fortune-toolbar-divider fortune-toolbar-item"
   });
 };
-
 var MenuDivider = function MenuDivider() {
   return /*#__PURE__*/React__default['default'].createElement("div", {
     className: "fortune-toolbar-menu-divider"
@@ -4111,26 +3866,23 @@ var MenuDivider = function MenuDivider() {
 
 var Combo = function Combo(_ref) {
   var tooltip = _ref.tooltip,
-      _onClick = _ref.onClick,
-      text = _ref.text,
-      iconId = _ref.iconId,
-      children = _ref.children;
+    _onClick = _ref.onClick,
+    text = _ref.text,
+    iconId = _ref.iconId,
+    children = _ref.children;
   var style = {
     userSelect: "none"
   };
-
   var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    open = _useState2[0],
+    setOpen = _useState2[1];
   var _useState3 = React.useState({
-    left: 0
-  }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      popupPosition = _useState4[0],
-      setPopupPosition = _useState4[1];
-
+      left: 0
+    }),
+    _useState4 = _slicedToArray(_useState3, 2),
+    popupPosition = _useState4[0],
+    setPopupPosition = _useState4[1];
   var popupRef = React.useRef(null);
   var buttonRef = React.useRef(null);
   useOutsideClick(popupRef, function () {
@@ -4140,18 +3892,15 @@ var Combo = function Combo(_ref) {
     if (!popupRef.current) {
       return;
     }
-
     if (!open) {
       setPopupPosition({
         left: 0
       });
     }
-
     var winW = window.innerWidth;
     var rect = popupRef.current.getBoundingClientRect();
     var menuW = rect.width;
     var left = rect.left;
-
     if (left + menuW > winW) {
       setPopupPosition({
         left: -rect.width + buttonRef.current.clientWidth
@@ -4197,19 +3946,18 @@ var Combo = function Combo(_ref) {
 
 var Select = function Select(_ref) {
   var children = _ref.children,
-      style = _ref.style;
+    style = _ref.style;
   return /*#__PURE__*/React__default['default'].createElement("div", {
     className: "fortune-toolbar-select",
     style: style
   }, children);
 };
-
 var Option = function Option(_ref2) {
   var iconId = _ref2.iconId,
-      onClick = _ref2.onClick,
-      children = _ref2.children,
-      _onMouseLeave = _ref2.onMouseLeave,
-      _onMouseEnter = _ref2.onMouseEnter;
+    onClick = _ref2.onClick,
+    children = _ref2.children,
+    _onMouseLeave = _ref2.onMouseLeave,
+    _onMouseEnter = _ref2.onMouseEnter;
   return /*#__PURE__*/React__default['default'].createElement("div", {
     onClick: onClick,
     className: "fortune-toolbar-select-option",
@@ -4228,34 +3976,28 @@ var Option = function Option(_ref2) {
 
 var FormulaSearch$1 = function FormulaSearch(_ref) {
   var _onCancel = _ref.onCancel;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      _useContext$refs = _useContext.refs,
-      cellInput = _useContext$refs.cellInput,
-      globalCache = _useContext$refs.globalCache;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    _useContext$refs = _useContext.refs,
+    cellInput = _useContext$refs.cellInput,
+    globalCache = _useContext$refs.globalCache;
   var _useState = React.useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      selectedType = _useState2[0],
-      setSelectedType = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    selectedType = _useState2[0],
+    setSelectedType = _useState2[1];
   var _useState3 = React.useState(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedFuncIndex = _useState4[0],
-      setSelectedFuncIndex = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedFuncIndex = _useState4[0],
+    setSelectedFuncIndex = _useState4[1];
   var _useState5 = React.useState(""),
-      _useState6 = _slicedToArray(_useState5, 2),
-      searchText = _useState6[0],
-      setSearchText = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    searchText = _useState6[0],
+    setSearchText = _useState6[1];
   var _locale = core.locale(context),
-      formulaMore = _locale.formulaMore,
-      functionlist = _locale.functionlist,
-      button = _locale.button;
-
+    formulaMore = _locale.formulaMore,
+    functionlist = _locale.functionlist,
+    button = _locale.button;
   var typeList = React.useMemo(function () {
     return [{
       t: 0,
@@ -4310,9 +4052,7 @@ var FormulaSearch$1 = function FormulaSearch(_ref) {
   var filteredFunctionList = React.useMemo(function () {
     if (searchText) {
       var list = [];
-
       var text = ___default['default'].cloneDeep(searchText.toUpperCase());
-
       for (var i = 0; i < functionlist.length; i += 1) {
         if (/^[a-zA-Z]+$/.test(text)) {
           if (functionlist[i].n.indexOf(text) !== -1) {
@@ -4322,38 +4062,30 @@ var FormulaSearch$1 = function FormulaSearch(_ref) {
           list.push(functionlist[i]);
         }
       }
-
       return list;
     }
-
     return ___default['default'].filter(functionlist, function (v) {
       return v.t === selectedType;
     });
   }, [functionlist, selectedType, searchText]);
   var onConfirm = React.useCallback(function () {
     var _context$luckysheet_s;
-
     var last = (_context$luckysheet_s = context.luckysheet_select_save) === null || _context$luckysheet_s === void 0 ? void 0 : _context$luckysheet_s[context.luckysheet_select_save.length - 1];
     var row_index = last === null || last === void 0 ? void 0 : last.row_focus;
     var col_index = last === null || last === void 0 ? void 0 : last.column_focus;
-
     if (!last) {
       row_index = 0;
       col_index = 0;
     } else {
       if (row_index == null) {
         var _last$row = _slicedToArray(last.row, 1);
-
         row_index = _last$row[0];
       }
-
       if (col_index == null) {
         var _last$column = _slicedToArray(last.column, 1);
-
         col_index = _last$column[0];
       }
     }
-
     var formulaTxt = "<span dir=\"auto\" class=\"luckysheet-formula-text-color\">=</span><span dir=\"auto\" class=\"luckysheet-formula-text-color\">".concat(filteredFunctionList[selectedFuncIndex].n.toUpperCase(), "</span><span dir=\"auto\" class=\"luckysheet-formula-text-color\">(</span>");
     setContext(function (ctx) {
       if (cellInput.current != null) {
@@ -4361,20 +4093,16 @@ var FormulaSearch$1 = function FormulaSearch(_ref) {
         globalCache.doNotUpdateCell = true;
         cellInput.current.innerHTML = formulaTxt;
         var spans = cellInput.current.childNodes;
-
         if (!___default['default'].isEmpty(spans)) {
           core.setCaretPosition(ctx, spans[spans.length - 1], 0, 1);
         }
-
         ctx.functionHint = filteredFunctionList[selectedFuncIndex].n.toUpperCase();
         ctx.functionCandidates = [];
-
         if (___default['default'].isEmpty(ctx.formulaCache.functionlistMap)) {
           for (var i = 0; i < functionlist.length; i += 1) {
             ctx.formulaCache.functionlistMap[functionlist[i].n] = functionlist[i];
           }
         }
-
         _onCancel();
       }
     });
@@ -4382,12 +4110,10 @@ var FormulaSearch$1 = function FormulaSearch(_ref) {
   var onCancel = React.useCallback(function () {
     setContext(function (ctx) {
       core.cancelNormalSelected(ctx);
-
       if (cellInput.current) {
         cellInput.current.innerHTML = "";
       }
     });
-
     _onCancel();
   }, [_onCancel, cellInput, setContext]);
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -4443,58 +4169,46 @@ var FormulaSearch$1 = function FormulaSearch(_ref) {
 
 var SplitColumn = function SplitColumn() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _locale = core.locale(context),
-      splitText = _locale.splitText,
-      button = _locale.button;
-
+    splitText = _locale.splitText,
+    button = _locale.button;
   var _useState = React.useState(""),
-      _useState2 = _slicedToArray(_useState, 2),
-      splitOperate = _useState2[0],
-      setSplitOperate = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    splitOperate = _useState2[0],
+    setSplitOperate = _useState2[1];
   var _useState3 = React.useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      otherFlag = _useState4[0],
-      setOtherFlag = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    otherFlag = _useState4[0],
+    setOtherFlag = _useState4[1];
   var _useState5 = React.useState([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      tableData = _useState6[0],
-      setTableData = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    tableData = _useState6[0],
+    setTableData = _useState6[1];
   var splitSymbols = React.useRef(null);
-
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog,
-      hideDialog = _useDialog.hideDialog;
-
+    showDialog = _useDialog.showDialog,
+    hideDialog = _useDialog.hideDialog;
   var certainBtn = React.useCallback(function () {
     hideDialog();
     var dataArr = core.getDataArr(splitOperate, context);
     var r = context.luckysheet_select_save[0].row[0];
     var c = context.luckysheet_select_save[0].column[0];
-
     if (dataArr[0].length === 1) {
       return;
     }
-
     var dataCover = false;
     var data = core.getFlowdata(context);
-
     for (var i = 0; i < dataArr.length; i += 1) {
       for (var j = 1; j < dataArr[0].length; j += 1) {
         var cell = data[r + i][c + j];
-
         if (!___default['default'].isNull(cell) && !___default['default'].isNull(cell.v)) {
           dataCover = true;
           break;
         }
       }
     }
-
     if (dataCover) {
       showDialog(splitText.splitConfirmToExe, "yesno", function () {
         hideDialog();
@@ -4534,7 +4248,6 @@ var SplitColumn = function SplitColumn() {
       onClick: function onClick() {
         return setSplitOperate(function (regStr) {
           var _splitSymbols$current;
-
           return core.getRegStr(regStr, (_splitSymbols$current = splitSymbols.current) === null || _splitSymbols$current === void 0 ? void 0 : _splitSymbols$current.childNodes);
         });
       }
@@ -4551,7 +4264,6 @@ var SplitColumn = function SplitColumn() {
       setOtherFlag(!otherFlag);
       setSplitOperate(function (regStr) {
         var _splitSymbols$current2;
-
         return core.getRegStr(regStr, (_splitSymbols$current2 = splitSymbols.current) === null || _splitSymbols$current2 === void 0 ? void 0 : _splitSymbols$current2.childNodes);
       });
     }
@@ -4565,7 +4277,6 @@ var SplitColumn = function SplitColumn() {
       if (otherFlag) {
         setSplitOperate(function (regStr) {
           var _splitSymbols$current3;
-
           return core.getRegStr(regStr, (_splitSymbols$current3 = splitSymbols.current) === null || _splitSymbols$current3 === void 0 ? void 0 : _splitSymbols$current3.childNodes);
         });
       }
@@ -4579,7 +4290,6 @@ var SplitColumn = function SplitColumn() {
     onClick: function onClick() {
       setSplitOperate(function (regStr) {
         var _splitSymbols$current4;
-
         return core.getRegStr(regStr, (_splitSymbols$current4 = splitSymbols.current) === null || _splitSymbols$current4 === void 0 ? void 0 : _splitSymbols$current4.childNodes);
       });
     }
@@ -4599,7 +4309,6 @@ var SplitColumn = function SplitColumn() {
         }, o1);
       }));
     }
-
     return /*#__PURE__*/React__default['default'].createElement("tr", null, /*#__PURE__*/React__default['default'].createElement("td", null));
   })))), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "button-basic button-primary",
@@ -4616,44 +4325,38 @@ var SplitColumn = function SplitColumn() {
 
 var LocationCondition = function LocationCondition() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog,
-      hideDialog = _useDialog.hideDialog;
-
+    showDialog = _useDialog.showDialog,
+    hideDialog = _useDialog.hideDialog;
   var _locale = core.locale(context),
-      findAndReplace = _locale.findAndReplace,
-      button = _locale.button;
-
+    findAndReplace = _locale.findAndReplace,
+    button = _locale.button;
   var _useState = React.useState("locationConstant"),
-      _useState2 = _slicedToArray(_useState, 2),
-      conditionType = _useState2[0],
-      setConditionType = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    conditionType = _useState2[0],
+    setConditionType = _useState2[1];
   var _useState3 = React.useState({
-    locationDate: true,
-    locationDigital: true,
-    locationString: true,
-    locationBool: true,
-    locationError: true
-  }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      constants = _useState4[0],
-      setConstants = _useState4[1];
-
+      locationDate: true,
+      locationDigital: true,
+      locationString: true,
+      locationBool: true,
+      locationError: true
+    }),
+    _useState4 = _slicedToArray(_useState3, 2),
+    constants = _useState4[0],
+    setConstants = _useState4[1];
   var _useState5 = React.useState({
-    locationDate: true,
-    locationDigital: true,
-    locationString: true,
-    locationBool: true,
-    locationError: true
-  }),
-      _useState6 = _slicedToArray(_useState5, 2),
-      formulas = _useState6[0],
-      setFormulas = _useState6[1];
-
+      locationDate: true,
+      locationDigital: true,
+      locationString: true,
+      locationBool: true,
+      locationError: true
+    }),
+    _useState6 = _slicedToArray(_useState5, 2),
+    formulas = _useState6[0],
+    setFormulas = _useState6[1];
   var onConfirm = React.useCallback(function () {
     if (conditionType === "locationConstant") {
       var value = core.getOptionValue(constants);
@@ -4664,46 +4367,36 @@ var LocationCondition = function LocationCondition() {
       });
     } else if (conditionType === "locationFormula") {
       var _value = core.getOptionValue(formulas);
-
       var _selectRange = core.getSelectRange(context);
-
       setContext(function (ctx) {
         var rangeArr = core.applyLocation(_selectRange, conditionType, _value, ctx);
         if (rangeArr.length === 0) showDialog(findAndReplace.locationTipNotFindCell, "ok");
       });
     } else if (conditionType === "locationRowSpan") {
       var _context$luckysheet_s, _context$luckysheet_s2;
-
       if (((_context$luckysheet_s = context.luckysheet_select_save) === null || _context$luckysheet_s === void 0 ? void 0 : _context$luckysheet_s.length) === 0 || ((_context$luckysheet_s2 = context.luckysheet_select_save) === null || _context$luckysheet_s2 === void 0 ? void 0 : _context$luckysheet_s2.length) === 1 && context.luckysheet_select_save[0].row[0] === context.luckysheet_select_save[0].row[1]) {
         showDialog(findAndReplace.locationTiplessTwoRow, "ok");
         return;
       }
-
       var _selectRange2 = ___default['default'].assignIn([], context.luckysheet_select_save);
-
       setContext(function (ctx) {
         var rangeArr = core.applyLocation(_selectRange2, conditionType, undefined, ctx);
         if (rangeArr.length === 0) showDialog(findAndReplace.locationTipNotFindCell, "ok");
       });
     } else if (conditionType === "locationColumnSpan") {
       var _context$luckysheet_s3, _context$luckysheet_s4;
-
       if (((_context$luckysheet_s3 = context.luckysheet_select_save) === null || _context$luckysheet_s3 === void 0 ? void 0 : _context$luckysheet_s3.length) === 0 || ((_context$luckysheet_s4 = context.luckysheet_select_save) === null || _context$luckysheet_s4 === void 0 ? void 0 : _context$luckysheet_s4.length) === 1 && context.luckysheet_select_save[0].column[0] === context.luckysheet_select_save[0].column[1]) {
         showDialog(findAndReplace.locationTiplessTwoColumn, "ok");
         return;
       }
-
       var _selectRange3 = ___default['default'].assignIn([], context.luckysheet_select_save);
-
       setContext(function (ctx) {
         var rangeArr = core.applyLocation(_selectRange3, conditionType, undefined, ctx);
         if (rangeArr.length === 0) showDialog(findAndReplace.locationTipNotFindCell, "ok");
       });
     } else {
       var _context$luckysheet_s5, _context$luckysheet_s6;
-
       var _selectRange4;
-
       if (((_context$luckysheet_s5 = context.luckysheet_select_save) === null || _context$luckysheet_s5 === void 0 ? void 0 : _context$luckysheet_s5.length) === 0 || ((_context$luckysheet_s6 = context.luckysheet_select_save) === null || _context$luckysheet_s6 === void 0 ? void 0 : _context$luckysheet_s6.length) === 1 && context.luckysheet_select_save[0].row[0] === context.luckysheet_select_save[0].row[1] && context.luckysheet_select_save[0].column[0] === context.luckysheet_select_save[0].column[1]) {
         var flowdata = core.getFlowdata(context, context.currentSheetId);
         _selectRange4 = [{
@@ -4713,7 +4406,6 @@ var LocationCondition = function LocationCondition() {
       } else {
         _selectRange4 = ___default['default'].assignIn([], context.luckysheet_select_save);
       }
-
       setContext(function (ctx) {
         var rangeArr = core.applyLocation(_selectRange4, conditionType, undefined, ctx);
         if (rangeArr.length === 0) showDialog(findAndReplace.locationTipNotFindCell, "ok");
@@ -4825,19 +4517,15 @@ var LocationCondition = function LocationCondition() {
 
 var ConditionalFormat = function ConditionalFormat(_ref) {
   var items = _ref.items,
-      setOpen = _ref.setOpen;
-
+    setOpen = _ref.setOpen;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog;
-
+    showDialog = _useDialog.showDialog;
   var _locale = core.locale(context),
-      conditionformat = _locale.conditionformat;
-
+    conditionformat = _locale.conditionformat;
   var showSubMenu = React.useCallback(function (e) {
     var target = e.target;
     var menuItem = target.className === "fortune-toolbar-menu-line" ? target.parentElement : target;
@@ -4847,7 +4535,6 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
     if (___default['default'].isNil(subMenu)) return;
     var menuItemStyle = window.getComputedStyle(menuItem);
     var menuItemPaddingRight = parseFloat(menuItemStyle.getPropertyValue("padding-right").replace("px", ""));
-
     if (workbookContainerRect.right - menuItemRect.right < parseFloat(subMenu.style.width.replace("px", ""))) {
       subMenu.style.display = "block";
       subMenu.style.right = "".concat(menuItemRect.width - menuItemPaddingRight, "px");
@@ -4858,12 +4545,10 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
   }, [refs.workbookContainer]);
   var hideSubMenu = React.useCallback(function (e) {
     var target = e.target;
-
     if (target.className === "condition-format-sub-menu") {
       target.style.display = "none";
       return;
     }
-
     var subMenu = target.className === "condition-format-item" ? target.parentElement : target.querySelector(".condition-format-sub-menu");
     if (___default['default'].isNil(subMenu)) return;
     subMenu.style.display = "none";
@@ -4874,7 +4559,6 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
         key: name
       });
     }
-
     if (name === "highlightCellRules") {
       return /*#__PURE__*/React__default['default'].createElement(Option, {
         key: name,
@@ -4926,7 +4610,6 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
         }, conditionformat[v.text], /*#__PURE__*/React__default['default'].createElement("span", null, v.value));
       }))));
     }
-
     if (name === "itemSelectionRules") {
       return /*#__PURE__*/React__default['default'].createElement(Option, {
         key: name,
@@ -4974,7 +4657,6 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
         }, conditionformat[v.text], /*#__PURE__*/React__default['default'].createElement("span", null, v.value));
       }))));
     }
-
     if (name === "dataBar") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: "fortune-toolbar-menu-line",
@@ -4984,7 +4666,6 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
         width: 18
       }));
     }
-
     if (name === "colorGradation") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: "fortune-toolbar-menu-line",
@@ -4994,21 +4675,18 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
         width: 18
       }));
     }
-
     if (name === "icons") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: "fortune-toolbar-menu-line",
         key: "div".concat(name)
       }, conditionformat[name]);
     }
-
     if (name === "newFormatRule") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: "fortune-toolbar-menu-line",
         key: "div".concat(name)
       }, conditionformat[name]);
     }
-
     if (name === "deleteRule") {
       return /*#__PURE__*/React__default['default'].createElement(Option, {
         key: name,
@@ -5040,14 +4718,12 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
         }, conditionformat[v]);
       }))));
     }
-
     if (name === "manageRules") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: "fortune-toolbar-menu-line",
         key: "div".concat(name)
       }, conditionformat[name]);
     }
-
     return /*#__PURE__*/React__default['default'].createElement("div", null);
   }, [conditionformat, hideSubMenu, setContext, setOpen, showDialog, showSubMenu]);
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -5065,11 +4741,11 @@ var ConditionalFormat = function ConditionalFormat(_ref) {
 
 var CustomIcon = function CustomIcon(_ref) {
   var iconName = _ref.iconName,
-      _ref$width = _ref.width,
-      width = _ref$width === void 0 ? 24 : _ref$width,
-      _ref$height = _ref.height,
-      height = _ref$height === void 0 ? 24 : _ref$height,
-      content = _ref.content;
+    _ref$width = _ref.width,
+    width = _ref$width === void 0 ? 24 : _ref$width,
+    _ref$height = _ref.height,
+    height = _ref$height === void 0 ? 24 : _ref$height,
+    content = _ref.content;
   var innrContent = React.useMemo(function () {
     if (iconName) {
       return /*#__PURE__*/React__default['default'].createElement("svg", {
@@ -5079,11 +4755,9 @@ var CustomIcon = function CustomIcon(_ref) {
         xlinkHref: "#".concat(iconName)
       }));
     }
-
     if (content) {
       return content;
     }
-
     return /*#__PURE__*/React__default['default'].createElement("svg", {
       width: width,
       height: width
@@ -5104,11 +4778,11 @@ var CustomIcon = function CustomIcon(_ref) {
 
 var CustomButton = function CustomButton(_ref) {
   var tooltip = _ref.tooltip,
-      onClick = _ref.onClick,
-      selected = _ref.selected,
-      children = _ref.children,
-      iconName = _ref.iconName,
-      icon = _ref.icon;
+    onClick = _ref.onClick,
+    selected = _ref.selected,
+    children = _ref.children,
+    iconName = _ref.iconName,
+    icon = _ref.icon;
   return /*#__PURE__*/React__default['default'].createElement("div", {
     className: "fortune-toolbar-button fortune-toolbar-item",
     onClick: onClick,
@@ -5126,7 +4800,6 @@ var CustomButton = function CustomButton(_ref) {
 };
 
 var palette = [["#000000", "#444444", "#666666", "#999999", "#cccccc", "#eeeeee", "#f3f3f3", "#ffffff"], ["#f00f00", "#f90f90", "#ff0ff0", "#0f00f0", "#0ff0ff", "#00f00f", "#90f90f", "#f0ff0f"], ["#f4cccc", "#fce5cd", "#fff2cc", "#d9ead3", "#d0e0e3", "#cfe2f3", "#d9d2e9", "#ead1dc"], ["#ea9999", "#f9cb9c", "#ffe599", "#b6d7a8", "#a2c4c9", "#9fc5e8", "#b4a7d6", "#d5a6bd"], ["#e06666", "#f6b26b", "#ffd966", "#93c47d", "#76a5af", "#6fa8dc", "#8e7cc3", "#c27ba0"], ["#c00c00", "#e69138", "#f1c232", "#6aa84f", "#45818e", "#3d85c6", "#674ea7", "#a64d79"], ["#900900", "#b45f06", "#bf9000", "#38761d", "#134f5c", "#0b5394", "#351c75", "#741b47"], ["#600600", "#783f04", "#7f6000", "#274e13", "#0c343d", "#073763", "#20124d", "#4c1130"]];
-
 var ColorPicker = function ColorPicker(_ref) {
   var onPick = _ref.onPick;
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -5152,21 +4825,17 @@ var ColorPicker = function ColorPicker(_ref) {
 
 var CustomColor = function CustomColor(_ref) {
   var onCustomPick = _ref.onCustomPick,
-      onColorPick = _ref.onColorPick;
-
+    onColorPick = _ref.onColorPick;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context;
-
+    context = _useContext.context;
   var _locale = core.locale(context),
-      toolbar = _locale.toolbar,
-      sheetconfig = _locale.sheetconfig,
-      button = _locale.button;
-
+    toolbar = _locale.toolbar,
+    sheetconfig = _locale.sheetconfig,
+    button = _locale.button;
   var _useState = React.useState("#000000"),
-      _useState2 = _slicedToArray(_useState, 2),
-      inputColor = _useState2[0],
-      setInputColor = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    inputColor = _useState2[0],
+    setInputColor = _useState2[1];
   return /*#__PURE__*/React__default['default'].createElement("div", {
     id: "fortune-custom-color"
   }, /*#__PURE__*/React__default['default'].createElement("div", {
@@ -5250,41 +4919,32 @@ var size = [{
   strokeDasharray: "2,0",
   strokeWidth: "3"
 }];
-
 var CustomBorder = function CustomBorder(_ref) {
   var onPick = _ref.onPick;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    refs = _useContext.refs;
   var _locale = core.locale(context),
-      border = _locale.border;
-
+    border = _locale.border;
   var _useState = React.useState("#000000"),
-      _useState2 = _slicedToArray(_useState, 2),
-      changeColor = _useState2[0],
-      setchangeColor = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    changeColor = _useState2[0],
+    setchangeColor = _useState2[1];
   var _useState3 = React.useState("1"),
-      _useState4 = _slicedToArray(_useState3, 2),
-      changeStyle = _useState4[0],
-      setchangeStyle = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    changeStyle = _useState4[0],
+    setchangeStyle = _useState4[1];
   var colorRef = React.useRef(null);
   var styleRef = React.useRef(null);
   var colorPreviewRef = React.useRef(null);
-
   var _useState5 = React.useState(""),
-      _useState6 = _slicedToArray(_useState5, 2),
-      previewWith = _useState6[0],
-      setPreviewWith = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    previewWith = _useState6[0],
+    setPreviewWith = _useState6[1];
   var _useState7 = React.useState(""),
-      _useState8 = _slicedToArray(_useState7, 2),
-      previewdasharry = _useState8[0],
-      setPreviewdasharray = _useState8[1];
-
+    _useState8 = _slicedToArray(_useState7, 2),
+    previewdasharry = _useState8[0],
+    setPreviewdasharray = _useState8[1];
   var showBorderSubMenu = React.useCallback(function (e) {
     var target = e.target;
     var menuItemRect = target.getBoundingClientRect();
@@ -5292,7 +4952,6 @@ var CustomBorder = function CustomBorder(_ref) {
     if (___default['default'].isNil(subMenuItem)) return;
     subMenuItem.style.display = "block";
     var workbookContainerRect = refs.workbookContainer.current.getBoundingClientRect();
-
     if (workbookContainerRect.width - menuItemRect.right > parseFloat(subMenuItem.style.width.replace("px", ""))) {
       subMenuItem.style.left = "".concat(menuItemRect === null || menuItemRect === void 0 ? void 0 : menuItemRect.width, "px");
     } else {
@@ -5413,32 +5072,26 @@ var CustomBorder = function CustomBorder(_ref) {
 
 var FormatSearch = function FormatSearch(_ref) {
   var type = _ref.type,
-      _onCancel = _ref.onCancel;
-
+    _onCancel = _ref.onCancel;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      cellInput = _useContext.refs.cellInput;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    cellInput = _useContext.refs.cellInput;
   var _useState = React.useState(2),
-      _useState2 = _slicedToArray(_useState, 2),
-      decimalPlace = _useState2[0],
-      setDecimalPlace = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    decimalPlace = _useState2[0],
+    setDecimalPlace = _useState2[1];
   var _useState3 = React.useState(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedFormatIndex = _useState4[0],
-      setSelectedFormatIndex = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedFormatIndex = _useState4[0],
+    setSelectedFormatIndex = _useState4[1];
   var _locale = core.locale(context),
-      button = _locale.button,
-      format = _locale.format,
-      currencyDetail = _locale.currencyDetail,
-      dateFmtList = _locale.dateFmtList;
-
+    button = _locale.button,
+    format = _locale.format,
+    currencyDetail = _locale.currencyDetail,
+    dateFmtList = _locale.dateFmtList;
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog;
-
+    showDialog = _useDialog.showDialog;
   var toolbarFormatAll = React.useMemo(function () {
     return {
       currency: currencyDetail,
@@ -5449,27 +5102,21 @@ var FormatSearch = function FormatSearch(_ref) {
   var toolbarFormat = React.useMemo(function () {
     return toolbarFormatAll[type];
   }, [toolbarFormatAll, type]);
-
   var tips = ___default['default'].get(format, type);
-
   var onConfirm = React.useCallback(function () {
     if (decimalPlace < 0 || decimalPlace > 9) {
       _onCancel();
-
       showDialog(format.tipDecimalPlaces, "ok");
       return;
     }
-
     setContext(function (ctx) {
       var index = core.getSheetIndex(ctx, ctx.currentSheetId);
       if (___default['default'].isNil(index)) return;
       var selectedFormat = toolbarFormat[selectedFormatIndex].value;
-
       ___default['default'].forEach(ctx.luckysheet_select_save, function (selection) {
         for (var r = selection.row[0]; r <= selection.row[1]; r += 1) {
           for (var c = selection.column[0]; c <= selection.column[1]; c += 1) {
             var _ctx$luckysheetfile$i, _ctx$luckysheetfile$i2, _ctx$luckysheetfile$i3, _ctx$luckysheetfile$i4;
-
             if (((_ctx$luckysheetfile$i = ctx.luckysheetfile[index].data) === null || _ctx$luckysheetfile$i === void 0 ? void 0 : _ctx$luckysheetfile$i[r][c]) && ((_ctx$luckysheetfile$i2 = ctx.luckysheetfile[index].data) === null || _ctx$luckysheetfile$i2 === void 0 ? void 0 : (_ctx$luckysheetfile$i3 = _ctx$luckysheetfile$i2[r][c]) === null || _ctx$luckysheetfile$i3 === void 0 ? void 0 : (_ctx$luckysheetfile$i4 = _ctx$luckysheetfile$i3.ct) === null || _ctx$luckysheetfile$i4 === void 0 ? void 0 : _ctx$luckysheetfile$i4.t) === "n") {
               var zero = 0;
               ctx.luckysheetfile[index].data[r][c].ct.fa = "".concat(selectedFormat).concat(zero.toFixed(decimalPlace));
@@ -5478,19 +5125,16 @@ var FormatSearch = function FormatSearch(_ref) {
           }
         }
       });
-
       _onCancel();
     });
   }, [_onCancel, decimalPlace, format.tipDecimalPlaces, selectedFormatIndex, setContext, showDialog, toolbarFormat]);
   var onCancel = React.useCallback(function () {
     setContext(function (ctx) {
       core.cancelNormalSelected(ctx);
-
       if (cellInput.current) {
         cellInput.current.innerHTML = "";
       }
     });
-
     _onCancel();
   }, [_onCancel, cellInput, setContext]);
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -5549,73 +5193,61 @@ var FormatSearch = function FormatSearch(_ref) {
 
 var Toolbar = function Toolbar(_ref) {
   var _context$luckysheet_s, _flowdata$row, _settings$customToolb;
-
   var setMoreItems = _ref.setMoreItems,
-      moreItemsOpen = _ref.moreItemsOpen;
-
+    moreItemsOpen = _ref.moreItemsOpen;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs,
-      settings = _useContext.settings,
-      handleUndo = _useContext.handleUndo,
-      handleRedo = _useContext.handleRedo;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs,
+    settings = _useContext.settings,
+    handleUndo = _useContext.handleUndo,
+    handleRedo = _useContext.handleRedo;
   var contextRef = React.useRef(context);
   var containerRef = React.useRef(null);
-
   var _useState = React.useState(-1),
-      _useState2 = _slicedToArray(_useState, 2),
-      toolbarWrapIndex = _useState2[0],
-      setToolbarWrapIndex = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    toolbarWrapIndex = _useState2[0],
+    setToolbarWrapIndex = _useState2[1];
   var _useState3 = React.useState([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      itemLocations = _useState4[0],
-      setItemLocations = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    itemLocations = _useState4[0],
+    setItemLocations = _useState4[1];
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog,
-      hideDialog = _useDialog.hideDialog;
-
+    showDialog = _useDialog.showDialog,
+    hideDialog = _useDialog.hideDialog;
   var firstSelection = (_context$luckysheet_s = context.luckysheet_select_save) === null || _context$luckysheet_s === void 0 ? void 0 : _context$luckysheet_s[0];
   var flowdata = core.getFlowdata(context);
   contextRef.current = context;
   var row = firstSelection === null || firstSelection === void 0 ? void 0 : firstSelection.row_focus;
   var col = firstSelection === null || firstSelection === void 0 ? void 0 : firstSelection.column_focus;
   var cell = flowdata && row != null && col != null ? flowdata === null || flowdata === void 0 ? void 0 : (_flowdata$row = flowdata[row]) === null || _flowdata$row === void 0 ? void 0 : _flowdata$row[col] : undefined;
-
   var _locale = core.locale(context),
-      toolbar = _locale.toolbar,
-      merge = _locale.merge,
-      border = _locale.border,
-      freezen = _locale.freezen,
-      defaultFmt = _locale.defaultFmt,
-      formula = _locale.formula,
-      sort = _locale.sort,
-      align = _locale.align,
-      textWrap = _locale.textWrap,
-      rotation = _locale.rotation,
-      screenshot = _locale.screenshot,
-      filter = _locale.filter,
-      splitText = _locale.splitText,
-      findAndReplace = _locale.findAndReplace,
-      comment = _locale.comment,
-      fontarray = _locale.fontarray;
-
+    toolbar = _locale.toolbar,
+    merge = _locale.merge,
+    border = _locale.border,
+    freezen = _locale.freezen,
+    defaultFmt = _locale.defaultFmt,
+    formula = _locale.formula,
+    sort = _locale.sort,
+    align = _locale.align,
+    textWrap = _locale.textWrap,
+    rotation = _locale.rotation,
+    screenshot = _locale.screenshot,
+    filter = _locale.filter,
+    splitText = _locale.splitText,
+    findAndReplace = _locale.findAndReplace,
+    comment = _locale.comment,
+    fontarray = _locale.fontarray;
   var toolbarFormat = core.locale(context).format;
   var sheetWidth = context.luckysheetTableContentHW[0];
-
   var _useState5 = React.useState("#000000"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      customColor = _useState6[0],
-      setcustomColor = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    customColor = _useState6[0],
+    setcustomColor = _useState6[1];
   var _useState7 = React.useState("1"),
-      _useState8 = _slicedToArray(_useState7, 2),
-      customStyle = _useState8[0],
-      setcustomStyle = _useState8[1];
-
+    _useState8 = _slicedToArray(_useState7, 2),
+    customStyle = _useState8[0],
+    setcustomStyle = _useState8[1];
   var showSubMenu = React.useCallback(function (e, className) {
     var target = e.target;
     var menuItem = target.className === "fortune-toolbar-menu-line" ? target.parentElement : target;
@@ -5625,7 +5257,6 @@ var Toolbar = function Toolbar(_ref) {
     if (___default['default'].isNil(subMenu)) return;
     var menuItemStyle = window.getComputedStyle(menuItem);
     var menuItemPaddingRight = parseFloat(menuItemStyle.getPropertyValue("padding-right").replace("px", ""));
-
     if (workbookContainerRect.right - menuItemRect.right < parseFloat(subMenu.style.width.replace("px", ""))) {
       subMenu.style.display = "block";
       subMenu.style.right = "".concat(menuItemRect.width - menuItemPaddingRight, "px");
@@ -5636,12 +5267,10 @@ var Toolbar = function Toolbar(_ref) {
   }, [refs.workbookContainer]);
   var hideSubMenu = React.useCallback(function (e, className) {
     var target = e.target;
-
     if (target.className === "".concat(className)) {
       target.style.display = "none";
       return;
     }
-
     var subMenu = target.className === "condition-format-item" ? target.parentElement : target.querySelector(".".concat(className));
     if (___default['default'].isNil(subMenu)) return;
     subMenu.style.display = "none";
@@ -5657,13 +5286,11 @@ var Toolbar = function Toolbar(_ref) {
       if (!items) return;
       var locations = [];
       var containerRect = container.getBoundingClientRect();
-
       for (var i = 0; i < items.length; i += 1) {
         var item = items[i];
         var itemRect = item.getBoundingClientRect();
         locations.push(itemRect.left - containerRect.left + itemRect.width);
       }
-
       setItemLocations(locations);
     }
   }, [toolbarWrapIndex, sheetWidth]);
@@ -5672,45 +5299,36 @@ var Toolbar = function Toolbar(_ref) {
     var container = containerRef.current;
     if (!container) return;
     var moreButtonWidth = 50;
-
     for (var i = itemLocations.length - 1; i >= 0; i -= 1) {
       var loc = itemLocations[i];
-
       if (loc + moreButtonWidth < container.clientWidth) {
         setToolbarWrapIndex(i - itemLocations.length + settings.toolbarItems.length);
-
         if (i === itemLocations.length - 1) {
           setMoreItems(null);
         }
-
         break;
       }
     }
   }, [itemLocations, setMoreItems, settings.toolbarItems.length, sheetWidth]);
   var getToolbarItem = React.useCallback(function (name, i) {
     var _toolbarItemSelectedF;
-
     var tooltip = toolbar[name];
-
     if (name === "|") {
       return /*#__PURE__*/React__default['default'].createElement(Divider, {
         key: i
       });
     }
-
     if (["font-color", "background"].includes(name)) {
       var pick = function pick(color) {
         setContext(function (draftCtx) {
           return (name === "font-color" ? core.handleTextColor : core.handleTextBackground)(draftCtx, refs.cellInput.current, color);
         });
-
         if (name === "font-color") {
           refs.globalCache.recentTextColor = color;
         } else {
           refs.globalCache.recentBackgroundColor = color;
         }
       };
-
       return /*#__PURE__*/React__default['default'].createElement("div", {
         style: {
           position: "relative"
@@ -5743,17 +5361,13 @@ var Toolbar = function Toolbar(_ref) {
         });
       }));
     }
-
     if (name === "format") {
       var currentFmt = defaultFmt[0].text;
-
       if (cell) {
         var curr = core.normalizedCellAttr(cell, "ct");
-
         var format = ___default['default'].find(defaultFmt, function (v) {
           return v.value === (curr === null || curr === void 0 ? void 0 : curr.fa);
         });
-
         if ((curr === null || curr === void 0 ? void 0 : curr.fa) != null) {
           if (format != null) {
             currentFmt = format.text;
@@ -5762,7 +5376,6 @@ var Toolbar = function Toolbar(_ref) {
           }
         }
       }
-
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
         text: currentFmt,
         key: name,
@@ -5770,15 +5383,13 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, defaultFmt.map(function (_ref2, ii) {
           var text = _ref2.text,
-              value = _ref2.value,
-              example = _ref2.example;
-
+            value = _ref2.value,
+            example = _ref2.example;
           if (value === "split") {
             return /*#__PURE__*/React__default['default'].createElement(MenuDivider, {
               key: ii
             });
           }
-
           if (value === "fmtOtherSelf") {
             return /*#__PURE__*/React__default['default'].createElement(Option, {
               key: value,
@@ -5821,7 +5432,6 @@ var Toolbar = function Toolbar(_ref) {
               }, v.text);
             })));
           }
-
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -5840,10 +5450,8 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "font") {
       var current = fontarray[0];
-
       if ((cell === null || cell === void 0 ? void 0 : cell.ff) != null) {
         if (___default['default'].isNumber(cell.ff)) {
           current = fontarray[cell.ff];
@@ -5851,7 +5459,6 @@ var Toolbar = function Toolbar(_ref) {
           current = cell.ff;
         }
       }
-
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
         text: current,
         key: name,
@@ -5873,7 +5480,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "font-size") {
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
         text: cell ? core.normalizedCellAttr(cell, "fs", context.defaultFontSize) : context.defaultFontSize.toString(),
@@ -5893,10 +5499,8 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "horizontal-align") {
       var _$find;
-
       var items = [{
         title: "align-left",
         text: align.left,
@@ -5919,7 +5523,7 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, items.map(function (_ref3) {
           var text = _ref3.text,
-              title = _ref3.title;
+            title = _ref3.title;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: title,
             onClick: function onClick() {
@@ -5936,10 +5540,8 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "vertical-align") {
       var _$find2;
-
       var _items = [{
         title: "align-top",
         text: align.top,
@@ -5962,7 +5564,7 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items.map(function (_ref4) {
           var text = _ref4.text,
-              title = _ref4.title;
+            title = _ref4.title;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: title,
             onClick: function onClick() {
@@ -5979,7 +5581,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "undo") {
       return /*#__PURE__*/React__default['default'].createElement(Button, {
         iconId: name,
@@ -5991,7 +5592,6 @@ var Toolbar = function Toolbar(_ref) {
         }
       });
     }
-
     if (name === "redo") {
       return /*#__PURE__*/React__default['default'].createElement(Button, {
         iconId: name,
@@ -6003,7 +5603,6 @@ var Toolbar = function Toolbar(_ref) {
         }
       });
     }
-
     if (name === "screenshot") {
       return /*#__PURE__*/React__default['default'].createElement(Button, {
         iconId: name,
@@ -6011,7 +5610,6 @@ var Toolbar = function Toolbar(_ref) {
         key: name,
         onClick: function onClick() {
           var imgsrc = core.handleScreenShot(contextRef.current);
-
           if (imgsrc) {
             showDialog( /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement("div", null, screenshot.screenshotTipSuccess), /*#__PURE__*/React__default['default'].createElement("img", {
               src: imgsrc,
@@ -6025,7 +5623,6 @@ var Toolbar = function Toolbar(_ref) {
         }
       });
     }
-
     if (name === "splitColumn") {
       return /*#__PURE__*/React__default['default'].createElement(Button, {
         iconId: name,
@@ -6033,12 +5630,10 @@ var Toolbar = function Toolbar(_ref) {
         key: name,
         onClick: function onClick() {
           if (context.allowEdit === false) return;
-
           if (___default['default'].isUndefined(context.luckysheet_select_save)) {
             showDialog(splitText.tipNoSelect, "ok");
           } else {
             var currentColumn = context.luckysheet_select_save[context.luckysheet_select_save.length - 1].column;
-
             if (context.luckysheet_select_save.length > 1) {
               showDialog(splitText.tipNoMulti, "ok");
             } else if (currentColumn[0] !== currentColumn[1]) {
@@ -6050,7 +5645,6 @@ var Toolbar = function Toolbar(_ref) {
         }
       });
     }
-
     if (name === "dataVerification") {
       return /*#__PURE__*/React__default['default'].createElement(Button, {
         iconId: name,
@@ -6062,7 +5656,6 @@ var Toolbar = function Toolbar(_ref) {
         }
       });
     }
-
     if (name === "locationCondition") {
       var _items2 = [{
         text: findAndReplace.location,
@@ -6096,21 +5689,18 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items2.map(function (_ref5) {
           var text = _ref5.text,
-              value = _ref5.value;
+            value = _ref5.value;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
               var _context$luckysheet_s2, _context$luckysheet_s3;
-
               if (context.luckysheet_select_save == null) {
                 showDialog(freezen.noSeletionError, "ok");
                 return;
               }
-
               var last = context.luckysheet_select_save[0];
               var range;
               var rangeArr = [];
-
               if (((_context$luckysheet_s2 = context.luckysheet_select_save) === null || _context$luckysheet_s2 === void 0 ? void 0 : _context$luckysheet_s2.length) === 0 || ((_context$luckysheet_s3 = context.luckysheet_select_save) === null || _context$luckysheet_s3 === void 0 ? void 0 : _context$luckysheet_s3.length) === 1 && last.row[0] === last.row[1] && last.column[0] === last.column[1]) {
                 range = [{
                   row: [0, flowdata.length - 1],
@@ -6119,7 +5709,6 @@ var Toolbar = function Toolbar(_ref) {
               } else {
                 range = ___default['default'].assignIn([], context.luckysheet_select_save);
               }
-
               if (value === "location") {
                 showDialog( /*#__PURE__*/React__default['default'].createElement(LocationCondition, null));
               } else if (value === "locationFormula") {
@@ -6148,30 +5737,25 @@ var Toolbar = function Toolbar(_ref) {
                 });
               } else if (value === "locationRowSpan") {
                 var _context$luckysheet_s4, _context$luckysheet_s5;
-
                 if (((_context$luckysheet_s4 = context.luckysheet_select_save) === null || _context$luckysheet_s4 === void 0 ? void 0 : _context$luckysheet_s4.length) === 0 || ((_context$luckysheet_s5 = context.luckysheet_select_save) === null || _context$luckysheet_s5 === void 0 ? void 0 : _context$luckysheet_s5.length) === 1 && context.luckysheet_select_save[0].row[0] === context.luckysheet_select_save[0].row[1]) {
                   showDialog(findAndReplace.locationTiplessTwoRow, "ok");
                   return;
                 }
-
                 range = ___default['default'].assignIn([], context.luckysheet_select_save);
                 setContext(function (ctx) {
                   rangeArr = core.applyLocation(range, "locationRowSpan", undefined, ctx);
                 });
               } else if (value === "locationColumnSpan") {
                 var _context$luckysheet_s6, _context$luckysheet_s7;
-
                 if (((_context$luckysheet_s6 = context.luckysheet_select_save) === null || _context$luckysheet_s6 === void 0 ? void 0 : _context$luckysheet_s6.length) === 0 || ((_context$luckysheet_s7 = context.luckysheet_select_save) === null || _context$luckysheet_s7 === void 0 ? void 0 : _context$luckysheet_s7.length) === 1 && context.luckysheet_select_save[0].column[0] === context.luckysheet_select_save[0].column[1]) {
                   showDialog(findAndReplace.locationTiplessTwoColumn, "ok");
                   return;
                 }
-
                 range = ___default['default'].assignIn([], context.luckysheet_select_save);
                 setContext(function (ctx) {
                   rangeArr = core.applyLocation(range, "locationColumnSpan", undefined, ctx);
                 });
               }
-
               if (rangeArr.length === 0 && value !== "location") showDialog(findAndReplace.locationTipNotFindCell, "ok");
               setOpen(false);
             }
@@ -6181,7 +5765,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "conditionFormat") {
       var _items3 = ["highlightCellRules", "itemSelectionRules", "-", "deleteRule"];
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
@@ -6195,7 +5778,6 @@ var Toolbar = function Toolbar(_ref) {
         });
       });
     }
-
     if (name === "image") {
       return /*#__PURE__*/React__default['default'].createElement(Button, {
         iconId: name,
@@ -6214,59 +5796,45 @@ var Toolbar = function Toolbar(_ref) {
         },
         onChange: function onChange(e) {
           var _e$currentTarget$file;
-
           var file = (_e$currentTarget$file = e.currentTarget.files) === null || _e$currentTarget$file === void 0 ? void 0 : _e$currentTarget$file[0];
           if (!file) return;
           var render = new FileReader();
           render.readAsDataURL(file);
-
           render.onload = function (event) {
             var _event$target;
-
             if (event.target == null) return;
             var src = (_event$target = event.target) === null || _event$target === void 0 ? void 0 : _event$target.result;
             var image = new Image();
-
             image.onload = function () {
               setContext(function (draftCtx) {
                 core.insertImage(draftCtx, image);
               });
             };
-
             image.src = src;
           };
-
           e.currentTarget.value = "";
         }
       }));
     }
-
     if (name === "comment") {
       var _context$luckysheet_s8, _flowdata$row_index, _flowdata$row_index$c;
-
       var last = (_context$luckysheet_s8 = context.luckysheet_select_save) === null || _context$luckysheet_s8 === void 0 ? void 0 : _context$luckysheet_s8[context.luckysheet_select_save.length - 1];
       var row_index = last === null || last === void 0 ? void 0 : last.row_focus;
       var col_index = last === null || last === void 0 ? void 0 : last.column_focus;
-
       if (!last) {
         row_index = 0;
         col_index = 0;
       } else {
         if (row_index == null) {
           var _last$row = _slicedToArray(last.row, 1);
-
           row_index = _last$row[0];
         }
-
         if (col_index == null) {
           var _last$column = _slicedToArray(last.column, 1);
-
           col_index = _last$column[0];
         }
       }
-
       var itemData;
-
       if ((flowdata === null || flowdata === void 0 ? void 0 : (_flowdata$row_index = flowdata[row_index]) === null || _flowdata$row_index === void 0 ? void 0 : (_flowdata$row_index$c = _flowdata$row_index[col_index]) === null || _flowdata$row_index$c === void 0 ? void 0 : _flowdata$row_index$c.ps) != null) {
         itemData = [{
           key: "edit",
@@ -6296,7 +5864,6 @@ var Toolbar = function Toolbar(_ref) {
           onClick: core.showHideAllComments
         }];
       }
-
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
         iconId: name,
         key: name,
@@ -6304,8 +5871,8 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, itemData.map(function (_ref6) {
           var key = _ref6.key,
-              text = _ref6.text,
-              _onClick = _ref6.onClick;
+            text = _ref6.text,
+            _onClick = _ref6.onClick;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: key,
             onClick: function onClick() {
@@ -6318,7 +5885,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "quick-formula") {
       var _itemData = [{
         text: formula.sum,
@@ -6348,7 +5914,7 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _itemData.map(function (_ref7) {
           var value = _ref7.value,
-              text = _ref7.text;
+            text = _ref7.text;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6373,7 +5939,6 @@ var Toolbar = function Toolbar(_ref) {
         }, "".concat(formula.find, "...")));
       });
     }
-
     if (name === "merge-cell") {
       var itemdata = [{
         text: merge.mergeAll,
@@ -6401,7 +5966,7 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, itemdata.map(function (_ref8) {
           var text = _ref8.text,
-              value = _ref8.value;
+            value = _ref8.value;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6421,7 +5986,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "border") {
       var _items4 = [{
         text: border.borderTop,
@@ -6479,7 +6043,7 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items4.map(function (_ref9, ii) {
           var text = _ref9.text,
-              value = _ref9.value;
+            value = _ref9.value;
           return value !== "divider" ? /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6503,7 +6067,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "freeze") {
       var _items5 = [{
         text: freezen.freezenRowRange,
@@ -6530,7 +6093,7 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items5.map(function (_ref10) {
           var text = _ref10.text,
-              value = _ref10.value;
+            value = _ref10.value;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6547,7 +6110,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "text-wrap") {
       var _items6 = [{
         text: textWrap.clip,
@@ -6563,11 +6125,9 @@ var Toolbar = function Toolbar(_ref) {
         value: "wrap"
       }];
       var _curr = _items6[0];
-
       if ((cell === null || cell === void 0 ? void 0 : cell.tb) != null) {
         _curr = ___default['default'].get(_items6, cell.tb);
       }
-
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
         iconId: _curr.iconId,
         key: name,
@@ -6575,8 +6135,8 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items6.map(function (_ref11) {
           var text = _ref11.text,
-              iconId = _ref11.iconId,
-              value = _ref11.value;
+            iconId = _ref11.iconId,
+            value = _ref11.value;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6595,7 +6155,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "text-rotation") {
       var _items7 = [{
         text: rotation.none,
@@ -6623,11 +6182,9 @@ var Toolbar = function Toolbar(_ref) {
         value: "rotation-down"
       }];
       var _curr2 = _items7[0];
-
       if ((cell === null || cell === void 0 ? void 0 : cell.tr) != null) {
         _curr2 = ___default['default'].get(_items7, cell.tr);
       }
-
       return /*#__PURE__*/React__default['default'].createElement(Combo, {
         iconId: _curr2.iconId,
         key: name,
@@ -6635,8 +6192,8 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items7.map(function (_ref12) {
           var text = _ref12.text,
-              iconId = _ref12.iconId,
-              value = _ref12.value;
+            iconId = _ref12.iconId,
+            value = _ref12.value;
           return /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6655,7 +6212,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     if (name === "filter") {
       var _items8 = [{
         iconId: "sort-asc",
@@ -6704,9 +6260,9 @@ var Toolbar = function Toolbar(_ref) {
       }, function (setOpen) {
         return /*#__PURE__*/React__default['default'].createElement(Select, null, _items8.map(function (_ref13, index) {
           var text = _ref13.text,
-              iconId = _ref13.iconId,
-              value = _ref13.value,
-              _onClick2 = _ref13.onClick;
+            iconId = _ref13.iconId,
+            value = _ref13.value,
+            _onClick2 = _ref13.onClick;
           return value !== "divider" ? /*#__PURE__*/React__default['default'].createElement(Option, {
             key: value,
             onClick: function onClick() {
@@ -6723,7 +6279,6 @@ var Toolbar = function Toolbar(_ref) {
         }));
       });
     }
-
     return /*#__PURE__*/React__default['default'].createElement(Button, {
       iconId: name,
       tooltip: tooltip,
@@ -6732,7 +6287,6 @@ var Toolbar = function Toolbar(_ref) {
       onClick: function onClick() {
         return setContext(function (draftCtx) {
           var _toolbarItemClickHand;
-
           (_toolbarItemClickHand = core.toolbarItemClickHandler(name)) === null || _toolbarItemClickHand === void 0 ? void 0 : _toolbarItemClickHand(draftCtx, refs.cellInput.current, refs.globalCache);
         });
       }
@@ -6770,22 +6324,18 @@ var Toolbar = function Toolbar(_ref) {
 
 var LocationBox = function LocationBox() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context;
-
+    context = _useContext.context;
   var rangeText = React.useMemo(function () {
     var lastSelection = ___default['default'].last(context.luckysheet_select_save);
-
     if (!(lastSelection && lastSelection.row_focus != null && lastSelection.column_focus != null)) return "";
     var rf = lastSelection.row_focus;
     var cf = lastSelection.column_focus;
-
     if (context.config.merge != null && "".concat(rf, "_").concat(cf) in context.config.merge) {
       return core.getRangetxt(context, context.currentSheetId, {
         column: [cf, cf],
         row: [rf, rf]
       });
     }
-
     return core.getRangetxt(context, context.currentSheetId, lastSelection);
   }, [context.currentSheetId, context.luckysheet_select_save]);
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -6800,47 +6350,37 @@ var LocationBox = function LocationBox() {
 
 var FxEditor = function FxEditor() {
   var _context$luckysheet_s;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      focused = _useState2[0],
-      setFocused = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    focused = _useState2[0],
+    setFocused = _useState2[1];
   var lastKeyDownEventRef = React.useRef();
   var inputContainerRef = React.useRef(null);
-
   var _useState3 = React.useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      isHidenRC = _useState4[0],
-      setIsHidenRC = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    isHidenRC = _useState4[0],
+    setIsHidenRC = _useState4[1];
   var firstSelection = (_context$luckysheet_s = context.luckysheet_select_save) === null || _context$luckysheet_s === void 0 ? void 0 : _context$luckysheet_s[0];
   var prevFirstSelection = usePrevious(firstSelection);
   var prevSheetId = usePrevious(context.currentSheetId);
   var recentText = React.useRef("");
   React.useEffect(function () {
     setIsHidenRC(core.isShowHidenCR(context));
-
     if (___default['default'].isEqual(prevFirstSelection, firstSelection) && context.currentSheetId === prevSheetId) {
       return;
     }
-
     var d = core.getFlowdata(context);
     var value = "";
-
     if (firstSelection) {
       var _d$r;
-
       var r = firstSelection.row_focus;
       var c = firstSelection.column_focus;
       if (___default['default'].isNil(r) || ___default['default'].isNil(c)) return;
       var cell = d === null || d === void 0 ? void 0 : (_d$r = d[r]) === null || _d$r === void 0 ? void 0 : _d$r[c];
-
       if (cell) {
         if (core.isInlineStringCell(cell)) {
           value = core.getInlineStringNoStyle(r, c, d);
@@ -6850,7 +6390,6 @@ var FxEditor = function FxEditor() {
           value = core.valueShowEs(r, c, d);
         }
       }
-
       refs.fxInput.current.innerHTML = core.escapeHTMLTag(core.escapeScriptTag(value));
     } else {
       refs.fxInput.current.innerHTML = "";
@@ -6858,11 +6397,9 @@ var FxEditor = function FxEditor() {
   }, [context.luckysheetfile, context.currentSheetId, context.luckysheet_select_save]);
   var onFocus = React.useCallback(function () {
     var _context$luckysheet_s2, _context$luckysheet_s3;
-
     if (context.allowEdit === false) {
       return;
     }
-
     if (((_context$luckysheet_s2 = (_context$luckysheet_s3 = context.luckysheet_select_save) === null || _context$luckysheet_s3 === void 0 ? void 0 : _context$luckysheet_s3.length) !== null && _context$luckysheet_s2 !== void 0 ? _context$luckysheet_s2 : 0) > 0 && !context.luckysheet_cell_selected_move && core.isAllowEdit(context, context.luckysheet_select_save)) {
       setFocused(true);
       setContext(function (draftCtx) {
@@ -6878,22 +6415,18 @@ var FxEditor = function FxEditor() {
     if (context.allowEdit === false) {
       return;
     }
-
     lastKeyDownEventRef.current = new KeyboardEvent(e.type, e.nativeEvent);
     var key = e.key;
     recentText.current = refs.fxInput.current.innerText;
-
     if (key === "ArrowLeft" || key === "ArrowRight") {
       e.stopPropagation();
     }
-
     setContext(function (draftCtx) {
       if (context.luckysheetCellUpdate.length > 0) {
         switch (key) {
           case "Enter":
             {
               var lastCellUpdate = ___default['default'].clone(draftCtx.luckysheetCellUpdate);
-
               core.updateCell(draftCtx, draftCtx.luckysheetCellUpdate[0], draftCtx.luckysheetCellUpdate[1], refs.fxInput.current);
               draftCtx.luckysheet_select_save = [{
                 row: [lastCellUpdate[0], lastCellUpdate[0]],
@@ -6906,7 +6439,6 @@ var FxEditor = function FxEditor() {
               e.stopPropagation();
               break;
             }
-
           case "Escape":
             {
               core.cancelNormalSelected(draftCtx);
@@ -6915,13 +6447,11 @@ var FxEditor = function FxEditor() {
               e.stopPropagation();
               break;
             }
-
           case "ArrowLeft":
             {
               core.rangeHightlightselected(draftCtx, refs.fxInput.current);
               break;
             }
-
           case "ArrowRight":
             {
               core.rangeHightlightselected(draftCtx, refs.fxInput.current);
@@ -6936,7 +6466,6 @@ var FxEditor = function FxEditor() {
     if (!e) return;
     var kcode = e.keyCode;
     if (!kcode) return;
-
     if (!(kcode >= 112 && kcode <= 123 || kcode <= 46 || kcode === 144 || kcode === 108 || e.ctrlKey || e.altKey || e.shiftKey && (kcode === 37 || kcode === 38 || kcode === 39 || kcode === 40)) || kcode === 8 || kcode === 32 || kcode === 46 || e.ctrlKey && kcode === 86) {
       setContext(function (draftCtx) {
         core.handleFormulaInput(draftCtx, refs.cellInput.current, refs.fxInput.current, kcode, recentText.current);
@@ -6947,15 +6476,12 @@ var FxEditor = function FxEditor() {
     if (context.allowEdit === false) {
       return false;
     }
-
     if (isHidenRC) {
       return false;
     }
-
     if (!core.isAllowEdit(context, context.luckysheet_select_save)) {
       return false;
     }
-
     return true;
   }, [context.config, context.luckysheet_select_save, context.luckysheetfile, context.currentSheetId, isHidenRC]);
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -6997,41 +6523,32 @@ var FxEditor = function FxEditor() {
 
 var SheetItem = function SheetItem(_ref) {
   var sheet = _ref.sheet,
-      isDropPlaceholder = _ref.isDropPlaceholder;
-
+    isDropPlaceholder = _ref.isDropPlaceholder;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      editing = _useState2[0],
-      setEditing = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    editing = _useState2[0],
+    setEditing = _useState2[1];
   var containerRef = React.useRef(null);
   var editable = React.useRef(null);
-
   var _useState3 = React.useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      dragOver = _useState4[0],
-      setDragOver = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    dragOver = _useState4[0],
+    setDragOver = _useState4[1];
   var _useState5 = React.useState("#c3c3c3"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      svgColor = _useState6[0],
-      setSvgColor = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    svgColor = _useState6[0],
+    setSvgColor = _useState6[1];
   var _useAlert = useAlert(),
-      showAlert = _useAlert.showAlert;
-
+    showAlert = _useAlert.showAlert;
   React.useEffect(function () {
     setContext(function (draftCtx) {
       var r = context.sheetScrollRecord[draftCtx === null || draftCtx === void 0 ? void 0 : draftCtx.currentSheetId];
-
       if (r) {
         var _r$scrollLeft, _r$scrollTop, _r$luckysheet_select_, _r$luckysheet_select_2;
-
         draftCtx.scrollLeft = (_r$scrollLeft = r.scrollLeft) !== null && _r$scrollLeft !== void 0 ? _r$scrollLeft : 0;
         draftCtx.scrollTop = (_r$scrollTop = r.scrollTop) !== null && _r$scrollTop !== void 0 ? _r$scrollTop : 0;
         draftCtx.luckysheet_select_status = (_r$luckysheet_select_ = r.luckysheet_select_status) !== null && _r$luckysheet_select_ !== void 0 ? _r$luckysheet_select_ : false;
@@ -7042,18 +6559,15 @@ var SheetItem = function SheetItem(_ref) {
         draftCtx.luckysheet_select_status = false;
         draftCtx.luckysheet_select_save = undefined;
       }
-
       draftCtx.luckysheet_selection_range = [];
     });
   }, [context.currentSheetId, context.sheetScrollRecord, setContext]);
   React.useEffect(function () {
     if (!editable.current) return;
-
     if (editing) {
       if (window.getSelection) {
         var range = document.createRange();
         range.selectNodeContents(editable.current);
-
         if (range.startContainer && document.body.contains(range.startContainer)) {
           var selection = window.getSelection();
           selection === null || selection === void 0 ? void 0 : selection.removeAllRanges();
@@ -7061,13 +6575,10 @@ var SheetItem = function SheetItem(_ref) {
         }
       } else if (document.selection) {
         var _range = document.body.createTextRange();
-
         _range.moveToElementText(editable.current);
-
         _range.select();
       }
     }
-
     editable.current.dataset.oldText = editable.current.innerText;
   }, [editing]);
   var onBlur = React.useCallback(function () {
@@ -7083,10 +6594,8 @@ var SheetItem = function SheetItem(_ref) {
   var onKeyDown = React.useCallback(function (e) {
     if (e.key === "Enter") {
       var _editable$current;
-
       (_editable$current = editable.current) === null || _editable$current === void 0 ? void 0 : _editable$current.blur();
     }
-
     e.stopPropagation();
   }, []);
   var onDragStart = React.useCallback(function (e) {
@@ -7100,20 +6609,16 @@ var SheetItem = function SheetItem(_ref) {
       var droppingId = sheet.id;
       var draggingSheet;
       var droppingSheet;
-
       ___default['default'].sortBy(draftCtx.luckysheetfile, ["order"]).forEach(function (f, i) {
         f.order = i;
-
         if (f.id === draggingId) {
           draggingSheet = f;
         } else if (f.id === droppingId) {
           droppingSheet = f;
         }
       });
-
       if (draggingSheet && droppingSheet) {
         draggingSheet.order = droppingSheet.order - 0.1;
-
         ___default['default'].sortBy(draftCtx.luckysheetfile, ["order"]).forEach(function (f, i) {
           f.order = i;
         });
@@ -7168,7 +6673,7 @@ var SheetItem = function SheetItem(_ref) {
       if (isDropPlaceholder) return;
       var rect = refs.workbookContainer.current.getBoundingClientRect();
       var pageX = e.pageX,
-          pageY = e.pageY;
+        pageY = e.pageY;
       setContext(function (ctx) {
         ctx.dataVerificationDropDownList = false;
         ctx.currentSheetId = sheet.id;
@@ -7213,7 +6718,7 @@ var SheetItem = function SheetItem(_ref) {
       if (isDropPlaceholder || context.allowEdit === false) return;
       var rect = refs.workbookContainer.current.getBoundingClientRect();
       var pageX = e.pageX,
-          pageY = e.pageY;
+        pageY = e.pageY;
       setContext(function (ctx) {
         ctx.currentSheetId = sheet.id;
         ctx.sheetTabContextMenu = {
@@ -7268,36 +6773,28 @@ var presets = [{
   text: "400%",
   value: 4
 }];
-
 var ZoomControl = function ZoomControl() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var menuRef = React.useRef(null);
-
   var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      radioMenuOpen = _useState2[0],
-      setRadioMenuOpen = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    radioMenuOpen = _useState2[0],
+    setRadioMenuOpen = _useState2[1];
   useOutsideClick(menuRef, function () {
     setRadioMenuOpen(false);
   }, []);
   var zoomTo = React.useCallback(function (val) {
     val = parseFloat(val.toFixed(1));
-
     if (val > core.MAX_ZOOM_RATIO || val < core.MIN_ZOOM_RATIO) {
       return;
     }
-
     setContext(function (ctx) {
       var index = core.getSheetIndex(ctx, ctx.currentSheetId);
-
       if (index == null) {
         return;
       }
-
       ctx.luckysheetfile[index].zoomRatio = val;
       ctx.zoomRatio = val;
     }, {
@@ -7352,33 +6849,27 @@ var ZoomControl = function ZoomControl() {
 
 var SheetTab = function SheetTab() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings,
+    refs = _useContext.refs;
   var tabContainerRef = React.useRef(null);
   var leftScrollRef = React.useRef(null);
   var rightScrollRef = React.useRef(null);
-
   var _useState = React.useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isShowScrollBtn = _useState2[0],
-      setIsShowScrollBtn = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    isShowScrollBtn = _useState2[0],
+    setIsShowScrollBtn = _useState2[1];
   var _useState3 = React.useState(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      isShowBoundary = _useState4[0],
-      setIsShowBoundary = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    isShowBoundary = _useState4[0],
+    setIsShowBoundary = _useState4[1];
   var scrollDelta = 150;
   var scrollBy = React.useCallback(function (amount) {
     var _tabContainerRef$curr;
-
     if (tabContainerRef.current == null || tabContainerRef.current.scrollLeft == null) {
       return;
     }
-
     var scrollLeft = tabContainerRef.current.scrollLeft;
     if (scrollLeft + amount <= 0) setIsShowBoundary(true);else if (scrollLeft > 0) setIsShowBoundary(false);
     (_tabContainerRef$curr = tabContainerRef.current) === null || _tabContainerRef$curr === void 0 ? void 0 : _tabContainerRef$curr.scrollBy({
@@ -7397,7 +6888,6 @@ var SheetTab = function SheetTab() {
         if (draftCtx.luckysheetCellUpdate.length > 0) {
           core.updateCell(draftCtx, draftCtx.luckysheetCellUpdate[0], draftCtx.luckysheetCellUpdate[1], refs.cellInput.current);
         }
-
         core.addSheet(draftCtx, settings);
       }, {
         addSheetOp: true
@@ -7496,9 +6986,9 @@ var Divider$1 = function Divider() {
 
 var Menu = function Menu(_ref) {
   var _onClick = _ref.onClick,
-      _onMouseLeave = _ref.onMouseLeave,
-      _onMouseEnter = _ref.onMouseEnter,
-      children = _ref.children;
+    _onMouseLeave = _ref.onMouseLeave,
+    _onMouseEnter = _ref.onMouseEnter,
+    children = _ref.children;
   var containerRef = React.useRef(null);
   return /*#__PURE__*/React__default['default'].createElement("div", {
     ref: containerRef,
@@ -7519,45 +7009,36 @@ var Menu = function Menu(_ref) {
 
 var CustomSort = function CustomSort() {
   var _useState = React.useState([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      rangeColChar = _useState2[0],
-      setRangeColChar = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    rangeColChar = _useState2[0],
+    setRangeColChar = _useState2[1];
   var _useState3 = React.useState(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      ascOrDesc = _useState4[0],
-      setAscOrDesc = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    ascOrDesc = _useState4[0],
+    setAscOrDesc = _useState4[1];
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _useState5 = React.useState("0"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      selectedValue = _useState6[0],
-      setSelectedValue = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    selectedValue = _useState6[0],
+    setSelectedValue = _useState6[1];
   var _useState7 = React.useState(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      isTitleChange = _useState8[0],
-      setIstitleChange = _useState8[1];
-
+    _useState8 = _slicedToArray(_useState7, 2),
+    isTitleChange = _useState8[0],
+    setIstitleChange = _useState8[1];
   var _locale = core.locale(context),
-      sort = _locale.sort;
-
+    sort = _locale.sort;
   var _useDialog = useDialog(),
-      hideDialog = _useDialog.hideDialog;
-
+    hideDialog = _useDialog.hideDialog;
   var col_start = context.luckysheet_select_save[0].column[0];
   var col_end = context.luckysheet_select_save[0].column[1];
   var row_start = context.luckysheet_select_save[0].row[0];
   var row_end = context.luckysheet_select_save[0].row[1];
   var sheetIndex = core.getSheetIndex(context, context.currentSheetId);
-
   var handleSelectChange = function handleSelectChange(event) {
     setSelectedValue(event.target.value);
   };
-
   var handleRadioChange = React.useCallback(function (e) {
     var sortValue = e.target.value;
     setAscOrDesc(sortValue === "asc");
@@ -7568,14 +7049,11 @@ var CustomSort = function CustomSort() {
   }, []);
   React.useEffect(function () {
     var list = [];
-
     if (isTitleChange) {
       for (var i = col_start; i <= col_end; i += 1) {
         var _context$luckysheetfi, _context$luckysheetfi2;
-
         var cell = (_context$luckysheetfi = context.luckysheetfile[sheetIndex].data) === null || _context$luckysheetfi === void 0 ? void 0 : (_context$luckysheetfi2 = _context$luckysheetfi[row_start]) === null || _context$luckysheetfi2 === void 0 ? void 0 : _context$luckysheetfi2[i];
         var colHeaderValue = (cell === null || cell === void 0 ? void 0 : cell.m) || (cell === null || cell === void 0 ? void 0 : cell.v);
-
         if (colHeaderValue) {
           list.push(colHeaderValue);
         } else {
@@ -7586,11 +7064,9 @@ var CustomSort = function CustomSort() {
     } else {
       for (var _i = col_start; _i <= col_end; _i += 1) {
         var _ColumnChar = core.indexToColumnChar(_i);
-
         list.push(_ColumnChar);
       }
     }
-
     setRangeColChar(list);
   }, [col_end, col_start, context.luckysheetfile, isTitleChange, row_start, sheetIndex, sort.columnOperation]);
   return /*#__PURE__*/React__default['default'].createElement("div", {
@@ -7646,57 +7122,45 @@ var CustomSort = function CustomSort() {
 
 var ContextMenu = function ContextMenu() {
   var _useDialog = useDialog(),
-      showDialog = _useDialog.showDialog;
-
+    showDialog = _useDialog.showDialog;
   var containerRef = React.useRef(null);
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings;
   var contextMenu = context.contextMenu;
-
   var _useAlert = useAlert(),
-      showAlert = _useAlert.showAlert;
-
+    showAlert = _useAlert.showAlert;
   var _locale = core.locale(context),
-      rightclick = _locale.rightclick,
-      drag = _locale.drag,
-      generalDialog = _locale.generalDialog,
-      info = _locale.info;
-
+    rightclick = _locale.rightclick,
+    drag = _locale.drag,
+    generalDialog = _locale.generalDialog,
+    info = _locale.info;
   var getMenuElement = React.useCallback(function (name, i) {
     var _context$luckysheet_s;
-
     var selection = (_context$luckysheet_s = context.luckysheet_select_save) === null || _context$luckysheet_s === void 0 ? void 0 : _context$luckysheet_s[0];
-
     if (name === "|") {
       return /*#__PURE__*/React__default['default'].createElement(Divider$1, {
         key: "divider-".concat(i)
       });
     }
-
     if (name === "copy") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
         onClick: function onClick() {
           setContext(function (draftCtx) {
             var _draftCtx$luckysheet_;
-
             if (((_draftCtx$luckysheet_ = draftCtx.luckysheet_select_save) === null || _draftCtx$luckysheet_ === void 0 ? void 0 : _draftCtx$luckysheet_.length) > 1) {
               showAlert(rightclick.noMulti, "ok");
               draftCtx.contextMenu = {};
               return;
             }
-
             core.handleCopy(draftCtx);
             draftCtx.contextMenu = {};
           });
         }
       }, rightclick.copy);
     }
-
     if (name === "paste") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -7708,16 +7172,13 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.paste);
     }
-
     if (name === "insert-column") {
       return (selection === null || selection === void 0 ? void 0 : selection.row_select) ? null : ["left", "right"].map(function (dir) {
         var _context$lang, _context$lang2;
-
         return /*#__PURE__*/React__default['default'].createElement(Menu, {
           key: "add-col-".concat(dir),
           onClick: function onClick(e) {
             var _context$luckysheet_s2, _context$luckysheet_s3, _context$luckysheet_s4, _e$target$querySelect;
-
             var position = (_context$luckysheet_s2 = context.luckysheet_select_save) === null || _context$luckysheet_s2 === void 0 ? void 0 : (_context$luckysheet_s3 = _context$luckysheet_s2[0]) === null || _context$luckysheet_s3 === void 0 ? void 0 : (_context$luckysheet_s4 = _context$luckysheet_s3.column) === null || _context$luckysheet_s4 === void 0 ? void 0 : _context$luckysheet_s4[0];
             if (position == null) return;
             var countStr = (_e$target$querySelect = e.target.querySelector("input")) === null || _e$target$querySelect === void 0 ? void 0 : _e$target$querySelect.value;
@@ -7764,16 +7225,13 @@ var ContextMenu = function ContextMenu() {
         }, rightclick[dir])));
       });
     }
-
     if (name === "insert-row") {
       return (selection === null || selection === void 0 ? void 0 : selection.column_select) ? null : ["top", "bottom"].map(function (dir) {
         var _context$lang3, _context$lang4;
-
         return /*#__PURE__*/React__default['default'].createElement(Menu, {
           key: "add-row-".concat(dir),
           onClick: function onClick(e, container) {
             var _context$luckysheet_s5, _context$luckysheet_s6, _context$luckysheet_s7, _container$querySelec;
-
             var position = (_context$luckysheet_s5 = context.luckysheet_select_save) === null || _context$luckysheet_s5 === void 0 ? void 0 : (_context$luckysheet_s6 = _context$luckysheet_s5[0]) === null || _context$luckysheet_s6 === void 0 ? void 0 : (_context$luckysheet_s7 = _context$luckysheet_s6.row) === null || _context$luckysheet_s7 === void 0 ? void 0 : _context$luckysheet_s7[0];
             if (position == null) return;
             var countStr = (_container$querySelec = container.querySelector("input")) === null || _container$querySelec === void 0 ? void 0 : _container$querySelec.value;
@@ -7820,17 +7278,14 @@ var ContextMenu = function ContextMenu() {
         }, rightclick[dir])));
       });
     }
-
     if (name === "delete-column") {
       return (selection === null || selection === void 0 ? void 0 : selection.column_select) && /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: "delete-col",
         onClick: function onClick() {
           if (!selection) return;
-
           var _selection$column = _slicedToArray(selection.column, 2),
-              st_index = _selection$column[0],
-              ed_index = _selection$column[1];
-
+            st_index = _selection$column[0],
+            ed_index = _selection$column[1];
           var deleteRowColOp = {
             type: "column",
             start: st_index,
@@ -7839,23 +7294,19 @@ var ContextMenu = function ContextMenu() {
           };
           setContext(function (draftCtx) {
             var _draftCtx$luckysheet_2, _draftCtx$luckysheetf, _draftCtx$luckysheetf2;
-
             if (((_draftCtx$luckysheet_2 = draftCtx.luckysheet_select_save) === null || _draftCtx$luckysheet_2 === void 0 ? void 0 : _draftCtx$luckysheet_2.length) > 1) {
               showAlert(rightclick.noMulti, "ok");
               draftCtx.contextMenu = {};
               draftCtx.dataVerificationDropDownList = false;
               return;
             }
-
             var slen = ed_index - st_index + 1;
             var index = core.getSheetIndex(draftCtx, context.currentSheetId);
-
             if (((_draftCtx$luckysheetf = draftCtx.luckysheetfile[index].data) === null || _draftCtx$luckysheetf === void 0 ? void 0 : (_draftCtx$luckysheetf2 = _draftCtx$luckysheetf[0]) === null || _draftCtx$luckysheetf2 === void 0 ? void 0 : _draftCtx$luckysheetf2.length) <= slen) {
               showAlert(rightclick.cannotDeleteAllColumn, "ok");
               draftCtx.contextMenu = {};
               return;
             }
-
             try {
               core.deleteRowCol(draftCtx, deleteRowColOp);
             } catch (e) {
@@ -7863,7 +7314,6 @@ var ContextMenu = function ContextMenu() {
                 showAlert(rightclick.cannotDeleteColumnReadOnly, "ok");
               }
             }
-
             draftCtx.contextMenu = {};
           }, {
             deleteRowColOp: deleteRowColOp
@@ -7871,17 +7321,14 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.deleteSelected, rightclick.column);
     }
-
     if (name === "delete-row") {
       return (selection === null || selection === void 0 ? void 0 : selection.row_select) && /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: "delete-row",
         onClick: function onClick() {
           if (!selection) return;
-
           var _selection$row = _slicedToArray(selection.row, 2),
-              st_index = _selection$row[0],
-              ed_index = _selection$row[1];
-
+            st_index = _selection$row[0],
+            ed_index = _selection$row[1];
           var deleteRowColOp = {
             type: "row",
             start: st_index,
@@ -7890,22 +7337,18 @@ var ContextMenu = function ContextMenu() {
           };
           setContext(function (draftCtx) {
             var _draftCtx$luckysheet_3, _draftCtx$luckysheetf3;
-
             if (((_draftCtx$luckysheet_3 = draftCtx.luckysheet_select_save) === null || _draftCtx$luckysheet_3 === void 0 ? void 0 : _draftCtx$luckysheet_3.length) > 1) {
               showAlert(rightclick.noMulti, "ok");
               draftCtx.contextMenu = {};
               return;
             }
-
             var slen = ed_index - st_index + 1;
             var index = core.getSheetIndex(draftCtx, context.currentSheetId);
-
             if (((_draftCtx$luckysheetf3 = draftCtx.luckysheetfile[index].data) === null || _draftCtx$luckysheetf3 === void 0 ? void 0 : _draftCtx$luckysheetf3.length) <= slen) {
               showAlert(rightclick.cannotDeleteAllRow, "ok");
               draftCtx.contextMenu = {};
               return;
             }
-
             try {
               core.deleteRowCol(draftCtx, deleteRowColOp);
             } catch (e) {
@@ -7913,7 +7356,6 @@ var ContextMenu = function ContextMenu() {
                 showAlert(rightclick.cannotDeleteRowReadOnly, "ok");
               }
             }
-
             draftCtx.contextMenu = {};
           }, {
             deleteRowColOp: deleteRowColOp
@@ -7921,7 +7363,6 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.deleteSelected, rightclick.row);
     }
-
     if (name === "hide-row") {
       return (selection === null || selection === void 0 ? void 0 : selection.row_select) === true && ["hideSelected", "showHide"].map(function (item) {
         return /*#__PURE__*/React__default['default'].createElement(Menu, {
@@ -7929,24 +7370,20 @@ var ContextMenu = function ContextMenu() {
           onClick: function onClick() {
             setContext(function (draftCtx) {
               var msg = "";
-
               if (item === "hideSelected") {
                 msg = core.hideSelected(draftCtx, "row");
               } else if (item === "showHide") {
                 core.showSelected(draftCtx, "row");
               }
-
               if (msg === "noMulti") {
                 showDialog(drag.noMulti);
               }
-
               draftCtx.contextMenu = {};
             });
           }
         }, rightclick[item] + rightclick.row);
       });
     }
-
     if (name === "hide-column") {
       return (selection === null || selection === void 0 ? void 0 : selection.column_select) === true && ["hideSelected", "showHide"].map(function (item) {
         return /*#__PURE__*/React__default['default'].createElement(Menu, {
@@ -7954,27 +7391,22 @@ var ContextMenu = function ContextMenu() {
           onClick: function onClick() {
             setContext(function (draftCtx) {
               var msg = "";
-
               if (item === "hideSelected") {
                 msg = core.hideSelected(draftCtx, "column");
               } else if (item === "showHide") {
                 core.showSelected(draftCtx, "column");
               }
-
               if (msg === "noMulti") {
                 showDialog(drag.noMulti);
               }
-
               draftCtx.contextMenu = {};
             });
           }
         }, rightclick[item] + rightclick.column);
       });
     }
-
     if (name === "set-row-height") {
       var _context$luckysheet_s8, _context$luckysheet_s9;
-
       var rowHeight = (selection === null || selection === void 0 ? void 0 : selection.height) || context.defaultrowlen;
       var shownRowHeight = ((_context$luckysheet_s8 = context.luckysheet_select_save) === null || _context$luckysheet_s8 === void 0 ? void 0 : _context$luckysheet_s8.some(function (section) {
         return section.height_move !== (rowHeight + 1) * (section.row[1] - section.row[0] + 1) - 1;
@@ -7985,7 +7417,6 @@ var ContextMenu = function ContextMenu() {
         key: "set-row-height",
         onClick: function onClick(e, container) {
           var _container$querySelec2;
-
           var targetRowHeight = (_container$querySelec2 = container.querySelector("input")) === null || _container$querySelec2 === void 0 ? void 0 : _container$querySelec2.value;
           setContext(function (draftCtx) {
             if (___default['default'].isUndefined(targetRowHeight) || targetRowHeight === "" || parseInt(targetRowHeight, 10) <= 0 || parseInt(targetRowHeight, 10) > 545) {
@@ -7993,16 +7424,13 @@ var ContextMenu = function ContextMenu() {
               draftCtx.contextMenu = {};
               return;
             }
-
             var numRowHeight = parseInt(targetRowHeight, 10);
             var rowHeightList = {};
-
             ___default['default'].forEach(draftCtx.luckysheet_select_save, function (section) {
               for (var rowNum = section.row[0]; rowNum <= section.row[1]; rowNum += 1) {
                 rowHeightList[rowNum] = numRowHeight;
               }
             });
-
             core.api.setRowHeight(draftCtx, rowHeightList, {}, true);
             draftCtx.contextMenu = {};
           });
@@ -8025,10 +7453,8 @@ var ContextMenu = function ContextMenu() {
         }
       }), "px") : null;
     }
-
     if (name === "set-column-width") {
       var _context$luckysheet_s10, _context$luckysheet_s11;
-
       var colWidth = (selection === null || selection === void 0 ? void 0 : selection.width) || context.defaultcollen;
       var shownColWidth = ((_context$luckysheet_s10 = context.luckysheet_select_save) === null || _context$luckysheet_s10 === void 0 ? void 0 : _context$luckysheet_s10.some(function (section) {
         return section.width_move !== (colWidth + 1) * (section.column[1] - section.column[0] + 1) - 1;
@@ -8039,7 +7465,6 @@ var ContextMenu = function ContextMenu() {
         key: "set-column-width",
         onClick: function onClick(e, container) {
           var _container$querySelec3;
-
           var targetColWidth = (_container$querySelec3 = container.querySelector("input")) === null || _container$querySelec3 === void 0 ? void 0 : _container$querySelec3.value;
           setContext(function (draftCtx) {
             if (___default['default'].isUndefined(targetColWidth) || targetColWidth === "" || parseInt(targetColWidth, 10) <= 0 || parseInt(targetColWidth, 10) > 2038) {
@@ -8047,16 +7472,13 @@ var ContextMenu = function ContextMenu() {
               draftCtx.contextMenu = {};
               return;
             }
-
             var numColWidth = parseInt(targetColWidth, 10);
             var colWidthList = {};
-
             ___default['default'].forEach(draftCtx.luckysheet_select_save, function (section) {
               for (var colNum = section.column[0]; colNum <= section.column[1]; colNum += 1) {
                 colWidthList[colNum] = numColWidth;
               }
             });
-
             core.api.setColumnWidth(draftCtx, colWidthList, {}, true);
             draftCtx.contextMenu = {};
           });
@@ -8079,7 +7501,6 @@ var ContextMenu = function ContextMenu() {
         }
       }), "px") : null;
     }
-
     if (name === "clear") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8087,12 +7508,10 @@ var ContextMenu = function ContextMenu() {
           setContext(function (draftCtx) {
             var allowEdit = core.isAllowEdit(draftCtx);
             if (!allowEdit) return;
-
             if (draftCtx.activeImg != null) {
               core.removeActiveImage(draftCtx);
             } else {
               var msg = core.deleteSelectedCellText(draftCtx);
-
               if (msg === "partMC") {
                 showDialog(generalDialog.partiallyError, "ok");
               } else if (msg === "allowEdit") {
@@ -8101,14 +7520,12 @@ var ContextMenu = function ContextMenu() {
                 showDialog(generalDialog.dataNullError, "ok");
               }
             }
-
             draftCtx.contextMenu = {};
             core.jfrefreshgrid(draftCtx, null, undefined);
           });
         }
       }, rightclick.clearContent);
     }
-
     if (name === "orderAZ") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8120,7 +7537,6 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.orderAZ);
     }
-
     if (name === "orderZA") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8132,7 +7548,6 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.orderZA);
     }
-
     if (name === "sort") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8144,7 +7559,6 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.sortSelection);
     }
-
     if (name === "filter") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8156,7 +7570,6 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.filterSelection);
     }
-
     if (name === "image") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8168,7 +7581,6 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.image);
     }
-
     if (name === "link") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -8180,14 +7592,12 @@ var ContextMenu = function ContextMenu() {
         }
       }, rightclick.link);
     }
-
     return null;
   }, [context.currentSheetId, context.lang, context.luckysheet_select_save, context.defaultrowlen, context.defaultcollen, rightclick, info, setContext, showAlert, showDialog, drag, generalDialog]);
   React.useLayoutEffect(function () {
     if (!containerRef.current) {
       return;
     }
-
     var winH = window.innerHeight;
     var winW = window.innerWidth;
     var rect = containerRef.current.getBoundingClientRect();
@@ -8196,22 +7606,18 @@ var ContextMenu = function ContextMenu() {
     var top = contextMenu.y || 0;
     var left = contextMenu.x || 0;
     var hasOverflow = false;
-
     if (left + menuW > winW) {
       left -= menuW;
       hasOverflow = true;
     }
-
     if (top + menuH > winH) {
       top -= menuH;
       hasOverflow = true;
     }
-
     if (top < 0) {
       top = 0;
       hasOverflow = true;
     }
-
     if (hasOverflow) {
       setContext(function (draftCtx) {
         draftCtx.contextMenu.x = left;
@@ -9632,26 +9038,21 @@ var SVGDefines = function SVGDefines() {
 
 var ChangeColor = function ChangeColor(_ref) {
   var triggerParentUpdate = _ref.triggerParentUpdate;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var _locale = core.locale(context),
-      toolbar = _locale.toolbar,
-      sheetconfig = _locale.sheetconfig,
-      button = _locale.button;
-
+    toolbar = _locale.toolbar,
+    sheetconfig = _locale.sheetconfig,
+    button = _locale.button;
   var _useState = React.useState("#000000"),
-      _useState2 = _slicedToArray(_useState, 2),
-      inputColor = _useState2[0],
-      setInputColor = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    inputColor = _useState2[0],
+    setInputColor = _useState2[1];
   var _useState3 = React.useState(context.luckysheetfile[core.getSheetIndex(context, context.currentSheetId)].color),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectColor = _useState4[0],
-      setSelectColor = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectColor = _useState4[0],
+    setSelectColor = _useState4[1];
   var certainBtn = React.useCallback(function () {
     setSelectColor(inputColor);
   }, [inputColor]);
@@ -9698,43 +9099,35 @@ var ChangeColor = function ChangeColor(_ref) {
 
 var SheetTabContextMenu = function SheetTabContextMenu() {
   var _settings$sheetTabCon;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings;
   var _context$sheetTabCont = context.sheetTabContextMenu,
-      x = _context$sheetTabCont.x,
-      y = _context$sheetTabCont.y,
-      sheet = _context$sheetTabCont.sheet,
-      onRename = _context$sheetTabCont.onRename;
-
+    x = _context$sheetTabCont.x,
+    y = _context$sheetTabCont.y,
+    sheet = _context$sheetTabCont.sheet,
+    onRename = _context$sheetTabCont.onRename;
   var _locale = core.locale(context),
-      sheetconfig = _locale.sheetconfig;
-
+    sheetconfig = _locale.sheetconfig;
   var _useState = React.useState({
-    x: -1,
-    y: -1
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      position = _useState2[0],
-      setPosition = _useState2[1];
-
+      x: -1,
+      y: -1
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    position = _useState2[0],
+    setPosition = _useState2[1];
   var _useState3 = React.useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      isShowChangeColor = _useState4[0],
-      setIsShowChangeColor = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    isShowChangeColor = _useState4[0],
+    setIsShowChangeColor = _useState4[1];
   var _useState5 = React.useState(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      isShowInputColor = _useState6[0],
-      setIsShowInputColor = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    isShowInputColor = _useState6[0],
+    setIsShowInputColor = _useState6[1];
   var _useAlert = useAlert(),
-      showAlert = _useAlert.showAlert,
-      hideAlert = _useAlert.hideAlert;
-
+    showAlert = _useAlert.showAlert,
+    hideAlert = _useAlert.hideAlert;
   var containerRef = React.useRef(null);
   var close = React.useCallback(function () {
     setContext(function (ctx) {
@@ -9743,9 +9136,7 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
   }, [setContext]);
   React.useLayoutEffect(function () {
     var _containerRef$current;
-
     var rect = (_containerRef$current = containerRef.current) === null || _containerRef$current === void 0 ? void 0 : _containerRef$current.getBoundingClientRect();
-
     if (rect && x != null && y != null) {
       setPosition({
         x: x,
@@ -9759,15 +9150,12 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
     if (!sheet) return;
     setContext(function (ctx) {
       var currentOrder = -1;
-
       ___default['default'].sortBy(ctx.luckysheetfile, ["order"]).forEach(function (_sheet, i) {
         _sheet.order = i;
-
         if (_sheet.id === sheet.id) {
           currentOrder = i;
         }
       });
-
       core.api.setSheetOrder(ctx, _defineProperty({}, sheet.id, currentOrder + delta));
     });
   }, [context.allowEdit, setContext, sheet]);
@@ -9778,7 +9166,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
       var shownSheets = ctx.luckysheetfile.filter(function (oneSheet) {
         return ___default['default'].isUndefined(oneSheet.hide) || (oneSheet === null || oneSheet === void 0 ? void 0 : oneSheet.hide) !== 1;
       });
-
       if (shownSheets.length > 1) {
         core.api.hideSheet(ctx, sheet.id);
       } else {
@@ -9827,7 +9214,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
           var shownSheets = context.luckysheetfile.filter(function (singleSheet) {
             return ___default['default'].isUndefined(singleSheet.hide) || singleSheet.hide !== 1;
           });
-
           if (context.luckysheetfile.length > 1 && shownSheets.length > 1) {
             showAlert(sheetconfig.confirmDelete, "yesno", function () {
               setContext(function (ctx) {
@@ -9842,12 +9228,10 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
           } else {
             showAlert(sheetconfig.noMoreSheet, "ok");
           }
-
           close();
         }
       }, sheetconfig.delete);
     }
-
     if (name === "rename") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -9857,7 +9241,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
         }
       }, sheetconfig.rename);
     }
-
     if (name === "move") {
       return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, {
         key: name
@@ -9873,7 +9256,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
         }
       }, sheetconfig.moveRight));
     }
-
     if (name === "hide") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -9883,7 +9265,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
         }
       }, sheetconfig.hide);
     }
-
     if (name === "copy") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -9893,7 +9274,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
         }
       }, sheetconfig.copy);
     }
-
     if (name === "color") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -9914,7 +9294,6 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
         triggerParentUpdate: updateShowInputColor
       }));
     }
-
     if (name === "focus") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -9924,20 +9303,18 @@ var SheetTabContextMenu = function SheetTabContextMenu() {
         }
       }, sheetconfig.focus);
     }
-
     if (name === "|") {
       return /*#__PURE__*/React__default['default'].createElement(Divider$1, {
         key: "divide-".concat(i)
       });
     }
-
     return null;
   }));
 };
 
 var MoreItemsContaier = function MoreItemsContaier(_ref) {
   var onClose = _ref.onClose,
-      children = _ref.children;
+    children = _ref.children;
   var containerRef = React.useRef(null);
   useOutsideClick(containerRef, function () {
     onClose === null || onClose === void 0 ? void 0 : onClose();
@@ -9953,16 +9330,13 @@ function generateAPIs(context, setContext, handleUndo, handleRedo, settings, cel
     applyOp: function applyOp(ops) {
       setContext(function (ctx_) {
         var _ops$, _ops$$path, _ops$2, _ops$2$path, _ops$3;
-
         var _opToPatch = core.opToPatch(ctx_, ops),
-            _opToPatch2 = _slicedToArray(_opToPatch, 2),
-            patches = _opToPatch2[0],
-            specialOps = _opToPatch2[1];
-
+          _opToPatch2 = _slicedToArray(_opToPatch, 2),
+          patches = _opToPatch2[0],
+          specialOps = _opToPatch2[1];
         if (specialOps.length > 0) {
           var _specialOps = _slicedToArray(specialOps, 1),
-              specialOp = _specialOps[0];
-
+            specialOp = _specialOps[0];
           if (specialOp.op === "insertRowCol") {
             try {
               core.insertRowCol(ctx_, specialOp.value, false);
@@ -9973,15 +9347,12 @@ function generateAPIs(context, setContext, handleUndo, handleRedo, settings, cel
             core.deleteRowCol(ctx_, specialOp.value);
           } else if (specialOp.op === "addSheet") {
             var _patches$filter, _patches$filter$, _specialOp$value;
-
             var name = (_patches$filter = patches.filter(function (path) {
               return path.path[0] === "name";
             })) === null || _patches$filter === void 0 ? void 0 : (_patches$filter$ = _patches$filter[0]) === null || _patches$filter$ === void 0 ? void 0 : _patches$filter$.value;
-
             if ((_specialOp$value = specialOp.value) === null || _specialOp$value === void 0 ? void 0 : _specialOp$value.id) {
               core.addSheet(ctx_, settings, specialOp.value.id, false, name, specialOp.value);
             }
-
             var fileIndex = core.getSheetIndex(ctx_, specialOp.value.id);
             core.api.initSheetData(ctx_, fileIndex, specialOp.value);
           } else if (specialOp.op === "deleteSheet") {
@@ -9989,7 +9360,6 @@ function generateAPIs(context, setContext, handleUndo, handleRedo, settings, cel
             patches.length = 0;
           }
         }
-
         if (((_ops$ = ops[0]) === null || _ops$ === void 0 ? void 0 : (_ops$$path = _ops$.path) === null || _ops$$path === void 0 ? void 0 : _ops$$path[0]) === "filter_select") ctx_.luckysheet_filter_save = ops[0].value;else if (((_ops$2 = ops[0]) === null || _ops$2 === void 0 ? void 0 : (_ops$2$path = _ops$2.path) === null || _ops$2$path === void 0 ? void 0 : _ops$2$path[0]) === "hide") {
           if (ctx_.currentSheetId === ops[0].id) {
             var shownSheets = ctx_.luckysheetfile.filter(function (sheet) {
@@ -10002,7 +9372,6 @@ function generateAPIs(context, setContext, handleUndo, handleRedo, settings, cel
         }
         core.createFilterOptions(ctx_, ctx_.luckysheet_filter_save, (_ops$3 = ops[0]) === null || _ops$3 === void 0 ? void 0 : _ops$3.id);
         if (patches.length === 0) return;
-
         try {
           produce.applyPatches(ctx_, patches);
         } catch (e) {
@@ -10209,9 +9578,9 @@ function generateAPIs(context, setContext, handleUndo, handleRedo, settings, cel
 
 var SelectItem = function SelectItem(_ref) {
   var item = _ref.item,
-      isChecked = _ref.isChecked,
-      _onChange = _ref.onChange,
-      isItemVisible = _ref.isItemVisible;
+    isChecked = _ref.isChecked,
+    _onChange = _ref.onChange,
+    isItemVisible = _ref.isItemVisible;
   var checked = React.useMemo(function () {
     return isChecked(item.key);
   }, [isChecked, item.key]);
@@ -10228,22 +9597,19 @@ var SelectItem = function SelectItem(_ref) {
     className: "count"
   }, "( ".concat(item.rows.length, " )"))) : null;
 };
-
 var DateSelectTreeItem = function DateSelectTreeItem(_ref2) {
   var item = _ref2.item,
-      _ref2$depth = _ref2.depth,
-      depth = _ref2$depth === void 0 ? 0 : _ref2$depth,
-      initialExpand = _ref2.initialExpand,
-      onExpand = _ref2.onExpand,
-      isChecked = _ref2.isChecked,
-      _onChange2 = _ref2.onChange,
-      isItemVisible = _ref2.isItemVisible;
-
+    _ref2$depth = _ref2.depth,
+    depth = _ref2$depth === void 0 ? 0 : _ref2$depth,
+    initialExpand = _ref2.initialExpand,
+    onExpand = _ref2.onExpand,
+    isChecked = _ref2.isChecked,
+    _onChange2 = _ref2.onChange,
+    isItemVisible = _ref2.isItemVisible;
   var _useState = React.useState(initialExpand(item.key)),
-      _useState2 = _slicedToArray(_useState, 2),
-      expand = _useState2[0],
-      setExpand = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    expand = _useState2[0],
+    setExpand = _useState2[1];
   var checked = React.useMemo(function () {
     return isChecked(item.key);
   }, [isChecked, item.key]);
@@ -10291,14 +9657,13 @@ var DateSelectTreeItem = function DateSelectTreeItem(_ref2) {
     }));
   })) : null;
 };
-
 var DateSelectTree = function DateSelectTree(_ref3) {
   var dates = _ref3.dates,
-      initialExpand = _ref3.initialExpand,
-      onExpand = _ref3.onExpand,
-      isChecked = _ref3.isChecked,
-      onChange = _ref3.onChange,
-      isItemVisible = _ref3.isItemVisible;
+    initialExpand = _ref3.initialExpand,
+    onExpand = _ref3.onExpand,
+    isChecked = _ref3.isChecked,
+    onChange = _ref3.onChange,
+    isItemVisible = _ref3.isItemVisible;
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, dates.map(function (v) {
     return /*#__PURE__*/React__default['default'].createElement(DateSelectTreeItem, _objectSpread2({
       key: v.key,
@@ -10312,95 +9677,79 @@ var DateSelectTree = function DateSelectTree(_ref3) {
     }));
   }));
 };
-
 var FilterMenu = function FilterMenu() {
   var _settings$filterConte;
-
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      settings = _useContext.settings;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    settings = _useContext.settings;
   var containerRef = React.useRef(null);
   var contextRef = React.useRef(context);
   var byColorMenuRef = React.useRef(null);
   var subMenuRef = React.useRef(null);
   var filterContextMenu = context.filterContextMenu;
-
   var _ref4 = filterContextMenu || {
-    startRow: null,
-    startCol: null,
-    endRow: null,
-    endCol: null,
-    col: null,
-    listBoxMaxHeight: 400
-  },
-      startRow = _ref4.startRow,
-      startCol = _ref4.startCol,
-      endRow = _ref4.endRow,
-      endCol = _ref4.endCol,
-      col = _ref4.col,
-      listBoxMaxHeight = _ref4.listBoxMaxHeight;
-
+      startRow: null,
+      startCol: null,
+      endRow: null,
+      endCol: null,
+      col: null,
+      listBoxMaxHeight: 400
+    },
+    startRow = _ref4.startRow,
+    startCol = _ref4.startCol,
+    endRow = _ref4.endRow,
+    endCol = _ref4.endCol,
+    col = _ref4.col,
+    listBoxMaxHeight = _ref4.listBoxMaxHeight;
   var _locale = core.locale(context),
-      filter = _locale.filter;
-
+    filter = _locale.filter;
   var _useState3 = React.useState({
-    dates: [],
-    dateRowMap: {},
-    values: [],
-    valueRowMap: {},
-    visibleRows: [],
-    flattenValues: []
-  }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      data = _useState4[0],
-      setData = _useState4[1];
-
+      dates: [],
+      dateRowMap: {},
+      values: [],
+      valueRowMap: {},
+      visibleRows: [],
+      flattenValues: []
+    }),
+    _useState4 = _slicedToArray(_useState3, 2),
+    data = _useState4[0],
+    setData = _useState4[1];
   var _useState5 = React.useState([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      datesUncheck = _useState6[0],
-      setDatesUncheck = _useState6[1];
-
+    _useState6 = _slicedToArray(_useState5, 2),
+    datesUncheck = _useState6[0],
+    setDatesUncheck = _useState6[1];
   var _useState7 = React.useState([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      valuesUncheck = _useState8[0],
-      setValuesUncheck = _useState8[1];
-
+    _useState8 = _slicedToArray(_useState7, 2),
+    valuesUncheck = _useState8[0],
+    setValuesUncheck = _useState8[1];
   var dateTreeExpandState = React.useRef({});
   var hiddenRows = React.useRef([]);
-
   var _useState9 = React.useState([]),
-      _useState10 = _slicedToArray(_useState9, 2),
-      showValues = _useState10[0],
-      setShowValues = _useState10[1];
-
+    _useState10 = _slicedToArray(_useState9, 2),
+    showValues = _useState10[0],
+    setShowValues = _useState10[1];
   var _useState11 = React.useState(""),
-      _useState12 = _slicedToArray(_useState11, 2),
-      searchText = _useState12[0],
-      setSearchText = _useState12[1];
-
+    _useState12 = _slicedToArray(_useState11, 2),
+    searchText = _useState12[0],
+    setSearchText = _useState12[1];
   var _useState13 = React.useState(),
-      _useState14 = _slicedToArray(_useState13, 2),
-      subMenuPos = _useState14[0],
-      setSubMenuPos = _useState14[1];
-
+    _useState14 = _slicedToArray(_useState13, 2),
+    subMenuPos = _useState14[0],
+    setSubMenuPos = _useState14[1];
   var _useState15 = React.useState({
-    bgColors: [],
-    fcColors: []
-  }),
-      _useState16 = _slicedToArray(_useState15, 2),
-      filterColors = _useState16[0],
-      setFilterColors = _useState16[1];
-
+      bgColors: [],
+      fcColors: []
+    }),
+    _useState16 = _slicedToArray(_useState15, 2),
+    filterColors = _useState16[0],
+    setFilterColors = _useState16[1];
   var _useState17 = React.useState(false),
-      _useState18 = _slicedToArray(_useState17, 2),
-      showSubMenu = _useState18[0],
-      setShowSubMenu = _useState18[1];
-
+    _useState18 = _slicedToArray(_useState17, 2),
+    showSubMenu = _useState18[0],
+    setShowSubMenu = _useState18[1];
   var _useAlert = useAlert(),
-      showAlert = _useAlert.showAlert;
-
+    showAlert = _useAlert.showAlert;
   var mouseHoverSubMenu = React.useRef(false);
   contextRef.current = context;
   var close = React.useCallback(function () {
@@ -10411,12 +9760,10 @@ var FilterMenu = function FilterMenu() {
   useOutsideClick(containerRef, close, [close]);
   var initialExpand = React.useCallback(function (key) {
     var expand = dateTreeExpandState.current[key];
-
     if (expand == null) {
       dateTreeExpandState.current[key] = true;
       return true;
     }
-
     return expand;
   }, []);
   var onExpand = React.useCallback(function (key, expand) {
@@ -10453,7 +9800,6 @@ var FilterMenu = function FilterMenu() {
       var colorData = ___default['default'].find(___default['default'].get(draft, key), function (v) {
         return v.color === color;
       });
-
       colorData.checked = checked;
     }));
   }, []);
@@ -10501,7 +9847,6 @@ var FilterMenu = function FilterMenu() {
     if (!containerRef.current || !filterContextMenu) {
       return;
     }
-
     var winH = window.innerHeight;
     var winW = window.innerWidth;
     var rect = containerRef.current.getBoundingClientRect();
@@ -10510,45 +9855,35 @@ var FilterMenu = function FilterMenu() {
     var top = filterContextMenu.y;
     var left = filterContextMenu.x;
     var hasOverflow = false;
-
     if (left + menuW > winW) {
       left -= menuW;
       hasOverflow = true;
     }
-
     if (top + menuH > winH) {
       top -= menuH;
       hasOverflow = true;
     }
-
     if (top < 0) {
       top = 0;
       hasOverflow = true;
     }
-
     var containerH = winH - rect.top - 350;
-
     if (containerH < 0) {
       containerH = 100;
     }
-
     if (filterContextMenu.x === left && filterContextMenu.y === top && filterContextMenu.listBoxMaxHeight === containerH) {
       return;
     }
-
     setContext(function (draftCtx) {
       if (hasOverflow) {
         ___default['default'].set(draftCtx, "filterContextMenu.x", left);
-
         ___default['default'].set(draftCtx, "filterContextMenu.y", top);
       }
-
       ___default['default'].set(draftCtx, "filterContextMenu.listBoxMaxHeight", containerH);
     });
   }, [filterContextMenu, setContext]);
   React.useLayoutEffect(function () {
     var _byColorMenuRef$curre, _subMenuRef$current;
-
     var rect = (_byColorMenuRef$curre = byColorMenuRef.current) === null || _byColorMenuRef$curre === void 0 ? void 0 : _byColorMenuRef$curre.getBoundingClientRect();
     var subMenuRect = (_subMenuRef$current = subMenuRef.current) === null || _subMenuRef$current === void 0 ? void 0 : _subMenuRef$current.getBoundingClientRect();
     if (rect == null || subMenuRect == null) return;
@@ -10558,13 +9893,10 @@ var FilterMenu = function FilterMenu() {
     var pos = {
       top: rect.top - 5
     };
-
     if (rect.right + subMenuRect.width > winW) {
       hasOverflow = true;
-
       ___default['default'].set(pos, "left", rect.left - subMenuRect.width);
     }
-
     if (hasOverflow) {
       setSubMenuPos(pos);
     }
@@ -10600,7 +9932,6 @@ var FilterMenu = function FilterMenu() {
         key: "divider-".concat(i)
       });
     }
-
     if (name === "sort-by-asc") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -10609,7 +9940,6 @@ var FilterMenu = function FilterMenu() {
         }
       }, filter.sortByAsc);
     }
-
     if (name === "sort-by-desc") {
       return /*#__PURE__*/React__default['default'].createElement(Menu, {
         key: name,
@@ -10618,18 +9948,15 @@ var FilterMenu = function FilterMenu() {
         }
       }, filter.sortByDesc);
     }
-
     if (name === "filter-by-color") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         key: name,
         ref: byColorMenuRef,
         onMouseEnter: function onMouseEnter() {
           var _byColorMenuRef$curre2;
-
           if (!containerRef.current || !filterContextMenu) {
             return;
           }
-
           setShowSubMenu(true);
           var rect = (_byColorMenuRef$curre2 = byColorMenuRef.current) === null || _byColorMenuRef$curre2 === void 0 ? void 0 : _byColorMenuRef$curre2.getBoundingClientRect();
           if (rect == null) return;
@@ -10647,7 +9974,6 @@ var FilterMenu = function FilterMenu() {
         className: "filter-caret right"
       }))));
     }
-
     if (name === "filter-by-condition") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         key: "name"
@@ -10674,7 +10000,6 @@ var FilterMenu = function FilterMenu() {
         "aria-hidden": "true"
       })))));
     }
-
     if (name === "filter-by-value") {
       return /*#__PURE__*/React__default['default'].createElement("div", {
         key: name
@@ -10768,7 +10093,6 @@ var FilterMenu = function FilterMenu() {
         });
       }))));
     }
-
     return null;
   }), /*#__PURE__*/React__default['default'].createElement(Divider$1, null), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "fortune-menuitem-row"
@@ -10781,7 +10105,6 @@ var FilterMenu = function FilterMenu() {
           pre[curr] = 0;
           return pre;
         }, {});
-
         core.saveFilter(draftCtx, hiddenRows.current.length > 0, rowHidden, {}, startRow, endRow, col, startCol, endCol);
         hiddenRows.current = [];
         draftCtx.filterContextMenu = undefined;
@@ -10835,7 +10158,6 @@ var FilterMenu = function FilterMenu() {
           pre[curr] = 0;
           return pre;
         }, {});
-
         core.saveFilter(draftCtx, !___default['default'].isEmpty(rowHidden), rowHidden, {}, startRow, endRow, col, startCol, endCol);
         hiddenRows.current = [];
         draftCtx.filterContextMenu = undefined;
@@ -10846,12 +10168,10 @@ var FilterMenu = function FilterMenu() {
 
 var SheetHiddenButton = function SheetHiddenButton(_ref) {
   var style = _ref.style,
-      sheet = _ref.sheet;
-
+    sheet = _ref.sheet;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var showSheet = React.useCallback(function () {
     if (context.allowEdit === false) return;
     if (!sheet) return;
@@ -10878,21 +10198,17 @@ var SheetHiddenButton = function SheetHiddenButton(_ref) {
 
 var SheetListItem = function SheetListItem(_ref) {
   var sheet = _ref.sheet,
-      isDropPlaceholder = _ref.isDropPlaceholder;
-
+    isDropPlaceholder = _ref.isDropPlaceholder;
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext,
-      refs = _useContext.refs;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext,
+    refs = _useContext.refs;
   var containerRef = React.useRef(null);
   React.useEffect(function () {
     setContext(function (draftCtx) {
       var r = context.sheetScrollRecord[draftCtx === null || draftCtx === void 0 ? void 0 : draftCtx.currentSheetId];
-
       if (r) {
         var _r$scrollLeft, _r$scrollTop, _r$luckysheet_select_, _r$luckysheet_select_2;
-
         draftCtx.scrollLeft = (_r$scrollLeft = r.scrollLeft) !== null && _r$scrollLeft !== void 0 ? _r$scrollLeft : 0;
         draftCtx.scrollTop = (_r$scrollTop = r.scrollTop) !== null && _r$scrollTop !== void 0 ? _r$scrollTop : 0;
         draftCtx.luckysheet_select_status = (_r$luckysheet_select_ = r.luckysheet_select_status) !== null && _r$luckysheet_select_ !== void 0 ? _r$luckysheet_select_ : false;
@@ -10903,7 +10219,6 @@ var SheetListItem = function SheetListItem(_ref) {
         draftCtx.luckysheet_select_status = false;
         draftCtx.luckysheet_select_save = undefined;
       }
-
       draftCtx.luckysheet_selection_range = [];
     });
   }, [context.currentSheetId, context.sheetScrollRecord, setContext]);
@@ -10952,9 +10267,8 @@ var SheetListItem = function SheetListItem(_ref) {
 
 var SheetList = function SheetList() {
   var _useContext = React.useContext(WorkbookContext),
-      context = _useContext.context,
-      setContext = _useContext.setContext;
-
+    context = _useContext.context,
+    setContext = _useContext.setContext;
   var containerRef = React.useRef(null);
   var close = React.useCallback(function () {
     setContext(function (ctx) {
@@ -10979,25 +10293,20 @@ var _excluded = ["onChange", "onOp", "data"];
 produce.enablePatches();
 var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
   var _context$luckysheetfi;
-
   var onChange = _ref.onChange,
-      onOp = _ref.onOp,
-      originalData = _ref.data,
-      props = _objectWithoutProperties(_ref, _excluded);
-
+    onOp = _ref.onOp,
+    originalData = _ref.data,
+    props = _objectWithoutProperties(_ref, _excluded);
   var globalCache = React.useRef({
     undoList: [],
     redoList: []
   });
-
   var _useState = React.useState(core.defaultContext(globalCache.current)),
-      _useState2 = _slicedToArray(_useState, 2),
-      context = _useState2[0],
-      setContext = _useState2[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    context = _useState2[0],
+    setContext = _useState2[1];
   var _locale = core.locale(context),
-      formula = _locale.formula;
-
+    formula = _locale.formula;
   var cellInput = React.useRef(null);
   var fxInput = React.useRef(null);
   var canvas = React.useRef(null);
@@ -11005,31 +10314,27 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
   var scrollbarY = React.useRef(null);
   var cellArea = React.useRef(null);
   var workbookContainer = React.useRef(null);
-
   var _useState3 = React.useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      moreToolbarItems = _useState4[0],
-      setMoreToolbarItems = _useState4[1];
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    moreToolbarItems = _useState4[0],
+    setMoreToolbarItems = _useState4[1];
   var _useState5 = React.useState({
-    numberC: 0,
-    count: 0,
-    sum: 0,
-    max: 0,
-    min: 0,
-    average: ""
-  }),
-      _useState6 = _slicedToArray(_useState5, 2),
-      calInfo = _useState6[0],
-      setCalInfo = _useState6[1];
-
+      numberC: 0,
+      count: 0,
+      sum: 0,
+      max: 0,
+      min: 0,
+      average: ""
+    }),
+    _useState6 = _slicedToArray(_useState5, 2),
+    calInfo = _useState6[0],
+    setCalInfo = _useState6[1];
   var mergedSettings = React.useMemo(function () {
     return ___default['default'].assign(___default['default'].cloneDeep(core.defaultSettings), props);
   }, _toConsumableArray(___default['default'].values(props)));
   React.useEffect(function () {
     var selection = context.luckysheet_select_save;
     var lang = props.lang;
-
     if (selection) {
       var re = core.calcSelectionInfo(context, lang);
       setCalInfo(re);
@@ -11037,18 +10342,13 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
   }, [context.luckysheet_select_save]);
   var initSheetData = React.useCallback(function (draftCtx, newData, index) {
     var _lastRow$r, _lastCol$c;
-
     var celldata = newData.celldata,
-        row = newData.row,
-        column = newData.column;
-
+      row = newData.row,
+      column = newData.column;
     var lastRow = ___default['default'].maxBy(celldata, "r");
-
     var lastCol = ___default['default'].maxBy(celldata, "c");
-
     var lastRowNum = ((_lastRow$r = lastRow === null || lastRow === void 0 ? void 0 : lastRow.r) !== null && _lastRow$r !== void 0 ? _lastRow$r : 0) + 1;
     var lastColNum = ((_lastCol$c = lastCol === null || lastCol === void 0 ? void 0 : lastCol.c) !== null && _lastCol$c !== void 0 ? _lastCol$c : 0) + 1;
-
     if (row != null && column != null && row > 0 && column > 0) {
       lastRowNum = Math.max(lastRowNum, row);
       lastColNum = Math.max(lastColNum, column);
@@ -11056,14 +10356,12 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
       lastRowNum = Math.max(lastRowNum, draftCtx.defaultrowNum);
       lastColNum = Math.max(lastColNum, draftCtx.defaultcolumnNum);
     }
-
     if (lastRowNum && lastColNum) {
       var expandedData = ___default['default'].times(lastRowNum, function () {
         return ___default['default'].times(lastColNum, function () {
           return null;
         });
       });
-
       celldata === null || celldata === void 0 ? void 0 : celldata.forEach(function (d) {
         expandedData[d.r][d.c] = d.v;
       });
@@ -11074,36 +10372,29 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
       });
       return expandedData;
     }
-
     return null;
   }, []);
   var emitOp = React.useCallback(function (ctx, patches, options) {
     var undo = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
     if (onOp) {
       onOp(core.patchToOp(ctx, patches, options, undo));
     }
   }, [onOp]);
-
   function reduceUndoList(ctx, ctxBefore) {
     var sheetsId = ctx.luckysheetfile.map(function (sheet) {
       return sheet.id;
     });
     var sheetDeletedByMe = globalCache.current.undoList.filter(function (undo) {
       var _undo$options;
-
       return (_undo$options = undo.options) === null || _undo$options === void 0 ? void 0 : _undo$options.deleteSheetOp;
     }).map(function (item) {
       var _item$options, _item$options$deleteS;
-
       return (_item$options = item.options) === null || _item$options === void 0 ? void 0 : (_item$options$deleteS = _item$options.deleteSheetOp) === null || _item$options$deleteS === void 0 ? void 0 : _item$options$deleteS.id;
     });
     globalCache.current.undoList = globalCache.current.undoList.filter(function (undo) {
       var _undo$options2, _undo$options3, _undo$options4, _undo$options5;
-
       return ((_undo$options2 = undo.options) === null || _undo$options2 === void 0 ? void 0 : _undo$options2.deleteSheetOp) || ((_undo$options3 = undo.options) === null || _undo$options3 === void 0 ? void 0 : _undo$options3.id) === undefined || ___default['default'].indexOf(sheetsId, (_undo$options4 = undo.options) === null || _undo$options4 === void 0 ? void 0 : _undo$options4.id) !== -1 || ___default['default'].indexOf(sheetDeletedByMe, (_undo$options5 = undo.options) === null || _undo$options5 === void 0 ? void 0 : _undo$options5.id) !== -1;
     });
-
     if (ctxBefore.luckysheetfile.length > ctx.luckysheetfile.length) {
       var sheetDeleted = ctxBefore.luckysheetfile.filter(function (oneSheet) {
         return ___default['default'].indexOf(ctx.luckysheetfile.map(function (item) {
@@ -11118,28 +10409,23 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
           if (typeof onePatch.path[1] === "number" && onePatch.path[1] > deletedIndex) {
             onePatch.path[1] -= 1;
           }
-
           return onePatch;
         });
         oneStep.inversePatches = oneStep.inversePatches.map(function (onePatch) {
           if (typeof onePatch.path[1] === "number" && onePatch.path[1] > deletedIndex) {
             onePatch.path[1] -= 1;
           }
-
           return onePatch;
         });
         return oneStep;
       });
     }
   }
-
   function dataToCelldata(data) {
     var cellData = [];
-
     for (var row = 0; row < (data === null || data === void 0 ? void 0 : data.length); row += 1) {
       for (var col = 0; col < ((_data$row = data[row]) === null || _data$row === void 0 ? void 0 : _data$row.length); col += 1) {
         var _data$row;
-
         if (data[row][col] !== null) {
           cellData.push({
             r: row,
@@ -11149,37 +10435,29 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
         }
       }
     }
-
     return cellData;
   }
-
   var setContextWithProduce = React.useCallback(function (recipe) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     setContext(function (ctx_) {
       var _produceWithPatches = produce.produceWithPatches(ctx_, recipe),
-          _produceWithPatches2 = _slicedToArray(_produceWithPatches, 3),
-          result = _produceWithPatches2[0],
-          patches = _produceWithPatches2[1],
-          inversePatches = _produceWithPatches2[2];
-
+        _produceWithPatches2 = _slicedToArray(_produceWithPatches, 3),
+        result = _produceWithPatches2[0],
+        patches = _produceWithPatches2[1],
+        inversePatches = _produceWithPatches2[2];
       if (patches.length > 0 && !options.noHistory) {
         if (options.logPatch) {
           console.info("patch", patches);
         }
-
         var filteredPatches = core.filterPatch(patches);
         var filteredInversePatches = core.filterPatch(inversePatches);
-
         if (filteredInversePatches.length > 0) {
           options.id = ctx_.currentSheetId;
-
           if (options.deleteSheetOp) {
             var target = ctx_.luckysheetfile.filter(function (sheet) {
               var _options$deleteSheetO;
-
               return sheet.id === ((_options$deleteSheetO = options.deleteSheetOp) === null || _options$deleteSheetO === void 0 ? void 0 : _options$deleteSheetO.id);
             });
-
             if (target) {
               var index = core.getSheetIndex(ctx_, options.deleteSheetOp.id);
               options.deletedSheet = {
@@ -11200,7 +10478,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
             options.addSheet = {};
             options.addSheet.id = result.luckysheetfile[result.luckysheetfile.length - 1].id;
           }
-
           globalCache.current.undoList.push({
             patches: filteredPatches,
             inversePatches: filteredInversePatches,
@@ -11211,33 +10488,26 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
         }
       } else {
         var _patches$, _patches$$value, _ctx_$luckysheetfile;
-
         if ((patches === null || patches === void 0 ? void 0 : (_patches$ = patches[0]) === null || _patches$ === void 0 ? void 0 : (_patches$$value = _patches$.value) === null || _patches$$value === void 0 ? void 0 : _patches$$value.length) < (ctx_ === null || ctx_ === void 0 ? void 0 : (_ctx_$luckysheetfile = ctx_.luckysheetfile) === null || _ctx_$luckysheetfile === void 0 ? void 0 : _ctx_$luckysheetfile.length)) {
           reduceUndoList(result, ctx_);
         }
       }
-
       return result;
     });
   }, [emitOp]);
   var handleUndo = React.useCallback(function () {
     var history = globalCache.current.undoList.pop();
-
     if (history) {
       setContext(function (ctx_) {
         var _history$options, _history$options3;
-
         if ((_history$options = history.options) === null || _history$options === void 0 ? void 0 : _history$options.deleteSheetOp) {
           var _history$options$dele, _history$options$dele2;
-
           history.inversePatches[0].path[1] = ctx_.luckysheetfile.length;
           var order = (_history$options$dele = history.options.deletedSheet) === null || _history$options$dele === void 0 ? void 0 : (_history$options$dele2 = _history$options$dele.value) === null || _history$options$dele2 === void 0 ? void 0 : _history$options$dele2.order;
           var sheetsRight = ctx_.luckysheetfile.filter(function (sheet) {
             var _history$options2, _history$options2$del;
-
             return (sheet === null || sheet === void 0 ? void 0 : sheet.order) >= order && sheet.id !== (history === null || history === void 0 ? void 0 : (_history$options2 = history.options) === null || _history$options2 === void 0 ? void 0 : (_history$options2$del = _history$options2.deleteSheetOp) === null || _history$options2$del === void 0 ? void 0 : _history$options2$del.id);
           });
-
           ___default['default'].forEach(sheetsRight, function (sheet) {
             history.inversePatches.push({
               op: "replace",
@@ -11246,18 +10516,14 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
             });
           });
         }
-
         var newContext = produce.applyPatches(ctx_, history.inversePatches);
         globalCache.current.redoList.push(history);
         var inversedOptions = core.inverseRowColOptions(history.options);
-
         if (inversedOptions === null || inversedOptions === void 0 ? void 0 : inversedOptions.insertRowColOp) {
           inversedOptions.restoreDeletedCells = true;
         }
-
         if ((_history$options3 = history.options) === null || _history$options3 === void 0 ? void 0 : _history$options3.addSheetOp) {
           var _inversedOptions$addS;
-
           var index = core.getSheetIndex(ctx_, history.options.addSheet.id);
           inversedOptions.addSheet = {
             id: history.options.addSheet.id,
@@ -11267,7 +10533,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
           inversedOptions.addSheet.value.celldata = dataToCelldata((_inversedOptions$addS = inversedOptions.addSheet.value) === null || _inversedOptions$addS === void 0 ? void 0 : _inversedOptions$addS.data);
           delete inversedOptions.addSheet.value.data;
         }
-
         emitOp(newContext, history.inversePatches, inversedOptions, true);
         return newContext;
       });
@@ -11275,7 +10540,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
   }, [emitOp]);
   var handleRedo = React.useCallback(function () {
     var history = globalCache.current.redoList.pop();
-
     if (history) {
       setContext(function (ctx_) {
         var newContext = produce.applyPatches(ctx_, history.patches);
@@ -11288,7 +10552,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
   React.useEffect(function () {
     if (context.luckysheet_select_save != null) {
       var _mergedSettings$hooks, _mergedSettings$hooks2;
-
       (_mergedSettings$hooks = mergedSettings.hooks) === null || _mergedSettings$hooks === void 0 ? void 0 : (_mergedSettings$hooks2 = _mergedSettings$hooks.afterSelectionChange) === null || _mergedSettings$hooks2 === void 0 ? void 0 : _mergedSettings$hooks2.call(_mergedSettings$hooks, context.currentSheetId, context.luckysheet_select_save[0]);
     }
   }, [context.currentSheetId, context.luckysheet_select_save, mergedSettings.hooks]);
@@ -11319,11 +10582,9 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
   React.useEffect(function () {
     setContextWithProduce(function (draftCtx) {
       var _draftCtx$luckysheetf4, _draftCtx$luckysheet_;
-
       draftCtx.defaultcolumnNum = mergedSettings.column;
       draftCtx.defaultrowNum = mergedSettings.row;
       draftCtx.defaultFontSize = mergedSettings.defaultFontSize;
-
       if (___default['default'].isEmpty(draftCtx.luckysheetfile)) {
         var newData = produce__default['default'](originalData, function (draftData) {
           core.ensureSheetIndex(draftData, mergedSettings.generateSheetId);
@@ -11331,56 +10592,43 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
         draftCtx.luckysheetfile = newData;
         newData.forEach(function (newDatum) {
           var _draftCtx$luckysheetf;
-
           var index = core.getSheetIndex(draftCtx, newDatum.id);
           var sheet = (_draftCtx$luckysheetf = draftCtx.luckysheetfile) === null || _draftCtx$luckysheetf === void 0 ? void 0 : _draftCtx$luckysheetf[index];
           initSheetData(draftCtx, sheet, index);
         });
       }
-
       if (mergedSettings.devicePixelRatio > 0) {
         draftCtx.devicePixelRatio = mergedSettings.devicePixelRatio;
       }
-
       draftCtx.lang = mergedSettings.lang;
       draftCtx.allowEdit = mergedSettings.allowEdit;
       draftCtx.hooks = mergedSettings.hooks;
-
       if (___default['default'].isEmpty(draftCtx.currentSheetId)) {
         core.initSheetIndex(draftCtx);
       }
-
       var sheetIdx = core.getSheetIndex(draftCtx, draftCtx.currentSheetId);
-
       if (sheetIdx == null) {
         var _draftCtx$luckysheetf2, _draftCtx$luckysheetf3;
-
         if (((_draftCtx$luckysheetf2 = (_draftCtx$luckysheetf3 = draftCtx.luckysheetfile) === null || _draftCtx$luckysheetf3 === void 0 ? void 0 : _draftCtx$luckysheetf3.length) !== null && _draftCtx$luckysheetf2 !== void 0 ? _draftCtx$luckysheetf2 : 0) > 0) {
           sheetIdx = 0;
           draftCtx.currentSheetId = draftCtx.luckysheetfile[0].id;
         }
       }
-
       if (sheetIdx == null) return;
       var sheet = (_draftCtx$luckysheetf4 = draftCtx.luckysheetfile) === null || _draftCtx$luckysheetf4 === void 0 ? void 0 : _draftCtx$luckysheetf4[sheetIdx];
       if (!sheet) return;
       var data = sheet.data;
-
       if (___default['default'].isEmpty(data)) {
         var temp = initSheetData(draftCtx, sheet, sheetIdx);
-
         if (!___default['default'].isNull(temp)) {
           data = temp;
         }
       }
-
       if (___default['default'].isEmpty(draftCtx.luckysheet_select_save) && !___default['default'].isEmpty(sheet.luckysheet_select_save)) {
         draftCtx.luckysheet_select_save = sheet.luckysheet_select_save;
       }
-
       if (((_draftCtx$luckysheet_ = draftCtx.luckysheet_select_save) === null || _draftCtx$luckysheet_ === void 0 ? void 0 : _draftCtx$luckysheet_.length) === 0) {
         var _data, _data$, _data$$, _data2, _data2$, _data2$$, _data2$$$mc, _data3, _data3$, _data3$$, _data3$$$mc;
-
         if (((_data = data) === null || _data === void 0 ? void 0 : (_data$ = _data[0]) === null || _data$ === void 0 ? void 0 : (_data$$ = _data$[0]) === null || _data$$ === void 0 ? void 0 : _data$$.mc) && !___default['default'].isNil((_data2 = data) === null || _data2 === void 0 ? void 0 : (_data2$ = _data2[0]) === null || _data2$ === void 0 ? void 0 : (_data2$$ = _data2$[0]) === null || _data2$$ === void 0 ? void 0 : (_data2$$$mc = _data2$$.mc) === null || _data2$$$mc === void 0 ? void 0 : _data2$$$mc.rs) && !___default['default'].isNil((_data3 = data) === null || _data3 === void 0 ? void 0 : (_data3$ = _data3[0]) === null || _data3$ === void 0 ? void 0 : (_data3$$ = _data3$[0]) === null || _data3$$ === void 0 ? void 0 : (_data3$$$mc = _data3$$.mc) === null || _data3$$$mc === void 0 ? void 0 : _data3$$$mc.cs)) {
           draftCtx.luckysheet_select_save = [{
             row: [0, data[0][0].mc.rs - 1],
@@ -11393,34 +10641,28 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
           }];
         }
       }
-
       draftCtx.config = ___default['default'].isNil(sheet.config) ? {} : sheet.config;
       draftCtx.insertedImgs = sheet.images;
       draftCtx.zoomRatio = ___default['default'].isNil(sheet.zoomRatio) ? 1 : sheet.zoomRatio;
       draftCtx.rowHeaderWidth = mergedSettings.rowHeaderWidth * draftCtx.zoomRatio;
       draftCtx.columnHeaderHeight = mergedSettings.columnHeaderHeight * draftCtx.zoomRatio;
-
       if (!___default['default'].isNil(sheet.defaultRowHeight)) {
         draftCtx.defaultrowlen = Number(sheet.defaultRowHeight);
       } else {
         draftCtx.defaultrowlen = mergedSettings.defaultRowHeight;
       }
-
       if (!___default['default'].isNil(sheet.addRows)) {
         draftCtx.addDefaultRows = Number(sheet.addRows);
       } else {
         draftCtx.addDefaultRows = mergedSettings.addRows;
       }
-
       if (!___default['default'].isNil(sheet.defaultColWidth)) {
         draftCtx.defaultcollen = Number(sheet.defaultColWidth);
       } else {
         draftCtx.defaultcollen = mergedSettings.defaultColWidth;
       }
-
       if (!___default['default'].isNil(sheet.showGridLines)) {
         var showGridLines = sheet.showGridLines;
-
         if (showGridLines === 0 || showGridLines === false) {
           draftCtx.showGridLines = false;
         } else {
@@ -11429,7 +10671,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
       } else {
         draftCtx.showGridLines = true;
       }
-
       if (___default['default'].isNil(mergedSettings.lang)) {
         var lang = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
         draftCtx.lang = lang;
@@ -11440,39 +10681,32 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
   }, [context.currentSheetId, context.luckysheetfile.length, originalData, mergedSettings.defaultRowHeight, mergedSettings.defaultColWidth, mergedSettings.column, mergedSettings.row, mergedSettings.defaultFontSize, mergedSettings.devicePixelRatio, mergedSettings.lang, mergedSettings.allowEdit, mergedSettings.hooks, mergedSettings.generateSheetId, setContextWithProduce, initSheetData, mergedSettings.rowHeaderWidth, mergedSettings.columnHeaderHeight, mergedSettings.addRows]);
   var onKeyDown = React.useCallback(function (e) {
     var nativeEvent = e.nativeEvent;
-
     if ((e.ctrlKey || e.metaKey) && e.code === "KeyZ") {
       if (e.shiftKey) {
         handleRedo();
       } else {
         handleUndo();
       }
-
       e.stopPropagation();
       return;
     }
-
     if ((e.ctrlKey || e.metaKey) && e.code === "KeyY") {
       handleRedo();
       e.stopPropagation();
       e.preventDefault();
       return;
     }
-
     setContextWithProduce(function (draftCtx) {
       core.handleGlobalKeyDown(draftCtx, cellInput.current, fxInput.current, nativeEvent, globalCache.current, handleUndo, handleRedo, canvas.current.getContext("2d"));
     });
   }, [handleRedo, handleUndo, setContextWithProduce]);
   var onPaste = React.useCallback(function (e) {
     var _document$activeEleme;
-
     if (cellInput.current === document.activeElement || ((_document$activeEleme = document.activeElement) === null || _document$activeEleme === void 0 ? void 0 : _document$activeEleme.className) === "fortune-sheet-overlay") {
       var clipboardData = e.clipboardData;
-
       if (!clipboardData) {
         clipboardData = window.clipboardData;
       }
-
       var txtdata = clipboardData.getData("text/html") || clipboardData.getData("text/plain");
       var ele = document.createElement("div");
       ele.innerHTML = txtdata;
@@ -11480,7 +10714,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
       var maxRow = trList.length + context.luckysheet_select_save[0].row[0];
       var rowToBeAdded = maxRow - context.luckysheetfile[core.getSheetIndex(context, context.currentSheetId)].data.length;
       var range = context.luckysheet_select_save;
-
       if (rowToBeAdded > 0) {
         var insertRowColOp = {
           type: "row",
@@ -11496,7 +10729,6 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
           insertRowColOp: insertRowColOp
         });
       }
-
       setContextWithProduce(function (draftCtx) {
         try {
           core.handlePaste(draftCtx, e);
@@ -11519,17 +10751,13 @@ var Workbook = /*#__PURE__*/React__default['default'].forwardRef(function (_ref,
     return generateAPIs(context, setContextWithProduce, handleUndo, handleRedo, mergedSettings, cellInput.current, scrollbarX.current, scrollbarY.current);
   }, [context, setContextWithProduce, handleUndo, handleRedo, mergedSettings]);
   var i = core.getSheetIndex(context, context.currentSheetId);
-
   if (i == null) {
     return null;
   }
-
   var sheet = (_context$luckysheetfi = context.luckysheetfile) === null || _context$luckysheetfi === void 0 ? void 0 : _context$luckysheetfi[i];
-
   if (!sheet) {
     return null;
   }
-
   return /*#__PURE__*/React__default['default'].createElement(WorkbookContext.Provider, {
     value: providerValue
   }, /*#__PURE__*/React__default['default'].createElement(ModalProvider, null, /*#__PURE__*/React__default['default'].createElement("div", {

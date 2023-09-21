@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "es2015",
     "declaration": true,
     "esModuleInterop": true,
@@ -12,7 +12,11 @@
     "strict": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "lib": ["es5", "dom"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "baseUrl": "./",
     "paths": {
       "@fortune-sheet/core": ["packages/core/src"],

@@ -1,18 +1,18 @@
 import { Patch as ImmerPatch } from "immer";
 import { PatchOptions } from "./utils";
-export declare type Op = {
+export type Op = {
     op: "replace" | "remove" | "add" | "insertRowCol" | "deleteRowCol" | "addSheet" | "deleteSheet";
     id?: string;
     path: (string | number)[];
     value?: any;
 };
-export declare type Rect = {
+export type Rect = {
     top: number;
     left: number;
     width: number;
     height: number;
 };
-export declare type CellStyle = {
+export type CellStyle = {
     bl?: number;
     it?: number;
     ff?: number | string;
@@ -25,7 +25,7 @@ export declare type CellStyle = {
     un?: number;
     tr?: string;
 };
-export declare type Cell = {
+export type Cell = {
     v?: string | number | boolean;
     m?: string | number;
     mc?: {
@@ -59,13 +59,13 @@ export declare type Cell = {
         id: string;
     };
 } & CellStyle;
-export declare type CellWithRowAndCol = {
+export type CellWithRowAndCol = {
     r: number;
     c: number;
     v: Cell | null;
 };
-export declare type CellMatrix = (Cell | null)[][];
-export declare type Selection = {
+export type CellMatrix = (Cell | null)[][];
+export type Selection = {
     left?: number;
     width?: number;
     top?: number;
@@ -85,7 +85,7 @@ export declare type Selection = {
     row_select?: boolean;
     column_select?: boolean;
 };
-export declare type Presence = {
+export type Presence = {
     sheetId: string;
     username: string;
     userId?: string;
@@ -95,7 +95,7 @@ export declare type Presence = {
         c: number;
     };
 };
-export declare type SheetConfig = {
+export type SheetConfig = {
     merge?: Record<string, {
         r: number;
         c: number;
@@ -113,7 +113,7 @@ export declare type SheetConfig = {
     rowReadOnly?: Record<number, number>;
     colReadOnly?: Record<number, number>;
 };
-export declare type Image = {
+export type Image = {
     id: string;
     width: number;
     height: number;
@@ -121,7 +121,7 @@ export declare type Image = {
     top: number;
     src: string;
 };
-export declare type Sheet = {
+export type Sheet = {
     name: string;
     config?: SheetConfig;
     order?: number;
@@ -169,7 +169,7 @@ export declare type Sheet = {
         };
     };
 };
-export declare type CommentBox = {
+export type CommentBox = {
     r: number;
     c: number;
     rc: string;
@@ -182,7 +182,7 @@ export declare type CommentBox = {
         toY: number;
     } & Rect;
 } & Rect;
-export declare type SearchResult = {
+export type SearchResult = {
     r: number;
     c: number;
     sheetName: string;
@@ -190,7 +190,7 @@ export declare type SearchResult = {
     cellPosition: string;
     value: string;
 };
-export declare type LinkCardProps = {
+export type LinkCardProps = {
     sheetId: string;
     r: number;
     c: number;
@@ -205,13 +205,13 @@ export declare type LinkCardProps = {
     isEditing: boolean;
     selectingCellRange?: boolean;
 };
-export declare type RangeDialogProps = {
+export type RangeDialogProps = {
     show: boolean;
     rangeTxt: string;
     type: string;
     singleSelect: boolean;
 };
-export declare type DataRegulationProps = {
+export type DataRegulationProps = {
     type: string;
     type2: string;
     rangeTxt: string;
@@ -223,7 +223,7 @@ export declare type DataRegulationProps = {
     hintShow: boolean;
     hintValue: string;
 };
-export declare type ConditionRulesProps = {
+export type ConditionRulesProps = {
     rulesType: string;
     rulesValue: string;
     textColor: {
@@ -242,7 +242,7 @@ export declare type ConditionRulesProps = {
     repeatValue: string;
     projectValue: string;
 };
-export declare type FilterOptions = {
+export type FilterOptions = {
     startRow: number;
     endRow: number;
     startCol: number;
@@ -257,12 +257,12 @@ export declare type FilterOptions = {
         top: number;
     }[];
 };
-export declare type History = {
+export type History = {
     patches: ImmerPatch[];
     inversePatches: ImmerPatch[];
     options?: PatchOptions;
 };
-export declare type Freezen = {
+export type Freezen = {
     horizontal?: {
         freezenhorizontaldata: any[];
         top: number;
@@ -272,7 +272,7 @@ export declare type Freezen = {
         left: number;
     };
 };
-export declare type GlobalCache = {
+export type GlobalCache = {
     overwriteCell?: boolean;
     ignoreWriteCell?: boolean;
     doNotFocus?: boolean;
@@ -345,8 +345,8 @@ export declare type GlobalCache = {
         scrollLeft?: number;
     };
 };
-export declare type SingleRange = {
+export type SingleRange = {
     row: number[];
     column: number[];
 };
-export declare type Range = SingleRange[];
+export type Range = SingleRange[];

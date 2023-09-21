@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-declare type Props = {
+type Props = {
     triggerParentUpdate: (state: boolean) => void;
 };
 export declare const ChangeColor: React.FC<Props>;

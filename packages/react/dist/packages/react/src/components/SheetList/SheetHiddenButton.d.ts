@@ -1,6 +1,6 @@
 import { Sheet } from "@fortune-sheet/core";
 import React, { CSSProperties } from "react";
-declare type Props = {
+type Props = {
     style?: CSSProperties;
     sheet?: Sheet;
 };

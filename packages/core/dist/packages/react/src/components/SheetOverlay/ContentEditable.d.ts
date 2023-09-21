@@ -1,5 +1,5 @@
 import React from "react";
-declare type ContentEditableProps = Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> & {
+type ContentEditableProps = Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> & {
     initialContent?: string;
     innerRef?: (e: HTMLDivElement | null) => void;
     onChange?: (html: string, isBlur?: boolean) => void;

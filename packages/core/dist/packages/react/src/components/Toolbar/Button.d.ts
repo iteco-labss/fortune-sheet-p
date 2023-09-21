@@ -1,5 +1,5 @@
 import React from "react";
-declare type Props = {
+type Props = {
     tooltip: string;
     iconId: string;
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

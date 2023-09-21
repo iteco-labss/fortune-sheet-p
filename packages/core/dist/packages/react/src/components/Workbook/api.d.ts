@@ -32,7 +32,7 @@ export declare function generateAPIs(context: Context, setContext: (recipe: (ctx
     getCellsByFlattenRange: (range?: {
         r: number;
         c: number;
-    }[] | undefined) => (Cell | null)[];
+    }[]) => (Cell | null)[];
     getSelectionCoordinates: () => string[];
     getCellsByRange: (range: Selection, options?: api.CommonOptions) => (Cell | null)[][];
     getHtmlByRange: (range: Range, options?: api.CommonOptions) => string | null;
@@ -111,5 +111,5 @@ export declare function generateAPIs(context: Context, setContext: (recipe: (ctx
     handleRedo: () => void;
     calculateFormula: () => void;
     dataToCelldata: (data: CellMatrix | undefined) => CellWithRowAndCol[];
-    celldataToData: (celldata: CellWithRowAndCol[], rowCount?: number | undefined, colCount?: number | undefined) => CellMatrix | null;
+    celldataToData: (celldata: CellWithRowAndCol[], rowCount?: number, colCount?: number) => CellMatrix | null;
 };

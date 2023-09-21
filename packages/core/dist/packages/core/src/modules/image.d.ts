@@ -1,6 +1,6 @@
 import { GlobalCache } from "../types";
 import { Context } from "../context";
-declare type ImageProps = {
+type ImageProps = {
     defaultWidth: number;
     defaultHeight: number;
     currentObj: null;

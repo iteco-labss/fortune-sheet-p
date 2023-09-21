@@ -1,7 +1,7 @@
 import { Sheet } from "@fortune-sheet/core";
 import React from "react";
 import "./index.css";
-declare type Props = {
+type Props = {
     sheet: Sheet;
     isDropPlaceholder?: boolean;
 };

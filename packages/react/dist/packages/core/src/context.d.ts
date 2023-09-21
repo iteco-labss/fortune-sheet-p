@@ -2,7 +2,7 @@ import { SheetConfig } from ".";
 import { FormulaCache } from "./modules";
 import { Hooks } from "./settings";
 import { Sheet, Selection, Cell, CommentBox, Rect, Image, Presence, LinkCardProps, FilterOptions, RangeDialogProps, DataRegulationProps, ConditionRulesProps, GlobalCache } from "./types";
-export declare type Context = {
+export type Context = {
     luckysheetfile: Sheet[];
     defaultcolumnNum: number;
     defaultrowNum: number;
