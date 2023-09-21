@@ -13,7 +13,6 @@
     "build-storybook": "storybook build",
     "tsc": "tsc --noEmit",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx,.json ./packages",
-    "postinstall": "lerna run build --scope=@fortune-sheet/formula-parser",
     "test": "jest",
     "coverage": "jest --coverage"
   },
